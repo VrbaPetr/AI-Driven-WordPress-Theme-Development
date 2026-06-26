@@ -78,3 +78,48 @@ require_once ...;
 **Fix:** Created `composer.json` with `squizlabs/php_codesniffer`, `wp-coding-standards/wpcs`, and `dealerdirect/phpcodesniffer-composer-installer` as dev dependencies.
 
 **For future steps:** When a step's acceptance criteria include `make check` or any linting command, verify that `composer.json` exists before writing PHP files.
+
+---
+
+## Step 02 — Design Tokens
+
+### Issue 1: Vite build infrastructure missing from Step 01 scope
+
+**What happened:** Step 02 requires `src/css/main.css` to exist and `make build` to pass. Neither was possible because `package.json`, `vite.config.js`, and the entire `src/` directory were never created in Step 01.
+
+**Root cause:** Step 01's plan listed Vite manifest-based asset enqueueing as an acceptance criterion and even wrote `functions.php` referencing `assets/.vite/manifest.json` — but never listed `package.json`, `vite.config.js`, or `src/` in its file scope. The Node/Vite side of the stack was silently omitted.
+
+**Fix:** Created the missing infrastructure as part of Step 02: `package.json` (Tailwind v4, Vite 6, Alpine.js), `vite.config.js`, `src/js/critical.js`, `src/js/main.js`, and all empty `src/css/` subdirectories with `.gitkeep` files.
+
+**For future steps / plan updates:** Step 01's "Files to Create" table should include `package.json` and `vite.config.js`. The acceptance criterion "Vite manifest is read at runtime" cannot be verified without a working build.
+
+---
+
+### Issue 2: pnpm v11 blocks esbuild build scripts by default
+
+**What happened:** `pnpm install` exited with `ERR_PNPM_IGNORED_BUILDS` — esbuild (a Vite dependency) has a postinstall script that pnpm v11 blocks unless explicitly approved.
+
+**Root cause:** pnpm v11 introduced a security policy that requires opt-in approval for any package that runs build scripts during install.
+
+**Fix:** Run `pnpm approve-builds esbuild` once. pnpm writes the approval to `pnpm-workspace.yaml`:
+
+```yaml
+allowBuilds:
+  esbuild: true
+```
+
+This file must be committed alongside `pnpm-lock.yaml` so CI and other developers do not hit the same block.
+
+**Do not:** Add `pnpm.onlyBuiltDependencies` to `package.json` — that field was removed in pnpm v11 and is silently ignored.
+
+---
+
+### Issue 3: Design token placeholder values not surfaced to user
+
+**What happened:** The step plan notes that token values are "placeholders — the intent is the structure and naming convention, not the exact hue." I took this literally and created the tokens without asking the user about their colour or font preferences.
+
+**Root cause:** The plan's note was written for a reusable boilerplate context, but the user reasonably expected a consultation before values were committed.
+
+**Fix (process):** At the start of any step that introduces visible design values — colours, fonts, spacing — surface the placeholder vs. opinionated-defaults decision to the user before writing files. A one-sentence ask ("the plan treats these as placeholders; do you want to set real values now or continue with generics?") is enough.
+
+**Outcome:** User confirmed placeholders are acceptable for now; real values will be chosen before Step 05 (the first step that produces visible UI).
