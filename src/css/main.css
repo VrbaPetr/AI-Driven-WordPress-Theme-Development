@@ -34,7 +34,8 @@
     --breakpoint-2xl: 1536px;
 }
 
-/* Blocks — added per block step (Steps 11–22) */
+/* Content Blocks */
+@import "./blocks/hero.css";
 
 /* Pages — added per page step (Steps 23–33) */
 

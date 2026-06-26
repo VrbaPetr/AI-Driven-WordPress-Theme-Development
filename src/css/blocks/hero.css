@@ -1,0 +1,124 @@
+@layer components {
+
+    /* ── Shared Base ──────────────────────────────────────────────────────── */
+
+    .hero {
+        @apply relative w-full overflow-hidden;
+    }
+
+    .hero-inner {
+        @apply relative mx-auto w-full max-w-7xl px-6;
+        @apply lg:px-8;
+    }
+
+    .hero-heading {
+        @apply text-4xl font-bold leading-tight m-0;
+        @apply lg:text-5xl;
+    }
+
+    .hero-subheading {
+        @apply text-lg leading-relaxed m-0;
+        @apply lg:text-xl;
+    }
+
+    .hero-ctas {
+        @apply flex flex-wrap items-center gap-3;
+        @apply lg:gap-4;
+    }
+
+    /* ── Variant: Image Background ────────────────────────────────────────── */
+
+    .hero--image-bg {
+        @apply bg-center bg-cover bg-no-repeat;
+        min-height: 480px;
+    }
+
+    .hero-overlay {
+        @apply absolute inset-0;
+        background-color: var(--color-secondary-500);
+        opacity: var(--hero-overlay-opacity, 0.5);
+    }
+
+    .hero--image-bg .hero-inner {
+        @apply flex items-center py-20;
+        @apply lg:py-28;
+        min-height: inherit;
+    }
+
+    .hero--image-bg .hero-content {
+        @apply flex flex-col gap-6 w-full max-w-2xl;
+    }
+
+    .hero--image-bg .hero-heading {
+        color: var(--color-neutral-50);
+    }
+
+    .hero--image-bg .hero-subheading {
+        color: var(--color-neutral-100);
+    }
+
+    /* Text alignment: centre */
+    .hero--image-bg.hero--centre .hero-inner {
+        @apply justify-center;
+    }
+
+    .hero--image-bg.hero--centre .hero-content {
+        @apply items-center text-center;
+        max-width: 48rem;
+    }
+
+    .hero--image-bg.hero--centre .hero-ctas {
+        @apply justify-center;
+    }
+
+    /* Outline button adapts to dark background */
+    .hero--image-bg .btn-outline {
+        color: var(--color-neutral-50);
+        border-color: var(--color-neutral-50);
+    }
+
+    .hero--image-bg .btn-outline:hover {
+        background-color: color-mix(in oklch, var(--color-neutral-50) 20%, transparent);
+    }
+
+    .hero--image-bg .btn-outline:active {
+        background-color: color-mix(in oklch, var(--color-neutral-50) 30%, transparent);
+    }
+
+    /* ── Variant: Split ───────────────────────────────────────────────────── */
+
+    .hero--split {
+        background-color: var(--color-surface);
+    }
+
+    .hero--split .hero-inner {
+        @apply flex flex-col px-0;
+        @apply lg:grid lg:grid-cols-2 lg:items-stretch lg:px-0 lg:max-w-none;
+    }
+
+    .hero--split .hero-content {
+        @apply flex flex-col justify-center gap-6 px-6 py-10 order-2;
+        @apply lg:order-1 lg:py-24 lg:pl-8 lg:pr-12;
+        max-width: 640px;
+        @apply lg:ml-auto;
+    }
+
+    .hero--split .hero-heading {
+        color: var(--color-text);
+    }
+
+    .hero--split .hero-subheading {
+        color: var(--color-text-muted);
+    }
+
+    /* Image column */
+    .hero-media {
+        @apply relative overflow-hidden order-1 w-full;
+        min-height: 280px;
+        @apply lg:order-2 lg:min-h-0;
+    }
+
+    .hero-media img {
+        @apply absolute inset-0 w-full h-full object-cover block;
+    }
+}
