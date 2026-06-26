@@ -200,3 +200,4 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<sc
 - **ACF fields as generated JSON** — field group definitions written directly into `acf-json/` by Claude; no admin UI step required; version-controlled.
 - **Tailwind v4 CSS-first config** — no `tailwind.config.js`; tokens live in `src/css/variables/`.
 - **Always escape all output** — no exceptions, even for values that appear safe.
+- **Only use token-defined colors** — never reference Tailwind's built-in color palette (e.g. `blue-500`, `gray-200`, `white`, `black`) or hardcode any hex or OKLCH value in a CSS file. Every color must come from `src/css/variables/colors.css`. If a needed shade is missing, ask the user to add it to the token file before writing code — never substitute a Tailwind default.

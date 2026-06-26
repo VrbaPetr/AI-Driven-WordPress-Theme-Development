@@ -165,3 +165,40 @@ The helper function was written in Step 01 as a forward-reference stub. Only the
 **Outcome:** The user did not raise an objection, and the boilerplate intent is to ship generic placeholder values that each project overrides. The placeholder tokens are correct for a reusable boilerplate.
 
 **Pattern to remember:** For a reusable boilerplate, placeholder design tokens are intentional and do not require consultation at every UI step. For a client project built on this boilerplate, update the token values in `src/css/variables/` before writing the first layout template (Step 05 equivalent) — not after.
+
+---
+
+## Color System Corrections (between Steps 05 and 06)
+
+### Issue 1: Secondary color scale missing from the design token plan
+
+**What happened:** Step 02 defined only `primary` and `neutral` scales. There was no secondary scale at all, even though a complete design system requires at least three scales (primary, secondary, neutral) to express hierarchy and accent relationships without reaching for hardcoded values.
+
+**Fix:** Added a `secondary` scale to `src/css/variables/colors.css`, initially as a teal placeholder (hue 170), then replaced with the real brand value Rock Black (#010101) anchored at `-500`.
+
+**Pattern to remember:** Design token setup (Step 02 equivalent) must always define `primary`, `secondary`, and `neutral` as a minimum. A missing secondary forces future CSS to either hardcode colors or borrow from the wrong scale.
+
+---
+
+### Issue 2: Brand colors not applied before visible UI was built
+
+**What happened:** Step 05 (first visible UI — the header) was implemented with generic placeholder OKLCH values. The header then had to be entirely re-colored once real brand values were provided. This was wasted rework: every color decision had to be revisited after the fact.
+
+**Brand colors established:**
+- Primary: Mountain Blue `#7AB2E0` → `oklch(76% 0.14 237)` anchored at `-500`
+- Secondary: Rock Black `#010101` → `oklch(4% 0 0)` anchored at `-500`; lighter steps are achromatic grays
+- Neutral: Salt White `#FFFFFF` → `oklch(100% 0 0)` anchored at `-50`
+
+**Fix (process):** Before starting the first layout step on any client project, establish brand colors and update `src/css/variables/colors.css` with real anchor values. A `colors-preview.html` review file (standalone, not committed) is a useful sanity check before writing layout CSS.
+
+**Pattern to remember:** Token anchor values are not a Step 02 detail — they are a prerequisite for Step 05. On client projects, block Step 05 until the color anchors are confirmed.
+
+---
+
+### Issue 3: Header CSS used colors outside the token system
+
+**What happened:** The Step 05 header implementation used Tailwind's built-in palette directly — `bg-white`, `text-neutral-700`, `shadow-md` — rather than the project's token classes. When the Rock Black design direction was chosen, every color reference had to be audited and swapped manually.
+
+**Fix:** Replaced all built-in/hardcoded colors with token classes: `bg-secondary-500` (header shell), `text-neutral-300` (nav link text), `bg-primary-800` (hover state), `bg-primary-500` / `text-secondary-500` (CTA button).
+
+**Pattern to remember:** Never reference Tailwind's built-in color palette (`blue-500`, `gray-200`, `white`, `black`) or hardcode hex/OKLCH values in any CSS file. Every color must come from `src/css/variables/colors.css`. If a needed shade is absent, ask the user to add it to the token file before writing code — do not reach for a Tailwind default as a shortcut.

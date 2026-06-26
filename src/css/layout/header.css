@@ -5,7 +5,7 @@
 	/* Skip-to-content link — always the first focusable element */
 	.skip-link {
 		@apply absolute -top-full left-4 z-[99999];
-		@apply px-6 py-3 bg-white text-neutral-900 font-semibold rounded-b-lg shadow-lg;
+		@apply px-6 py-3 bg-neutral-50 text-neutral-900 font-semibold rounded-b-lg shadow-lg;
 		@apply focus:top-0;
 	}
 }
@@ -15,12 +15,13 @@
 
 	.site-header {
 		@apply fixed top-0 left-0 right-0;
-		@apply transition-shadow transition-colors duration-200;
+		@apply bg-secondary-500 border-b border-secondary-400;
+		@apply transition-shadow duration-200;
 		z-index: var(--z-header);
 	}
 
 	.site-header.is-scrolled {
-		@apply bg-white shadow-md;
+		@apply shadow-lg;
 	}
 
 	/* ── Inner wrapper ─────────────────────────────────────────── */
@@ -43,7 +44,7 @@
 	}
 
 	.header-logo-text {
-		@apply text-xl font-bold text-neutral-900;
+		@apply text-xl font-bold text-neutral-50;
 	}
 
 	/* ── Desktop navigation ────────────────────────────────────── */
@@ -62,13 +63,13 @@
 
 	.nav-link {
 		@apply flex items-center gap-1 px-3 py-2;
-		@apply text-sm font-medium text-neutral-700 rounded-md;
+		@apply text-sm font-medium text-neutral-300 rounded-md;
 		@apply transition-colors duration-150;
 	}
 
 	.nav-link:hover,
 	.nav-link:focus-visible {
-		@apply bg-neutral-100 text-neutral-900 outline-none;
+		@apply bg-primary-800 text-neutral-50 outline-none;
 	}
 
 	/* Chevron icon — rotates when the dropdown is open */
@@ -83,9 +84,9 @@
 	/* ── Dropdown ──────────────────────────────────────────────── */
 
 	.nav-dropdown {
-		@apply absolute top-full left-0 mt-1;
+		@apply absolute top-full left-0 mt-2;
 		@apply min-w-48 list-none m-0 p-2;
-		@apply bg-white border border-neutral-200 rounded-xl shadow-lg;
+		@apply bg-neutral-50 border border-neutral-200 rounded-xl shadow-xl;
 		z-index: var(--z-dropdown);
 	}
 
@@ -97,40 +98,42 @@
 
 	.nav-dropdown-link:hover,
 	.nav-dropdown-link:focus-visible {
-		@apply bg-neutral-100 text-neutral-900 outline-none;
+		@apply bg-primary-100 text-primary-800 outline-none;
 	}
 
 	/* ── CTA button (menu item with class btn-cta) ─────────────── */
 
 	.nav-cta-btn {
 		@apply inline-flex items-center px-4 py-2 ml-2;
-		@apply text-sm font-semibold text-white rounded-lg;
-		@apply bg-primary-600 transition-colors duration-150;
+		@apply text-sm font-semibold text-secondary-500 rounded-lg;
+		@apply bg-primary-500 transition-colors duration-150;
 	}
 
 	.nav-cta-btn:hover,
 	.nav-cta-btn:focus-visible {
-		@apply bg-primary-700 outline-none ring-2 ring-primary-500 ring-offset-2;
+		@apply bg-primary-400 outline-none;
+		@apply ring-2 ring-primary-500 ring-offset-2 ring-offset-secondary-500;
 	}
 
 	/* ── Hamburger button ──────────────────────────────────────── */
 
 	.header-hamburger {
 		@apply flex items-center justify-center lg:hidden;
-		@apply w-10 h-10 rounded-md text-neutral-700;
+		@apply w-10 h-10 rounded-md text-neutral-300;
 		@apply transition-colors duration-150;
 	}
 
 	.header-hamburger:hover,
 	.header-hamburger:focus-visible {
-		@apply bg-neutral-100 text-neutral-900 outline-none;
+		@apply bg-primary-800 text-neutral-50 outline-none;
 	}
 
 	/* ── Mobile menu panel ─────────────────────────────────────── */
 
 	.mobile-menu {
 		@apply absolute top-full left-0 right-0 lg:hidden;
-		@apply bg-white border-t border-neutral-200 shadow-lg px-6 py-4;
+		@apply bg-secondary-500 border-t border-secondary-400 px-6 py-4;
+		box-shadow: 0 8px 24px oklch(0% 0 0 / 0.5);
 	}
 
 	.mobile-nav-list {
@@ -138,13 +141,13 @@
 	}
 
 	.mobile-nav-list a {
-		@apply block px-3 py-2 text-sm font-medium text-neutral-700 rounded-md;
+		@apply block px-3 py-2 text-sm font-medium text-neutral-300 rounded-md;
 		@apply transition-colors duration-150;
 	}
 
 	.mobile-nav-list a:hover,
 	.mobile-nav-list a:focus-visible {
-		@apply bg-neutral-100 text-neutral-900 outline-none;
+		@apply bg-primary-800 text-neutral-50 outline-none;
 	}
 
 	.mobile-nav-list .sub-menu {
@@ -153,11 +156,11 @@
 
 	.mobile-nav-list .btn-cta {
 		@apply mt-4 inline-flex justify-center w-full px-4 py-2;
-		@apply text-sm font-semibold text-white rounded-lg bg-primary-600;
+		@apply text-sm font-semibold text-secondary-500 rounded-lg bg-primary-500;
 	}
 
 	.mobile-nav-list .btn-cta:hover,
 	.mobile-nav-list .btn-cta:focus-visible {
-		@apply bg-primary-700 outline-none;
+		@apply bg-primary-400 outline-none;
 	}
 }
