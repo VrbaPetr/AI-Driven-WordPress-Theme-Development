@@ -1,0 +1,40 @@
+@theme {
+    /* Primary brand colour — replace with client brand (hue 250 = blue-violet) */
+    --color-primary-50:  oklch(97% 0.02 250);
+    --color-primary-100: oklch(93% 0.05 250);
+    --color-primary-200: oklch(87% 0.08 250);
+    --color-primary-300: oklch(79% 0.12 250);
+    --color-primary-400: oklch(70% 0.15 250);
+    --color-primary-500: oklch(60% 0.17 250);
+    --color-primary-600: oklch(50% 0.16 250);
+    --color-primary-700: oklch(42% 0.13 250);
+    --color-primary-800: oklch(34% 0.10 250);
+    --color-primary-900: oklch(25% 0.08 250);
+    --color-primary-950: oklch(15% 0.06 250);
+
+    /* Neutral / grey scale */
+    --color-neutral-50:  oklch(98% 0 0);
+    --color-neutral-100: oklch(95% 0 0);
+    --color-neutral-200: oklch(90% 0 0);
+    --color-neutral-300: oklch(83% 0 0);
+    --color-neutral-400: oklch(73% 0 0);
+    --color-neutral-500: oklch(62% 0 0);
+    --color-neutral-600: oklch(51% 0 0);
+    --color-neutral-700: oklch(40% 0 0);
+    --color-neutral-800: oklch(30% 0 0);
+    --color-neutral-900: oklch(20% 0 0);
+    --color-neutral-950: oklch(10% 0 0);
+
+    /* Semantic aliases */
+    --color-success: oklch(60% 0.15 145);
+    --color-warning: oklch(75% 0.17 70);
+    --color-error:   oklch(55% 0.20 25);
+    --color-info:    oklch(60% 0.13 240);
+
+    /* Surface aliases */
+    --color-background: var(--color-neutral-50);
+    --color-surface:    #ffffff;
+    --color-border:     var(--color-neutral-200);
+    --color-text:       var(--color-neutral-900);
+    --color-text-muted: var(--color-neutral-500);
+}
