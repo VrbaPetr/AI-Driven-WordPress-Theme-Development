@@ -85,6 +85,33 @@ add_action(
 			)
 		);
 
+		// Process Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'process',
+				'title'           => __( 'Process', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Numbered step sequence showing how a project or service is delivered. Supports horizontal and vertical layouts.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/process.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'list-view',
+				'keywords'        => array( __( 'process', 'ai-driven-boilerplate' ), __( 'steps', 'ai-driven-boilerplate' ), __( 'workflow', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/process.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Text & Image Block.
 		acf_register_block_type(
 			array(

@@ -1,0 +1,151 @@
+@layer components {
+
+    /* ── Process Block ───────────────────────────────────────────────────── */
+
+    .process {
+        @apply w-full;
+        background-color: var(--color-surface);
+    }
+
+    .process-inner {
+        @apply mx-auto w-full max-w-7xl px-6 py-16;
+        @apply lg:px-8 lg:py-24;
+    }
+
+    /* Header */
+
+    .process-header {
+        @apply text-center mb-12;
+        @apply lg:mb-16;
+    }
+
+    .process-heading {
+        @apply text-3xl font-bold m-0;
+        @apply lg:text-4xl;
+        color: var(--color-text);
+    }
+
+    .process-subheading {
+        @apply text-base mt-4 m-0;
+        color: var(--color-text-muted);
+    }
+
+    /* Steps list */
+
+    .process-steps {
+        @apply list-none m-0 p-0;
+    }
+
+    /* Step item — shared */
+
+    .process-step {
+        @apply relative;
+    }
+
+    /* Badge (numbered circle) */
+
+    .process-step-badge {
+        @apply flex items-center justify-center flex-shrink-0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: var(--color-primary-100);
+    }
+
+    .process-step-number {
+        @apply text-sm font-bold leading-none;
+        color: var(--color-primary-700);
+    }
+
+    /* Step body */
+
+    .process-step-body {
+        @apply flex flex-col gap-2;
+    }
+
+    .process-step-icon {
+        @apply w-6 h-6;
+        color: var(--color-primary-500);
+
+        svg {
+            @apply w-full h-full;
+        }
+    }
+
+    .process-step-title {
+        @apply text-lg font-semibold m-0;
+        color: var(--color-text);
+    }
+
+    .process-step-desc {
+        @apply text-sm leading-relaxed m-0;
+        color: var(--color-text-muted);
+    }
+
+    /* ── Horizontal layout ───────────────────────────────────────────────── */
+
+    .process--horizontal .process-steps {
+        @apply flex flex-col gap-8;
+        @apply md:flex-row md:gap-0;
+    }
+
+    .process--horizontal .process-step {
+        @apply flex flex-col items-center text-center gap-4;
+        @apply md:flex-1 md:px-4;
+    }
+
+    /* Connector: right edge of this badge → left edge of next badge. Hidden on mobile. */
+    .process--horizontal .process-step::after {
+        content: '';
+        position: absolute;
+        display: none;
+        top: 24px; /* vertical center of 48px badge */
+        left: calc(50% + 24px); /* right edge of badge */
+        width: calc(100% - 48px); /* spans to left edge of next badge */
+        height: 2px;
+        background-color: var(--color-border);
+    }
+
+    .process--horizontal .process-step:last-child::after {
+        display: none !important;
+    }
+
+    @media (min-width: 768px) {
+        .process--horizontal .process-step::after {
+            display: block;
+        }
+    }
+
+    /* ── Vertical layout ─────────────────────────────────────────────────── */
+
+    .process--vertical .process-steps {
+        @apply flex flex-col;
+    }
+
+    .process--vertical .process-step {
+        @apply flex flex-row gap-6;
+    }
+
+    .process--vertical .process-step:not(:last-child) {
+        @apply pb-10;
+    }
+
+    .process--vertical .process-step-body {
+        @apply pt-3; /* align body text with badge center */
+    }
+
+    /* Vertical connector: bottom of badge → top of next badge */
+    .process--vertical .process-step::after {
+        content: '';
+        position: absolute;
+        left: 23px; /* center of 48px badge minus 1px for 2px line */
+        top: 48px;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--color-border);
+    }
+
+    .process--vertical .process-step:last-child::after {
+        display: none;
+    }
+}

@@ -36,6 +36,7 @@
 
 /* Content Blocks */
 @import "./blocks/hero.css";
+@import "./blocks/process.css";
 @import "./blocks/stats.css";
 @import "./blocks/text-image.css";
 
