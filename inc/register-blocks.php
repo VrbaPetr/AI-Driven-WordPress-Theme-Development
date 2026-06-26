@@ -85,6 +85,33 @@ add_action(
 			)
 		);
 
+		// CTA Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'cta',
+				'title'           => __( 'CTA', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Full-width call-to-action banner with headline, subtext, up to two buttons, and a configurable solid or gradient background.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/cta.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'megaphone',
+				'keywords'        => array( __( 'cta', 'ai-driven-boilerplate' ), __( 'call to action', 'ai-driven-boilerplate' ), __( 'banner', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/cta.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Process Block.
 		acf_register_block_type(
 			array(
