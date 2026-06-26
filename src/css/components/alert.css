@@ -1,0 +1,66 @@
+@layer components {
+    .alert {
+        @apply flex items-start gap-3 rounded-lg px-4 py-3;
+        border: 1px solid transparent;
+    }
+
+    /* Icon */
+    .alert-icon {
+        @apply flex-shrink-0 mt-0.5;
+
+        svg {
+            @apply w-5 h-5 block;
+        }
+    }
+
+    /* Message */
+    .alert-message {
+        @apply flex-1 text-sm leading-relaxed m-0;
+    }
+
+    /* Dismiss button */
+    .alert-dismiss {
+        @apply flex-shrink-0 ml-auto -mr-1 p-1;
+        @apply text-lg leading-none cursor-pointer;
+        @apply rounded bg-transparent border-0;
+        opacity: 0.6;
+        transition: opacity 150ms ease;
+    }
+
+    .alert-dismiss:hover {
+        opacity: 1;
+    }
+
+    .alert-dismiss:focus-visible {
+        @apply outline-2 outline-offset-1 rounded;
+        outline-color: currentColor;
+    }
+
+    /* Variant: info */
+    .alert-info {
+        background-color: var(--color-info-bg);
+        border-color: var(--color-info-border);
+        color: var(--color-info-text);
+    }
+
+    /* Variant: success */
+    .alert-success {
+        background-color: var(--color-success-bg);
+        border-color: var(--color-success-border);
+        color: var(--color-success-text);
+    }
+
+    /* Variant: warning */
+    .alert-warning {
+        background-color: var(--color-warning-bg);
+        border-color: var(--color-warning-border);
+        color: var(--color-warning-text);
+    }
+
+    /* Variant: error */
+    .alert-error {
+        background-color: var(--color-error-bg);
+        border-color: var(--color-error-border);
+        color: var(--color-error-text);
+    }
+}
