@@ -1,0 +1,61 @@
+@layer components {
+    .pagination {
+        @apply w-full flex justify-center py-8;
+    }
+
+    .pagination-list {
+        @apply flex flex-wrap items-center gap-1 list-none m-0 p-0;
+    }
+
+    /* Shared styles for all page-numbers elements */
+    .pagination-list .page-numbers {
+        @apply flex items-center justify-center min-w-[2.5rem] h-10 px-3;
+        @apply text-sm font-medium no-underline rounded-lg;
+        @apply border border-transparent;
+        color: var(--color-text);
+        transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    /* Linked page numbers */
+    a.page-numbers:hover {
+        background-color: var(--color-primary-50);
+        border-color: var(--color-primary-200);
+        color: var(--color-primary-700);
+    }
+
+    a.page-numbers:focus-visible {
+        @apply outline-2 outline-offset-1;
+        outline-color: var(--color-primary-500);
+    }
+
+    /* Active / current page */
+    .page-numbers.current {
+        background-color: var(--color-primary-500);
+        color: var(--color-neutral-50);
+        border-color: var(--color-primary-500);
+        font-weight: var(--font-weight-semibold);
+        pointer-events: none;
+    }
+
+    /* Ellipsis dots */
+    .page-numbers.dots {
+        @apply px-1;
+        color: var(--color-text-muted);
+        pointer-events: none;
+    }
+
+    /* Prev / next arrows */
+    .pagination-item--prev .page-numbers,
+    .pagination-item--next .page-numbers {
+        @apply font-bold text-base;
+        color: var(--color-primary-600);
+        border-color: var(--color-primary-200);
+        background-color: var(--color-neutral-50);
+    }
+
+    .pagination-item--prev .page-numbers:hover,
+    .pagination-item--next .page-numbers:hover {
+        background-color: var(--color-primary-50);
+        border-color: var(--color-primary-400);
+    }
+}
