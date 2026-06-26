@@ -1,0 +1,58 @@
+@layer components {
+
+    /* ── Text & Image Block ──────────────────────────────────────────────── */
+
+    .text-image {
+        @apply w-full overflow-hidden;
+        background-color: var(--color-surface);
+    }
+
+    .text-image-inner {
+        @apply mx-auto w-full max-w-7xl px-6 py-16 flex flex-col gap-10;
+        @apply lg:grid lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24;
+    }
+
+    /* Text column */
+    .text-image-content {
+        @apply flex flex-col justify-center gap-6;
+    }
+
+    .text-image-heading {
+        @apply text-3xl font-bold leading-tight m-0;
+        @apply lg:text-4xl;
+        color: var(--color-text);
+    }
+
+    .text-image-body {
+        @apply leading-relaxed;
+        color: var(--color-text-muted);
+    }
+
+    .text-image-body p {
+        @apply m-0;
+    }
+
+    .text-image-body ul,
+    .text-image-body ol {
+        @apply pl-5 m-0;
+    }
+
+    .text-image-cta {
+        @apply mt-2;
+    }
+
+    /* Image column */
+    .text-image-media {
+        @apply relative overflow-hidden rounded-lg w-full;
+        aspect-ratio: 4 / 3;
+    }
+
+    .text-image-media img {
+        @apply absolute inset-0 w-full h-full object-cover block;
+    }
+
+    /* Image position: left — visually move image before text on desktop */
+    .text-image--image-left .text-image-media {
+        @apply lg:order-first;
+    }
+}

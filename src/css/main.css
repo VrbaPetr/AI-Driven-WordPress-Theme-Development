@@ -36,6 +36,7 @@
 
 /* Content Blocks */
 @import "./blocks/hero.css";
+@import "./blocks/text-image.css";
 
 /* Pages — added per page step (Steps 23–33) */
 
