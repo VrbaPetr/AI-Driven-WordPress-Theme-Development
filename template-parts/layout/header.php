@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$logo = get_field( 'logo_dark', 'option' );
+$logo = get_field( 'logo_light', 'option' );
 ?>
 
 <header id="site-header" class="site-header" x-data="{ mobileOpen: false }">
