@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once get_template_directory() . '/inc/class-aidriven-nav-walker.php';
 require_once get_template_directory() . '/inc/functions-design.php';
 require_once get_template_directory() . '/inc/functions-helpers.php';
 require_once get_template_directory() . '/inc/functions-data.php';

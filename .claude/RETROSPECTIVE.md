@@ -141,3 +141,88 @@ This file must be committed alongside `pnpm-lock.yaml` so CI and other developer
 ### Note: `aidriven_get_social_links()` already scaffolded
 
 The helper function was written in Step 01 as a forward-reference stub. Only the return-type docblock needed updating to include the `label` sub-field added in this step's field spec. No logic change was required.
+
+---
+
+## Step 05 — Header & Navigation
+
+### Issue 1: Walker class placed in a functions file — PHPCS rejects mixed declarations
+
+**What happened:** `Aidriven_Nav_Walker` was initially added to `inc/functions-design.php`. PHPCS threw two errors:
+- `Class file names should be based on the class name with "class-" prepended. Expected class-aidriven-nav-walker.php`
+- `A file should either contain function declarations or OO structure declarations, but not both.`
+
+**Fix:** Moved the class to its own file `inc/class-aidriven-nav-walker.php` and added a `require_once` for it at the top of `functions.php` (before `functions-design.php`).
+
+**Pattern to remember:** WordPress coding standards require each class to live in a dedicated file named `class-{kebab-class-name}.php`. Never place a class declaration in a file that also contains standalone function declarations (`function foo() {}`). The file must contain one or the other, not both.
+
+---
+
+### Follow-up: Step 02 Issue 3 — design token values still placeholders at first visible UI
+
+**What happened:** Step 02's retrospective noted that real colour and font values should be decided before Step 05, which is the first step to produce visible UI. Step 05 proceeded using the placeholder tokens without raising the decision with the user.
+
+**Outcome:** The user did not raise an objection, and the boilerplate intent is to ship generic placeholder values that each project overrides. The placeholder tokens are correct for a reusable boilerplate.
+
+**Pattern to remember:** For a reusable boilerplate, placeholder design tokens are intentional and do not require consultation at every UI step. For a client project built on this boilerplate, update the token values in `src/css/variables/` before writing the first layout template (Step 05 equivalent) — not after.
+
+---
+
+## Color System Corrections (between Steps 05 and 06)
+
+### Issue 1: Secondary color scale missing from the design token plan
+
+**What happened:** Step 02 defined only `primary` and `neutral` scales. There was no secondary scale at all, even though a complete design system requires at least three scales (primary, secondary, neutral) to express hierarchy and accent relationships without reaching for hardcoded values.
+
+**Fix:** Added a `secondary` scale to `src/css/variables/colors.css`, initially as a teal placeholder (hue 170), then replaced with the real brand value Rock Black (#010101) anchored at `-500`.
+
+**Pattern to remember:** Design token setup (Step 02 equivalent) must always define `primary`, `secondary`, and `neutral` as a minimum. A missing secondary forces future CSS to either hardcode colors or borrow from the wrong scale.
+
+---
+
+### Issue 2: Brand colors not applied before visible UI was built
+
+**What happened:** Step 05 (first visible UI — the header) was implemented with generic placeholder OKLCH values. The header then had to be entirely re-colored once real brand values were provided. This was wasted rework: every color decision had to be revisited after the fact.
+
+**Brand colors established:**
+- Primary: Mountain Blue `#7AB2E0` → `oklch(76% 0.14 237)` anchored at `-500`
+- Secondary: Rock Black `#010101` → `oklch(4% 0 0)` anchored at `-500`; lighter steps are achromatic grays
+- Neutral: Salt White `#FFFFFF` → `oklch(100% 0 0)` anchored at `-50`
+
+**Fix (process):** Before starting the first layout step on any client project, establish brand colors and update `src/css/variables/colors.css` with real anchor values. A `colors-preview.html` review file (standalone, not committed) is a useful sanity check before writing layout CSS.
+
+**Pattern to remember:** Token anchor values are not a Step 02 detail — they are a prerequisite for Step 05. On client projects, block Step 05 until the color anchors are confirmed.
+
+---
+
+### Issue 3: Header CSS used colors outside the token system
+
+**What happened:** The Step 05 header implementation used Tailwind's built-in palette directly — `bg-white`, `text-neutral-700`, `shadow-md` — rather than the project's token classes. When the Rock Black design direction was chosen, every color reference had to be audited and swapped manually.
+
+**Fix:** Replaced all built-in/hardcoded colors with token classes: `bg-secondary-500` (header shell), `text-neutral-300` (nav link text), `bg-primary-800` (hover state), `bg-primary-500` / `text-secondary-500` (CTA button).
+
+**Pattern to remember:** Never reference Tailwind's built-in color palette (`blue-500`, `gray-200`, `white`, `black`) or hardcode hex/OKLCH values in any CSS file. Every color must come from `src/css/variables/colors.css`. If a needed shade is absent, ask the user to add it to the token file before writing code — do not reach for a Tailwind default as a shortcut.
+
+---
+
+## Step 06 — Footer
+
+### Issue 1: `function_exists('get_field')` guards used in template — inconsistent with header
+
+**What happened:** The footer template wrapped every `get_field()` call in a `function_exists('get_field')` guard, producing verbose conditional assignments. The header template calls `get_field()` directly with no guard.
+
+**Fix:** Removed the guards. ACF is a hard dependency of this theme — it is always present when a template runs.
+
+**Pattern to remember:** Call `get_field()` directly in templates. The `function_exists` guard is only appropriate in standalone helper functions (like `aidriven_get_social_links()`) that may be called before ACF initialises or in contexts where ACF availability cannot be guaranteed. Template parts always run after `wp_head`, where ACF is fully loaded.
+
+---
+
+### Issue 2: Wrong logo variant used in the header
+
+**What happened:** `template-parts/layout/header.php` fetched `logo_dark` (the version intended for light backgrounds) and rendered it on the Rock Black dark header shell.
+
+**Fix:** Changed the field name to `logo_light`, which is the version intended for dark backgrounds — consistent with how the footer template was written from the start.
+
+**Pattern to remember:** Match the logo variant to the background colour of the section:
+- Dark background (`bg-secondary-500`) → `logo_light`
+- Light background (`bg-neutral-50`) → `logo_dark`

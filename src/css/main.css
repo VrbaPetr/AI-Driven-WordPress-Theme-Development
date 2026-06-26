@@ -9,9 +9,11 @@
 @import "./variables/motion.css";
 @import "./variables/z-index.css";
 
-/* Layout — added in Step 05–06 */
+/* Layout */
+@import "./layout/header.css";
+@import "./layout/footer.css";
 
-/* Navigation — added in Step 05 */
+/* Navigation */
 
 /* Components — added in Steps 07–10 */
 
