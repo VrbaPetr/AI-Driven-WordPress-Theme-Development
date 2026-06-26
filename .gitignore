@@ -1,0 +1,21 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Build output
+dist/
+assets/css/
+assets/js/
+assets/.vite/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.*
