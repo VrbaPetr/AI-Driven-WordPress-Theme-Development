@@ -1,0 +1,84 @@
+@layer components {
+    .card {
+        @apply flex flex-col overflow-hidden rounded-xl bg-white;
+        box-shadow: var(--shadow-card);
+        transition: box-shadow 200ms ease, transform 200ms ease;
+    }
+
+    .card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+    }
+
+    /* Image */
+    .card-image-link {
+        @apply block overflow-hidden;
+    }
+
+    .card-image {
+        @apply w-full h-auto block;
+        transition: transform 300ms ease;
+    }
+
+    .card:hover .card-image {
+        transform: scale(1.03);
+    }
+
+    /* Body */
+    .card-body {
+        @apply flex flex-col flex-1 gap-3 p-5;
+    }
+
+    /* Category badge */
+    .card-category {
+        @apply flex;
+    }
+
+    .card-category-link {
+        @apply no-underline;
+    }
+
+    .card-badge {
+        @apply inline-block text-xs font-semibold uppercase tracking-wide;
+        @apply px-2.5 py-1 rounded-full;
+        background-color: var(--color-primary-100);
+        color: var(--color-primary-700);
+        transition: background-color 150ms ease;
+    }
+
+    .card-category-link:hover .card-badge {
+        background-color: var(--color-primary-200);
+    }
+
+    /* Title */
+    .card-title {
+        @apply text-lg font-semibold leading-snug m-0;
+        color: var(--color-text);
+    }
+
+    .card-title-link {
+        color: inherit;
+        text-decoration: none;
+        transition: color 150ms ease;
+    }
+
+    .card-title-link:hover {
+        color: var(--color-primary-600);
+    }
+
+    .card-title-link:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-sm;
+        outline-color: var(--color-primary-500);
+    }
+
+    /* Excerpt */
+    .card-excerpt {
+        @apply text-sm leading-relaxed m-0 flex-1;
+        color: var(--color-text-muted);
+    }
+
+    /* CTA */
+    .card-cta {
+        @apply mt-auto pt-1;
+    }
+}
