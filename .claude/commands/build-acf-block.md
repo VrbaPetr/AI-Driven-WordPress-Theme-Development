@@ -28,7 +28,7 @@ description: Implement an ACF Gutenberg block based on its ACF field definition 
 
 - Open the block template at `template-parts/blocks/block-name.php`
 - Inside the `else` block (after the preview screenshot check), load all ACF fields at the top as named variables using `get_field()` before any HTML output
-- Follow all conventions in the **Block PHP Conventions** section of `CLAUDE.md`
+- Follow all conventions in `/php-block-conventions`
 
 ```php
 $block_title = get_field( 'title' );
@@ -51,18 +51,17 @@ if ( $cta_link ) {
 **Important:** The desired structure and functionality must be described by the user or defined in the plan. Ask for everything that is missing before writing any markup.
 
 **PHP template** (`template-parts/blocks/block-name.php`):
-- Guard required fields with `! empty()` before rendering — never trust ACF's required setting alone
+- Guard required fields with `! empty()` before rendering
 - Escape all output without exception (`esc_html()`, `esc_attr()`, `wp_kses_post()`, `esc_url()`)
 - Use `get_template_part()` with an args array for any reusable components
-- See **Block PHP Conventions** in `CLAUDE.md` for the full reference
 
 **Stylesheet** (`src/css/blocks/block-name.css`):
 - All block-specific CSS goes here
-- See **Tailwind Conventions** in `CLAUDE.md` for the full reference
+- Follow `/tailwind-conventions`
 
 **JavaScript** (`src/js/scripts/script-name.js`):
 - Only create if the block requires JavaScript
-- Follow all conventions in the **JavaScript Conventions** section of `CLAUDE.md`
+- Follow `/js-conventions`
 - Import the script in `src/js/main.js` for deferred scripts, or `src/js/critical.js` for blocking scripts that must be ready on load
 
 **Important:** If any of the expected files are missing, run `/register-acf-block` to identify what needs to be scaffolded first, then inform the user.

@@ -10,7 +10,6 @@ description: Register an ACF Gutenberg block and create all required files in th
 - **Block name** must always be provided by the user or defined in the plan — ask if missing
 - **Text domain** must be read from `style.css` (e.g. `Text Domain: ai-driven-boilerplate`)
 - **Icon** — choose a dashicon appropriate to the block's purpose if not specified; use the name without the `dashicons-` prefix (e.g. use `clipboard`, not `dashicons-clipboard`)
-- **Do not** generate or reference a preview image — preview images are added manually later
 
 ```php
 // Block Name
