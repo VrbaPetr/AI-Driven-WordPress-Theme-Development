@@ -64,12 +64,13 @@ function aidriven_register_options_pages() {
 
 	acf_add_options_page(
 		array(
-			'page_title'  => __( 'Site Settings', 'ai-driven-boilerplate' ),
-			'menu_title'  => __( 'Site Settings', 'ai-driven-boilerplate' ),
-			'menu_slug'   => 'site-settings',
-			'capability'  => 'manage_options',
-			'parent_slug' => 'options-general.php',
-			'autoload'    => true,
+			'page_title' => __( 'Theme Settings', 'ai-driven-boilerplate' ),
+			'menu_title' => __( 'Theme Settings', 'ai-driven-boilerplate' ),
+			'menu_slug'  => 'theme-settings',
+			'capability' => 'manage_options',
+			'icon_url'   => 'dashicons-admin-appearance',
+			'position'   => 25,
+			'autoload'   => true,
 		)
 	);
 }
