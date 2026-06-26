@@ -123,3 +123,21 @@ This file must be committed alongside `pnpm-lock.yaml` so CI and other developer
 **Fix (process):** At the start of any step that introduces visible design values — colours, fonts, spacing — surface the placeholder vs. opinionated-defaults decision to the user before writing files. A one-sentence ask ("the plan treats these as placeholders; do you want to set real values now or continue with generics?") is enough.
 
 **Outcome:** User confirmed placeholders are acceptable for now; real values will be chosen before Step 05 (the first step that produces visible UI).
+
+---
+
+## Step 04 — ACF Global Options Page
+
+### Issue 1: Options page buried under Settings → Site Settings
+
+**What happened:** The initial implementation registered the options page with `'parent_slug' => 'options-general.php'`, placing it under the native WordPress Settings menu. The user flagged that it felt lost there.
+
+**Fix:** Removed `parent_slug` to make it a top-level menu entry, renamed to "Theme Settings", added `'icon_url' => 'dashicons-admin-appearance'` and `'position' => 25`. Updated `menu_slug` from `site-settings` to `theme-settings` and replaced the location rule value in all five ACF JSON files to match.
+
+**Pattern to remember:** ACF options pages for theme-level settings should always be registered as a top-level menu item, not nested under Settings. Editors associate Settings with WordPress core options; theme-specific configuration belongs in its own clearly labelled entry.
+
+---
+
+### Note: `aidriven_get_social_links()` already scaffolded
+
+The helper function was written in Step 01 as a forward-reference stub. Only the return-type docblock needed updating to include the `label` sub-field added in this step's field spec. No logic change was required.
