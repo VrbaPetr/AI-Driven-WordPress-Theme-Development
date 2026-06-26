@@ -40,11 +40,28 @@
     --color-neutral-900: oklch(20% 0 0);
     --color-neutral-950: oklch(10% 0 0);
 
-    /* Semantic state colours */
+    /* Semantic state colours — base */
     --color-success: oklch(60% 0.15 145);
     --color-warning: oklch(75% 0.17 70);
     --color-error:   oklch(55% 0.20 25);
     --color-info:    oklch(60% 0.13 240);
+
+    /* Semantic state colours — light tints (for badge/alert backgrounds) */
+    --color-info-bg:         oklch(97% 0.02 240);
+    --color-info-border:     oklch(83% 0.08 240);
+    --color-info-text:       oklch(35% 0.12 240);
+
+    --color-success-bg:      oklch(97% 0.02 145);
+    --color-success-border:  oklch(83% 0.08 145);
+    --color-success-text:    oklch(32% 0.12 145);
+
+    --color-warning-bg:      oklch(97% 0.03 70);
+    --color-warning-border:  oklch(83% 0.10 70);
+    --color-warning-text:    oklch(35% 0.12 70);
+
+    --color-error-bg:        oklch(97% 0.02 25);
+    --color-error-border:    oklch(83% 0.10 25);
+    --color-error-text:      oklch(32% 0.15 25);
 
     /* Surface aliases */
     --color-background: var(--color-neutral-50);
