@@ -9,11 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$logo_light     = function_exists( 'get_field' ) ? get_field( 'logo_light', 'option' ) : null;
-$company_name   = function_exists( 'get_field' ) ? get_field( 'company_name', 'option' ) : '';
-$tagline        = function_exists( 'get_field' ) ? get_field( 'tagline', 'option' ) : '';
-$footer_desc    = function_exists( 'get_field' ) ? get_field( 'footer_description', 'option' ) : '';
-$copyright_text = function_exists( 'get_field' ) ? get_field( 'copyright_text', 'option' ) : '';
+$logo_light     = get_field( 'logo_light', 'option' );
+$company_name   = get_field( 'company_name', 'option' );
+$tagline        = get_field( 'tagline', 'option' );
+$footer_desc    = get_field( 'footer_description', 'option' );
+$copyright_text = get_field( 'copyright_text', 'option' );
 $social_links   = aidriven_get_social_links();
 
 $display_name = $company_name ? $company_name : get_bloginfo( 'name' );
