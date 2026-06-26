@@ -1,0 +1,163 @@
+/* Alpine.js: hide elements with x-cloak before initialisation */
+[x-cloak] { display: none !important; }
+
+@layer base {
+	/* Skip-to-content link — always the first focusable element */
+	.skip-link {
+		@apply absolute -top-full left-4 z-[99999];
+		@apply px-6 py-3 bg-white text-neutral-900 font-semibold rounded-b-lg shadow-lg;
+		@apply focus:top-0;
+	}
+}
+
+@layer components {
+	/* ── Header shell ──────────────────────────────────────────── */
+
+	.site-header {
+		@apply fixed top-0 left-0 right-0;
+		@apply transition-shadow transition-colors duration-200;
+		z-index: var(--z-header);
+	}
+
+	.site-header.is-scrolled {
+		@apply bg-white shadow-md;
+	}
+
+	/* ── Inner wrapper ─────────────────────────────────────────── */
+
+	.header-inner {
+		@apply flex items-center justify-between gap-4;
+		@apply max-w-7xl mx-auto px-6 h-16;
+		@apply lg:h-20;
+	}
+
+	/* ── Logo ──────────────────────────────────────────────────── */
+
+	.header-logo {
+		@apply flex items-center shrink-0;
+	}
+
+	.header-logo img {
+		@apply h-8 w-auto;
+		@apply lg:h-10;
+	}
+
+	.header-logo-text {
+		@apply text-xl font-bold text-neutral-900;
+	}
+
+	/* ── Desktop navigation ────────────────────────────────────── */
+
+	.header-nav {
+		@apply hidden lg:flex flex-1 justify-center;
+	}
+
+	.nav-list {
+		@apply flex items-center gap-1 list-none m-0 p-0;
+	}
+
+	.nav-item {
+		@apply relative;
+	}
+
+	.nav-link {
+		@apply flex items-center gap-1 px-3 py-2;
+		@apply text-sm font-medium text-neutral-700 rounded-md;
+		@apply transition-colors duration-150;
+	}
+
+	.nav-link:hover,
+	.nav-link:focus-visible {
+		@apply bg-neutral-100 text-neutral-900 outline-none;
+	}
+
+	/* Chevron icon — rotates when the dropdown is open */
+	.nav-chevron {
+		@apply inline-flex items-center transition-transform duration-200;
+	}
+
+	.nav-link[aria-expanded="true"] .nav-chevron {
+		@apply rotate-180;
+	}
+
+	/* ── Dropdown ──────────────────────────────────────────────── */
+
+	.nav-dropdown {
+		@apply absolute top-full left-0 mt-1;
+		@apply min-w-48 list-none m-0 p-2;
+		@apply bg-white border border-neutral-200 rounded-xl shadow-lg;
+		z-index: var(--z-dropdown);
+	}
+
+	.nav-dropdown-link {
+		@apply block px-3 py-2 text-sm text-neutral-700 rounded-md;
+		@apply transition-colors duration-150;
+		@apply whitespace-nowrap;
+	}
+
+	.nav-dropdown-link:hover,
+	.nav-dropdown-link:focus-visible {
+		@apply bg-neutral-100 text-neutral-900 outline-none;
+	}
+
+	/* ── CTA button (menu item with class btn-cta) ─────────────── */
+
+	.nav-cta-btn {
+		@apply inline-flex items-center px-4 py-2 ml-2;
+		@apply text-sm font-semibold text-white rounded-lg;
+		@apply bg-primary-600 transition-colors duration-150;
+	}
+
+	.nav-cta-btn:hover,
+	.nav-cta-btn:focus-visible {
+		@apply bg-primary-700 outline-none ring-2 ring-primary-500 ring-offset-2;
+	}
+
+	/* ── Hamburger button ──────────────────────────────────────── */
+
+	.header-hamburger {
+		@apply flex items-center justify-center lg:hidden;
+		@apply w-10 h-10 rounded-md text-neutral-700;
+		@apply transition-colors duration-150;
+	}
+
+	.header-hamburger:hover,
+	.header-hamburger:focus-visible {
+		@apply bg-neutral-100 text-neutral-900 outline-none;
+	}
+
+	/* ── Mobile menu panel ─────────────────────────────────────── */
+
+	.mobile-menu {
+		@apply absolute top-full left-0 right-0 lg:hidden;
+		@apply bg-white border-t border-neutral-200 shadow-lg px-6 py-4;
+	}
+
+	.mobile-nav-list {
+		@apply list-none m-0 p-0 flex flex-col gap-1;
+	}
+
+	.mobile-nav-list a {
+		@apply block px-3 py-2 text-sm font-medium text-neutral-700 rounded-md;
+		@apply transition-colors duration-150;
+	}
+
+	.mobile-nav-list a:hover,
+	.mobile-nav-list a:focus-visible {
+		@apply bg-neutral-100 text-neutral-900 outline-none;
+	}
+
+	.mobile-nav-list .sub-menu {
+		@apply list-none m-0 pl-4 mt-1 flex flex-col gap-1;
+	}
+
+	.mobile-nav-list .btn-cta {
+		@apply mt-4 inline-flex justify-center w-full px-4 py-2;
+		@apply text-sm font-semibold text-white rounded-lg bg-primary-600;
+	}
+
+	.mobile-nav-list .btn-cta:hover,
+	.mobile-nav-list .btn-cta:focus-visible {
+		@apply bg-primary-700 outline-none;
+	}
+}

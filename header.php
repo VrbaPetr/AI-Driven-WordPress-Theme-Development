@@ -23,3 +23,4 @@
 <a class="skip-link screen-reader-text" href="#main-content">
 	<?php esc_html_e( 'Skip to content', 'ai-driven-boilerplate' ); ?>
 </a>
+<?php get_template_part( 'template-parts/layout/header' ); ?>
