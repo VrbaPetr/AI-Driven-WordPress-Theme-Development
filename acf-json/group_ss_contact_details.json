@@ -1,0 +1,97 @@
+{
+    "key": "group_ss_contact_details",
+    "title": "Contact Details",
+    "fields": [
+        {
+            "key": "field_ss_address",
+            "label": "Address",
+            "name": "address",
+            "type": "textarea",
+            "instructions": "Multi-line postal address shown in the footer and contact page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_ss_phone_number",
+            "label": "Phone Number",
+            "name": "phone_number",
+            "type": "text",
+            "instructions": "Include country code. Used in click-to-call links (strip spaces/dashes for the href).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "+1 555 000 0000",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ss_email_address",
+            "label": "Email Address",
+            "name": "email_address",
+            "type": "email",
+            "instructions": "Contact email displayed in the footer and contact page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ss_google_maps_url",
+            "label": "Google Maps URL",
+            "name": "google_maps_url",
+            "type": "url",
+            "instructions": "Full Google Maps link for an embed or directions button on the contact page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://maps.google.com/..."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-settings"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

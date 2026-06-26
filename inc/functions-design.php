@@ -51,3 +51,26 @@ function aidriven_setup_theme() {
 	add_image_size( 'portfolio-thumb', 800, 600, true );
 }
 add_action( 'after_setup_theme', 'aidriven_setup_theme' );
+
+/**
+ * Register the ACF global options page.
+ *
+ * @return void
+ */
+function aidriven_register_options_pages() {
+	if ( ! function_exists( 'acf_add_options_page' ) ) {
+		return;
+	}
+
+	acf_add_options_page(
+		array(
+			'page_title'  => __( 'Site Settings', 'ai-driven-boilerplate' ),
+			'menu_title'  => __( 'Site Settings', 'ai-driven-boilerplate' ),
+			'menu_slug'   => 'site-settings',
+			'capability'  => 'manage_options',
+			'parent_slug' => 'options-general.php',
+			'autoload'    => true,
+		)
+	);
+}
+add_action( 'acf/init', 'aidriven_register_options_pages' );

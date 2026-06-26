@@ -73,7 +73,7 @@ function aidriven_truncate_text( $text, $length = 160, $more = '&hellip;' ) {
  * in Step 04) with sub-fields `platform` (text) and `url` (url).
  * Returns an empty array when ACF is unavailable or no links are saved.
  *
- * @return array<int, array{platform: string, url: string}> Social link rows.
+ * @return array<int, array{platform: string, url: string, label: string}> Social link rows.
  */
 function aidriven_get_social_links() {
 	if ( ! function_exists( 'get_field' ) ) {
