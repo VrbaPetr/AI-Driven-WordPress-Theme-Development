@@ -202,3 +202,27 @@ The helper function was written in Step 01 as a forward-reference stub. Only the
 **Fix:** Replaced all built-in/hardcoded colors with token classes: `bg-secondary-500` (header shell), `text-neutral-300` (nav link text), `bg-primary-800` (hover state), `bg-primary-500` / `text-secondary-500` (CTA button).
 
 **Pattern to remember:** Never reference Tailwind's built-in color palette (`blue-500`, `gray-200`, `white`, `black`) or hardcode hex/OKLCH values in any CSS file. Every color must come from `src/css/variables/colors.css`. If a needed shade is absent, ask the user to add it to the token file before writing code — do not reach for a Tailwind default as a shortcut.
+
+---
+
+## Step 06 — Footer
+
+### Issue 1: `function_exists('get_field')` guards used in template — inconsistent with header
+
+**What happened:** The footer template wrapped every `get_field()` call in a `function_exists('get_field')` guard, producing verbose conditional assignments. The header template calls `get_field()` directly with no guard.
+
+**Fix:** Removed the guards. ACF is a hard dependency of this theme — it is always present when a template runs.
+
+**Pattern to remember:** Call `get_field()` directly in templates. The `function_exists` guard is only appropriate in standalone helper functions (like `aidriven_get_social_links()`) that may be called before ACF initialises or in contexts where ACF availability cannot be guaranteed. Template parts always run after `wp_head`, where ACF is fully loaded.
+
+---
+
+### Issue 2: Wrong logo variant used in the header
+
+**What happened:** `template-parts/layout/header.php` fetched `logo_dark` (the version intended for light backgrounds) and rendered it on the Rock Black dark header shell.
+
+**Fix:** Changed the field name to `logo_light`, which is the version intended for dark backgrounds — consistent with how the footer template was written from the start.
+
+**Pattern to remember:** Match the logo variant to the background colour of the section:
+- Dark background (`bg-secondary-500`) → `logo_light`
+- Light background (`bg-neutral-50`) → `logo_dark`
