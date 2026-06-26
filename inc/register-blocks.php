@@ -58,6 +58,33 @@ add_action(
 			)
 		);
 
+		// Stats Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'stats',
+				'title'           => __( 'Stats', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Display up to four key metrics with an animated count-up effect on scroll.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/stats.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'chart-bar',
+				'keywords'        => array( __( 'stats', 'ai-driven-boilerplate' ), __( 'counters', 'ai-driven-boilerplate' ), __( 'numbers', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/stats.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Text & Image Block.
 		acf_register_block_type(
 			array(

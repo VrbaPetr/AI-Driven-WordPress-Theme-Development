@@ -6,6 +6,7 @@ export default defineConfig({
     build: {
         outDir: 'assets',
         assetsDir: '',
+        emptyOutDir: false,
         manifest: true,
         rollupOptions: {
             input: [

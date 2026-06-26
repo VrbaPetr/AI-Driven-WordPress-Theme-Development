@@ -1,0 +1,119 @@
+{
+    "key": "group_stats_block",
+    "title": "Stats Block",
+    "fields": [
+        {
+            "key": "field_stats_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional heading displayed above the stats grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Our Achievements",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_stats_items",
+            "label": "Stats",
+            "name": "stats",
+            "type": "repeater",
+            "instructions": "Add up to 4 stat items.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "min": 1,
+            "max": 4,
+            "collapsed": "",
+            "button_label": "Add Stat",
+            "sub_fields": [
+                {
+                    "key": "field_stats_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "number",
+                    "instructions": "The target count value (integer or decimal).",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "150",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_stats_suffix",
+                    "label": "Suffix",
+                    "name": "suffix",
+                    "type": "text",
+                    "instructions": "Appended after the number, e.g. +, k, %.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "+",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "5"
+                },
+                {
+                    "key": "field_stats_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Descriptive label below the number, e.g. Projects Delivered.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Projects Delivered",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_stats_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "text",
+                    "instructions": "SVG filename (without extension) from assets/media/icons/, e.g. circle-check. Leave blank to hide.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "circle-check",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/stats"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}
