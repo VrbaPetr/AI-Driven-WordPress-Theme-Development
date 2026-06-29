@@ -36,6 +36,7 @@
 
 /* Content Blocks */
 @import "./blocks/cta.css";
+@import "./blocks/faq.css";
 @import "./blocks/hero.css";
 @import "./blocks/process.css";
 @import "./blocks/stats.css";

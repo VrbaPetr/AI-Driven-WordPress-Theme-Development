@@ -139,6 +139,33 @@ add_action(
 			)
 		);
 
+		// FAQ Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'faq',
+				'title'           => __( 'FAQ', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Accordion-style FAQ section with questions and answers. Outputs JSON-LD FAQ structured data for Google rich snippets.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/faq.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'editor-help',
+				'keywords'        => array( __( 'faq', 'ai-driven-boilerplate' ), __( 'accordion', 'ai-driven-boilerplate' ), __( 'questions', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/faq.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Text & Image Block.
 		acf_register_block_type(
 			array(
