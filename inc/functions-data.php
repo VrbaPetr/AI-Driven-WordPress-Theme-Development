@@ -154,3 +154,36 @@ function aidriven_get_related_services( $post_id ) {
 
 	return new WP_Query( $query_args );
 }
+
+/**
+ * Return up to 3 related projects from the same portfolio-category, excluding the current post.
+ *
+ * @param int $post_id ID of the current project post.
+ * @return WP_Query Query object; caller must call wp_reset_postdata() after looping.
+ */
+function aidriven_get_related_projects( $post_id ) {
+	$query_args = array(
+		'post_type'      => 'project',
+		'posts_per_page' => 3,
+		'post_status'    => 'publish',
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'no_found_rows'  => true,
+	);
+
+	$terms = get_the_terms( $post_id, 'portfolio-category' );
+
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		$term_ids                = wp_list_pluck( $terms, 'term_id' );
+		$query_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'portfolio-category',
+				'field'    => 'term_id',
+				'terms'    => $term_ids,
+			),
+		);
+	}
+
+	return new WP_Query( $query_args );
+}
