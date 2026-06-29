@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/functions-helpers.php';
 require_once get_template_directory() . '/inc/functions-data.php';
 require_once get_template_directory() . '/inc/functions-form.php';
 require_once get_template_directory() . '/inc/functions-ajax.php';
+require_once get_template_directory() . '/inc/functions-seo.php';
 require_once get_template_directory() . '/inc/register-blocks.php';
 require_once get_template_directory() . '/inc/register-cpt.php';
 require_once get_template_directory() . '/inc/register-taxonomy.php';
