@@ -1,0 +1,69 @@
+{
+    "key": "group_project_cpt_fields",
+    "title": "Project Details",
+    "fields": [
+        {
+            "key": "field_project_client_name",
+            "label": "Client Name",
+            "name": "client_name",
+            "type": "text",
+            "instructions": "Optional. Displayed on the single project page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Acme Corp"
+        },
+        {
+            "key": "field_project_year",
+            "label": "Project Year",
+            "name": "project_year",
+            "type": "number",
+            "instructions": "Optional. The year the project was completed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": 1,
+            "placeholder": "2024",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_project_short_description",
+            "label": "Short Description",
+            "name": "short_description",
+            "type": "textarea",
+            "instructions": "1–2 sentences shown on project cards in the Portfolio Grid block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "A brief description of the project and its outcomes.",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

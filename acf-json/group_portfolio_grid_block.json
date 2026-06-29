@@ -1,0 +1,101 @@
+{
+    "key": "group_portfolio_grid_block",
+    "title": "Portfolio Grid Block",
+    "fields": [
+        {
+            "key": "field_pg_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional <h2> displayed above the portfolio grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Our Work"
+        },
+        {
+            "key": "field_pg_initial_items_count",
+            "label": "Initial Items Count",
+            "name": "initial_items_count",
+            "type": "number",
+            "instructions": "How many projects to display on initial load.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": 6,
+            "min": 1,
+            "max": 24,
+            "step": 1,
+            "placeholder": "6",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pg_items_per_load",
+            "label": "Items Per Load",
+            "name": "items_per_load",
+            "type": "number",
+            "instructions": "How many additional projects to load per AJAX request.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": 3,
+            "min": 1,
+            "max": 12,
+            "step": 1,
+            "placeholder": "3",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pg_show_filter_buttons",
+            "label": "Show Filter Buttons",
+            "name": "show_filter_buttons",
+            "type": "true_false",
+            "instructions": "Display filter buttons above the grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_pg_show_load_more",
+            "label": "Show Load More",
+            "name": "show_load_more",
+            "type": "true_false",
+            "instructions": "Display a Load More button below the grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/portfolio-grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

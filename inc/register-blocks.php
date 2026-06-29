@@ -192,5 +192,140 @@ add_action(
 				),
 			)
 		);
+
+		// Testimonials Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'testimonials',
+				'title'           => __( 'Testimonials', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Auto-advancing slider pulling quotes from the Testimonials CPT with prev/next navigation and dot indicators.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/testimonials.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'format-quote',
+				'keywords'        => array( __( 'testimonials', 'ai-driven-boilerplate' ), __( 'reviews', 'ai-driven-boilerplate' ), __( 'slider', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/testimonials.jpg',
+						),
+					),
+				),
+			)
+		);
+
+		// Portfolio Grid Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'portfolio-grid',
+				'title'           => __( 'Portfolio Grid', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Filterable project grid pulled from the Portfolio CPT with Alpine.js category filters and AJAX load-more.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/portfolio-grid.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'grid-view',
+				'keywords'        => array( __( 'portfolio', 'ai-driven-boilerplate' ), __( 'projects', 'ai-driven-boilerplate' ), __( 'grid', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/portfolio-grid.jpg',
+						),
+					),
+				),
+			)
+		);
+
+		// Clients Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'clients',
+				'title'           => __( 'Clients', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Display client or partner logos in a static grid or a continuous scrolling marquee. Supports greyscale/colour toggle.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/clients.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'awards',
+				'keywords'        => array( __( 'clients', 'ai-driven-boilerplate' ), __( 'logos', 'ai-driven-boilerplate' ), __( 'partners', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/clients.jpg',
+						),
+					),
+				),
+			)
+		);
+
+		// Team Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'team',
+				'title'           => __( 'Team', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Responsive card grid displaying team members pulled from the Team Members CPT with photos, job titles, bios, and social links.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/team.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'groups',
+				'keywords'        => array( __( 'team', 'ai-driven-boilerplate' ), __( 'people', 'ai-driven-boilerplate' ), __( 'staff', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/team.jpg',
+						),
+					),
+				),
+			)
+		);
+
+		// Services Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'services',
+				'title'           => __( 'Services', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Responsive card grid displaying services pulled from the Services CPT or entered manually.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/services.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'hammer',
+				'keywords'        => array( __( 'services', 'ai-driven-boilerplate' ), __( 'grid', 'ai-driven-boilerplate' ), __( 'cards', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/services.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );

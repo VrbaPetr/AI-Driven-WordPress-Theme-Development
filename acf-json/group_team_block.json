@@ -1,0 +1,76 @@
+{
+    "key": "group_team_block",
+    "title": "Team Block",
+    "fields": [
+        {
+            "key": "field_team_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional <h2> displayed above the team grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Meet the Team"
+        },
+        {
+            "key": "field_team_number_of_members",
+            "label": "Number of Members",
+            "name": "number_of_members",
+            "type": "number",
+            "instructions": "Leave blank or set to 0 to show all published team members.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "placeholder": "0 = all",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_team_columns",
+            "label": "Columns",
+            "name": "columns",
+            "type": "select",
+            "instructions": "Number of columns on desktop. Tablet always shows 2; mobile always shows 1.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "2": "2 columns",
+                "3": "3 columns",
+                "4": "4 columns"
+            },
+            "default_value": "3",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

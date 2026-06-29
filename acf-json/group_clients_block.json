@@ -1,0 +1,161 @@
+{
+    "key": "group_clients_block",
+    "title": "Clients Block",
+    "fields": [
+        {
+            "key": "field_clients_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional heading displayed above the logos. Leave blank to hide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Our Clients",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_clients_subtext",
+            "label": "Subtext",
+            "name": "subtext",
+            "type": "text",
+            "instructions": "Optional supporting sentence shown below the heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Trusted by leading companies worldwide",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_clients_display_style",
+            "label": "Display Style",
+            "name": "display_style",
+            "type": "select",
+            "instructions": "Static Grid displays logos in a responsive flex row. Marquee scrolls logos horizontally on a continuous loop.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "static_grid": "Static Grid",
+                "marquee": "Marquee"
+            },
+            "default_value": "static_grid",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_clients_colour_mode",
+            "label": "Colour Mode",
+            "name": "colour_mode",
+            "type": "select",
+            "instructions": "Greyscale applies a desaturating filter; logos show in full colour on hover. Colour displays logos as uploaded.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "greyscale": "Greyscale",
+                "colour": "Colour"
+            },
+            "default_value": "greyscale",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_clients_logos",
+            "label": "Logos",
+            "name": "logos",
+            "type": "repeater",
+            "instructions": "Add one entry per client or partner logo. SVG or transparent PNG recommended.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "table",
+            "min": 1,
+            "max": 0,
+            "collapsed": "field_clients_logo_alt_text",
+            "button_label": "Add Logo",
+            "sub_fields": [
+                {
+                    "key": "field_clients_logo_image",
+                    "label": "Logo Image",
+                    "name": "logo_image",
+                    "type": "image",
+                    "instructions": "Upload the logo file. SVG or PNG with transparency recommended.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_clients_logo_alt_text",
+                    "label": "Alt Text",
+                    "name": "alt_text",
+                    "type": "text",
+                    "instructions": "Describes the logo for screen readers, e.g. \"Acme Corp logo\". Falls back to the image's own alt text if left blank.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Acme Corp logo",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_logo_link_url",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "url",
+                    "instructions": "Optional. Wraps the logo in a link. Use the full URL including https://.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "https://"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/clients"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

@@ -10,3 +10,9 @@ import './scripts/navigation.js';
 
 // Stats count-up animation on scroll.
 import './scripts/stats-counter.js';
+
+// Portfolio Grid filter and load-more.
+import './scripts/handler-portfolio-filter.js';
+
+// Testimonials slider with autoplay and swipe support.
+import './scripts/handler-testimonial-slider.js';

@@ -1,0 +1,106 @@
+{
+    "key": "group_team_member_cpt_fields",
+    "title": "Team Member Details",
+    "fields": [
+        {
+            "key": "field_tm_job_title",
+            "label": "Job Title",
+            "name": "job_title",
+            "type": "text",
+            "instructions": "The person's role or job title, e.g. 'Senior Developer'.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Senior Developer"
+        },
+        {
+            "key": "field_tm_short_bio",
+            "label": "Short Bio",
+            "name": "short_bio",
+            "type": "textarea",
+            "instructions": "2–3 sentences displayed as the card excerpt. Keep it concise.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Brief bio about this team member and their expertise.",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_tm_social_links",
+            "label": "Social Links",
+            "name": "social_links",
+            "type": "repeater",
+            "instructions": "Add social profile links. Only platforms with a URL are displayed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "table",
+            "button_label": "Add Social Link",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_tm_social_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "30", "class": "", "id": "" },
+                    "choices": {
+                        "linkedin":  "LinkedIn",
+                        "github":    "GitHub",
+                        "twitter":   "Twitter / X",
+                        "instagram": "Instagram",
+                        "dribbble":  "Dribbble",
+                        "email":     "Email",
+                        "other":     "Other"
+                    },
+                    "default_value": "linkedin",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_tm_social_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "Full URL including https://. For Email use mailto:address@domain.com.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "70", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "https://"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team-member"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}
