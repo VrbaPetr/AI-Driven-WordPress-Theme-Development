@@ -193,6 +193,33 @@ add_action(
 			)
 		);
 
+		// Portfolio Grid Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'portfolio-grid',
+				'title'           => __( 'Portfolio Grid', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Filterable project grid pulled from the Portfolio CPT with Alpine.js category filters and AJAX load-more.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/portfolio-grid.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'grid-view',
+				'keywords'        => array( __( 'portfolio', 'ai-driven-boilerplate' ), __( 'projects', 'ai-driven-boilerplate' ), __( 'grid', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/portfolio-grid.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Services Block.
 		acf_register_block_type(
 			array(
