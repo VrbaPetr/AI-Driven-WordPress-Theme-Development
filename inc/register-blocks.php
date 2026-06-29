@@ -192,5 +192,32 @@ add_action(
 				),
 			)
 		);
+
+		// Services Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'services',
+				'title'           => __( 'Services', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Responsive card grid displaying services pulled from the Services CPT or entered manually.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/services.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'hammer',
+				'keywords'        => array( __( 'services', 'ai-driven-boilerplate' ), __( 'grid', 'ai-driven-boilerplate' ), __( 'cards', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/services.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );
