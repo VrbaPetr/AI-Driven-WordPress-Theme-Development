@@ -1,0 +1,160 @@
+@layer components {
+    .testimonials-block {
+        @apply py-16;
+        @apply lg:py-24;
+        background-color: var(--color-neutral-100);
+    }
+
+    .testimonials-inner {
+        @apply max-w-4xl mx-auto px-4;
+        @apply md:px-6;
+    }
+
+    .testimonials-heading {
+        @apply text-3xl font-bold text-center mb-12;
+        color: var(--color-text);
+    }
+
+    /* Slider wrapper */
+    .testimonials-slider {
+        @apply relative;
+    }
+
+    /* Stacked track — all slides in the same grid cell */
+    .testimonials-track {
+        display: grid;
+    }
+
+    .testimonials-slide {
+        grid-area: 1 / 1;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 400ms ease, visibility 400ms ease;
+    }
+
+    .testimonials-slide.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Blockquote */
+    .testimonials-quote {
+        @apply flex flex-col gap-8 m-0;
+        @apply md:gap-10;
+    }
+
+    .testimonials-quote-text {
+        @apply text-lg leading-relaxed text-center m-0;
+        @apply md:text-xl;
+        color: var(--color-text);
+
+        &::before {
+            content: '\201C';
+        }
+
+        &::after {
+            content: '\201D';
+        }
+    }
+
+    /* Author */
+    .testimonials-author {
+        @apply flex items-center justify-center gap-4;
+        font-style: normal;
+    }
+
+    .testimonials-author-photo {
+        @apply shrink-0 w-14 h-14 rounded-full overflow-hidden;
+        background-color: var(--color-neutral-200);
+    }
+
+    .testimonials-author-img {
+        @apply w-full h-full object-cover;
+    }
+
+    .testimonials-author-photo--fallback {
+        @apply flex items-center justify-center;
+        color: var(--color-neutral-400);
+
+        svg {
+            @apply w-8 h-8;
+        }
+    }
+
+    .testimonials-author-meta {
+        @apply flex flex-col gap-0.5;
+    }
+
+    .testimonials-author-name {
+        @apply text-base font-semibold not-italic;
+        color: var(--color-text);
+    }
+
+    .testimonials-author-role {
+        @apply text-sm;
+        color: var(--color-text-muted);
+    }
+
+    /* Controls row */
+    .testimonials-controls {
+        @apply flex items-center justify-center gap-6 mt-10;
+    }
+
+    /* Prev / Next buttons */
+    .testimonials-nav-btn {
+        @apply flex items-center justify-center w-10 h-10 rounded-full border shrink-0;
+        @apply transition-colors duration-150;
+        color: var(--color-text-muted);
+        border-color: var(--color-border);
+        background-color: var(--color-neutral-50);
+        cursor: pointer;
+    }
+
+    .testimonials-nav-btn:hover {
+        color: var(--color-primary-700);
+        border-color: var(--color-primary-400);
+        background-color: var(--color-primary-50);
+    }
+
+    .testimonials-nav-btn:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-full;
+        outline-color: var(--color-primary-500);
+    }
+
+    .testimonials-nav-btn svg {
+        @apply w-5 h-5;
+    }
+
+    /* Dot indicators */
+    .testimonials-dots {
+        @apply flex items-center gap-2;
+    }
+
+    .testimonials-dot {
+        @apply w-2.5 h-2.5 rounded-full border-0 p-0;
+        @apply transition-all duration-200;
+        background-color: var(--color-neutral-300);
+        cursor: pointer;
+    }
+
+    .testimonials-dot.is-active {
+        @apply w-6;
+        background-color: var(--color-primary-500);
+    }
+
+    .testimonials-dot:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-full;
+        outline-color: var(--color-primary-500);
+    }
+
+    /* Reduced motion — disable transitions */
+    @media (prefers-reduced-motion: reduce) {
+        .testimonials-slide {
+            transition: none;
+        }
+
+        .testimonials-dot {
+            transition: none;
+        }
+    }
+}

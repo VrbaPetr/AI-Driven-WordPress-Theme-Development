@@ -193,6 +193,33 @@ add_action(
 			)
 		);
 
+		// Testimonials Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'testimonials',
+				'title'           => __( 'Testimonials', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Auto-advancing slider pulling quotes from the Testimonials CPT with prev/next navigation and dot indicators.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/testimonials.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'format-quote',
+				'keywords'        => array( __( 'testimonials', 'ai-driven-boilerplate' ), __( 'reviews', 'ai-driven-boilerplate' ), __( 'slider', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/testimonials.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Portfolio Grid Block.
 		acf_register_block_type(
 			array(

@@ -1,0 +1,94 @@
+{
+    "key": "group_testimonials_block",
+    "title": "Testimonials Block",
+    "fields": [
+        {
+            "key": "field_tb_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional <h2> displayed above the testimonials slider.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "What Our Clients Say"
+        },
+        {
+            "key": "field_tb_number_of_testimonials",
+            "label": "Number of Testimonials",
+            "name": "number_of_testimonials",
+            "type": "number",
+            "instructions": "How many testimonials to pull from the CPT.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": 5,
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "placeholder": "5",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tb_autoplay",
+            "label": "Autoplay",
+            "name": "autoplay",
+            "type": "true_false",
+            "instructions": "Automatically advance to the next slide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_tb_autoplay_interval",
+            "label": "Autoplay Interval (ms)",
+            "name": "autoplay_interval",
+            "type": "number",
+            "instructions": "Time in milliseconds between automatic slide advances.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tb_autoplay",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "default_value": 4000,
+            "min": 1000,
+            "max": 10000,
+            "step": 500,
+            "placeholder": "4000",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/testimonials"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}
