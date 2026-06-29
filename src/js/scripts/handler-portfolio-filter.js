@@ -1,9 +1,5 @@
-( function () {
+document.addEventListener( 'alpine:init', function () {
 	'use strict';
-
-	if ( typeof window.Alpine === 'undefined' ) {
-		return;
-	}
 
 	window.Alpine.data( 'portfolioFilter', function () {
 		return {
@@ -67,10 +63,10 @@
 						const temp = document.createElement( 'ul' );
 						temp.innerHTML = json.data.html;
 
-						Array.from( temp.children ).forEach( function ( card ) {
+						Array.from( temp.children ).forEach( ( card ) => {
 							card.setAttribute( 'data-ajax-card', '1' );
 							this.$refs.grid.appendChild( card );
-						}.bind( this ) );
+						} );
 					}
 
 					this.hasMore = json.data.has_more;
@@ -84,4 +80,4 @@
 			},
 		};
 	} );
-} () );
+} );
