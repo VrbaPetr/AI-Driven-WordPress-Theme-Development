@@ -247,6 +247,33 @@ add_action(
 			)
 		);
 
+		// Clients Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'clients',
+				'title'           => __( 'Clients', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Display client or partner logos in a static grid or a continuous scrolling marquee. Supports greyscale/colour toggle.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/clients.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'awards',
+				'keywords'        => array( __( 'clients', 'ai-driven-boilerplate' ), __( 'logos', 'ai-driven-boilerplate' ), __( 'partners', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/clients.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Services Block.
 		acf_register_block_type(
 			array(

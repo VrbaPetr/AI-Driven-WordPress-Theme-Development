@@ -35,6 +35,7 @@
 }
 
 /* Content Blocks */
+@import "./blocks/clients.css";
 @import "./blocks/cta.css";
 @import "./blocks/faq.css";
 @import "./blocks/hero.css";
