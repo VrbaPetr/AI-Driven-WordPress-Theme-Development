@@ -1,0 +1,156 @@
+@layer components {
+    .pricing-block {
+        @apply py-16;
+        @apply lg:py-24;
+    }
+
+    .pricing-inner {
+        @apply max-w-7xl mx-auto px-4;
+        @apply md:px-6;
+    }
+
+    .pricing-heading {
+        @apply text-3xl font-bold text-center mb-4;
+        color: var(--color-text);
+    }
+
+    .pricing-subheading {
+        @apply text-center text-base mb-12 m-0;
+        color: var(--color-text-muted);
+    }
+
+    /* Grid: 1 col → 2 col (tablet) → all plans in a row (desktop) */
+    .pricing-grid {
+        @apply grid grid-cols-1 gap-6 items-start;
+        @apply md:grid-cols-2;
+    }
+
+    .pricing-grid--count-1 { @apply lg:grid-cols-1 lg:max-w-sm lg:mx-auto; }
+    .pricing-grid--count-2 { @apply lg:grid-cols-2; }
+    .pricing-grid--count-3 { @apply lg:grid-cols-3; }
+    .pricing-grid--count-4 { @apply lg:grid-cols-4; }
+
+    /* Card */
+    .pricing-card {
+        @apply relative flex flex-col gap-6 rounded-2xl border p-6;
+        background-color: var(--color-neutral-50);
+        border-color: var(--color-border);
+    }
+
+    /* Featured card */
+    .pricing-card--featured {
+        @apply border-2 shadow-xl;
+        border-color: var(--color-primary-500);
+        background-color: var(--color-primary-950);
+        transform: scale(1.03);
+        transform-origin: center top;
+    }
+
+    /* Badge */
+    .pricing-card-badge {
+        @apply absolute -top-4 left-1/2 -translate-x-1/2;
+    }
+
+    .pricing-badge-text {
+        @apply inline-block text-xs font-semibold uppercase tracking-wider rounded-full px-4 py-1.5;
+        background-color: var(--color-primary-500);
+        color: var(--color-neutral-50);
+    }
+
+    /* Header */
+    .pricing-card-header {
+        @apply flex flex-col gap-3;
+    }
+
+    .pricing-card-name {
+        @apply text-xl font-bold m-0;
+        color: var(--color-text);
+    }
+
+    .pricing-card--featured .pricing-card-name {
+        color: var(--color-neutral-50);
+    }
+
+    .pricing-card-price-row {
+        @apply flex items-baseline gap-1.5;
+    }
+
+    .pricing-card-price {
+        @apply text-4xl font-bold;
+        color: var(--color-text);
+    }
+
+    .pricing-card--featured .pricing-card-price {
+        color: var(--color-neutral-50);
+    }
+
+    .pricing-card-period {
+        @apply text-sm;
+        color: var(--color-text-muted);
+    }
+
+    .pricing-card--featured .pricing-card-period {
+        color: var(--color-primary-300);
+    }
+
+    .pricing-card-desc {
+        @apply text-sm leading-relaxed m-0;
+        color: var(--color-text-muted);
+    }
+
+    .pricing-card--featured .pricing-card-desc {
+        color: var(--color-primary-200);
+    }
+
+    /* Feature list */
+    .pricing-card-features {
+        @apply flex flex-col gap-3 list-none p-0 m-0 flex-1;
+    }
+
+    .pricing-feature {
+        @apply flex items-start gap-2.5 text-sm;
+        color: var(--color-text);
+    }
+
+    .pricing-card--featured .pricing-feature {
+        color: var(--color-primary-100);
+    }
+
+    .pricing-feature--excluded {
+        color: var(--color-text-muted);
+    }
+
+    .pricing-card--featured .pricing-feature--excluded {
+        color: var(--color-primary-700);
+    }
+
+    .pricing-feature--excluded .pricing-feature-text {
+        text-decoration: line-through;
+    }
+
+    .pricing-feature-icon {
+        @apply flex-shrink-0 w-5 h-5 mt-0.5;
+    }
+
+    .pricing-feature-icon svg {
+        @apply w-5 h-5;
+    }
+
+    /* Included icon: primary colour; excluded icon: muted */
+    .pricing-feature:not(.pricing-feature--excluded) .pricing-feature-icon {
+        color: var(--color-primary-500);
+    }
+
+    .pricing-feature--excluded .pricing-feature-icon {
+        color: var(--color-text-muted);
+    }
+
+    .pricing-card--featured .pricing-feature:not(.pricing-feature--excluded) .pricing-feature-icon {
+        color: var(--color-primary-400);
+    }
+
+    /* CTA button — stretch full width */
+    .pricing-card-cta {
+        @apply w-full justify-center;
+    }
+}
