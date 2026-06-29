@@ -11,9 +11,9 @@ document.addEventListener( 'alpine:init', function () {
 			prefersReducedMotion: false,
 
 			init() {
-				this.total              = parseInt( this.$el.dataset.total, 10 ) || 0;
-				this.autoplay           = this.$el.dataset.autoplay === '1';
-				this.interval           = parseInt( this.$el.dataset.interval, 10 ) || 4000;
+				this.total                = parseInt( this.$el.dataset.total, 10 ) || 0;
+				this.autoplay             = this.$el.dataset.autoplay === '1';
+				this.interval             = parseInt( this.$el.dataset.interval, 10 ) || 4000;
 				this.prefersReducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
 				if ( this.autoplay && ! this.prefersReducedMotion ) {
@@ -38,6 +38,8 @@ document.addEventListener( 'alpine:init', function () {
 			},
 
 			startTimer() {
+				// Always clear any existing timer before creating a new one.
+				this.stopTimer();
 				this.timer = setInterval( () => this.next(), this.interval );
 			},
 
@@ -55,6 +57,14 @@ document.addEventListener( 'alpine:init', function () {
 			resume() {
 				if ( this.autoplay && ! this.prefersReducedMotion ) {
 					this.startTimer();
+				}
+			},
+
+			// Only resume autoplay when focus truly leaves the component,
+			// not when it moves between elements inside it.
+			handleFocusOut( event ) {
+				if ( ! this.$el.contains( event.relatedTarget ) ) {
+					this.resume();
 				}
 			},
 

@@ -65,7 +65,7 @@ else :
 		@mouseenter="pause()"
 		@mouseleave="resume()"
 		@focusin="pause()"
-		@focusout="resume()"
+		@focusout="handleFocusOut($event)"
 	>
 		<div class="testimonials-inner">
 
@@ -76,6 +76,10 @@ else :
 			<div class="testimonials-slider">
 
 				<div class="testimonials-track" aria-live="polite">
+					<div
+						class="testimonials-slides-wrapper"
+						:style="'transform: translateX(-' + ( currentIndex * 100 ) + '%)'"
+					>
 					<?php foreach ( $testimonials as $slide_index => $testimonial ) : ?>
 						<?php
 						if ( empty( $testimonial['quote'] ) ) {
@@ -84,7 +88,6 @@ else :
 						?>
 						<div
 							class="testimonials-slide"
-							:class="{ 'is-active': currentIndex === <?php echo absint( $slide_index ); ?> }"
 							role="group"
 							aria-roledescription="slide"
 							aria-label="<?php echo esc_attr( ( $slide_index + 1 ) . ' of ' . $slide_count ); ?>"
@@ -126,6 +129,7 @@ else :
 							</blockquote>
 						</div>
 					<?php endforeach; ?>
+					</div>
 				</div>
 
 				<?php if ( $slide_count > 1 ) : ?>
