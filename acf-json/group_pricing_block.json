@@ -1,0 +1,215 @@
+{
+    "key": "group_pricing_block",
+    "title": "Pricing Block",
+    "fields": [
+        {
+            "key": "field_pb_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional <h2> displayed above the pricing cards.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Simple, Transparent Pricing"
+        },
+        {
+            "key": "field_pb_section_subheading",
+            "label": "Section Subheading",
+            "name": "section_subheading",
+            "type": "text",
+            "instructions": "Optional supporting line displayed below the section heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "No hidden fees. Cancel anytime."
+        },
+        {
+            "key": "field_pb_plans",
+            "label": "Plans",
+            "name": "plans",
+            "type": "repeater",
+            "instructions": "Add up to 4 pricing plans. Mark one as Featured to highlight it.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "button_label": "Add Plan",
+            "min": 1,
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_pb_plan_name",
+                    "label": "Plan Name",
+                    "name": "plan_name",
+                    "type": "text",
+                    "instructions": "e.g. Starter, Pro, Enterprise",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Pro"
+                },
+                {
+                    "key": "field_pb_plan_price",
+                    "label": "Price",
+                    "name": "price",
+                    "type": "text",
+                    "instructions": "Enter a number (e.g. 49) or text (e.g. Custom).",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "49"
+                },
+                {
+                    "key": "field_pb_plan_billing_period",
+                    "label": "Billing Period",
+                    "name": "billing_period",
+                    "type": "text",
+                    "instructions": "e.g. / month, / year, / project",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "/ month",
+                    "placeholder": "/ month"
+                },
+                {
+                    "key": "field_pb_plan_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "instructions": "One-line plan summary displayed below the price.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Everything you need to get started."
+                },
+                {
+                    "key": "field_pb_plan_features",
+                    "label": "Features",
+                    "name": "features",
+                    "type": "repeater",
+                    "instructions": "List the features included or excluded in this plan.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "layout": "table",
+                    "button_label": "Add Feature",
+                    "min": 0,
+                    "max": 0,
+                    "sub_fields": [
+                        {
+                            "key": "field_pb_feature_text",
+                            "label": "Feature",
+                            "name": "feature_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": { "width": "75", "class": "", "id": "" },
+                            "default_value": "",
+                            "placeholder": "Unlimited projects"
+                        },
+                        {
+                            "key": "field_pb_feature_included",
+                            "label": "Included",
+                            "name": "included",
+                            "type": "true_false",
+                            "instructions": "Uncheck to show as not available in this plan.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": { "width": "25", "class": "", "id": "" },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "Yes",
+                            "ui_off_text": "No"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_pb_plan_cta_label",
+                    "label": "CTA Label",
+                    "name": "cta_label",
+                    "type": "text",
+                    "instructions": "Make the label descriptive, e.g. 'Get started with Pro'.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Get started with Pro"
+                },
+                {
+                    "key": "field_pb_plan_cta_url",
+                    "label": "CTA URL",
+                    "name": "cta_url",
+                    "type": "url",
+                    "instructions": "Link for the CTA button.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "https://"
+                },
+                {
+                    "key": "field_pb_plan_featured",
+                    "label": "Featured",
+                    "name": "featured",
+                    "type": "true_false",
+                    "instructions": "Highlight this plan as the recommended option.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No"
+                },
+                {
+                    "key": "field_pb_plan_featured_badge",
+                    "label": "Featured Badge Label",
+                    "name": "featured_badge_label",
+                    "type": "text",
+                    "instructions": "Badge text shown on the featured card.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_pb_plan_featured",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "Most Popular",
+                    "placeholder": "Most Popular"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/pricing"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

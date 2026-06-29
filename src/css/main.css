@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Variables */
+@import "./variables/colors.css";
+@import "./variables/typography.css";
+@import "./variables/spacing.css";
+@import "./variables/radii.css";
+@import "./variables/shadows.css";
+@import "./variables/motion.css";
+@import "./variables/z-index.css";
+
+/* Layout */
+@import "./layout/header.css";
+@import "./layout/footer.css";
+@import "./layout/page-header.css";
+
+/* Navigation */
+
+/* Components */
+@import "./components/alert.css";
+@import "./components/badge.css";
+@import "./components/breadcrumbs.css";
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/pagination.css";
+
+/* Forms */
+@import "./forms/contact.css";
+
+/* Breakpoints */
+@theme {
+    --breakpoint-sm:  640px;
+    --breakpoint-md:  768px;
+    --breakpoint-lg:  1024px;
+    --breakpoint-xl:  1280px;
+    --breakpoint-2xl: 1536px;
+}
+
+/* Content Blocks */
+@import "./blocks/clients.css";
+@import "./blocks/cta.css";
+@import "./blocks/faq.css";
+@import "./blocks/hero.css";
+@import "./blocks/portfolio-grid.css";
+@import "./blocks/pricing.css";
+@import "./blocks/process.css";
+@import "./blocks/services.css";
+@import "./blocks/stats.css";
+@import "./blocks/team.css";
+@import "./blocks/testimonials.css";
+@import "./blocks/text-image.css";
+
+/* Pages — added per page step (Steps 23–33) */
+@import "./pages/404.css";
+@import "./pages/blog.css";
+@import "./pages/contact.css";
+@import "./pages/portfolio.css";
+@import "./pages/search.css";
+@import "./pages/services.css";
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-background);
+        color: var(--color-text);
+        font-family: var(--font-sans);
+        line-height: var(--leading-normal);
+    }
+
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}

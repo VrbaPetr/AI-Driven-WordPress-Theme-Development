@@ -1,0 +1,115 @@
+@layer components {
+    .clients-block {
+        @apply py-16;
+        @apply lg:py-24;
+    }
+
+    .clients-inner {
+        @apply max-w-7xl mx-auto px-4;
+        @apply md:px-6;
+    }
+
+    .clients-heading {
+        @apply text-3xl font-bold text-center mb-4;
+        color: var(--color-text);
+    }
+
+    .clients-subtext {
+        @apply text-base text-center mb-10;
+        color: var(--color-text-muted);
+    }
+
+    /* ── Logo image ────────────────────────────────────────── */
+
+    .clients-logo-img {
+        @apply block max-h-10 w-auto;
+        @apply md:max-h-12;
+        transition: filter 300ms ease, opacity 300ms ease;
+    }
+
+    /* ── Greyscale mode ────────────────────────────────────── */
+
+    .clients--greyscale .clients-logo-img {
+        filter: grayscale(1);
+        opacity: 0.55;
+    }
+
+    .clients--greyscale .clients-logo-item:hover .clients-logo-img,
+    .clients--greyscale .clients-logo-link:focus-visible .clients-logo-img {
+        filter: grayscale(0);
+        opacity: 1;
+    }
+
+    /* ── Static grid ───────────────────────────────────────── */
+
+    .clients-grid {
+        @apply flex flex-wrap justify-center items-center gap-x-10 gap-y-8 list-none p-0 m-0;
+        @apply md:gap-x-14;
+        @apply lg:gap-x-16;
+    }
+
+    .clients-grid .clients-logo-item {
+        @apply flex items-center justify-center;
+    }
+
+    /* ── Marquee ───────────────────────────────────────────── */
+
+    .clients-marquee {
+        overflow: hidden;
+    }
+
+    .clients-marquee-track {
+        @apply flex;
+        animation: clients-marquee 30s linear infinite;
+    }
+
+    .clients-marquee-track:hover,
+    .clients-marquee-track:focus-within {
+        animation-play-state: paused;
+    }
+
+    .clients-logo-list {
+        @apply flex items-center gap-12 shrink-0 list-none p-0 m-0;
+        @apply lg:gap-16;
+    }
+
+    .clients-logo-list .clients-logo-item {
+        @apply flex items-center justify-center;
+    }
+
+    .clients-logo-link:focus-visible {
+        @apply outline-2 outline-offset-4 rounded-sm;
+        outline-color: var(--color-primary-500);
+    }
+
+    @keyframes clients-marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+    }
+
+    /* ── Reduced motion ────────────────────────────────────── */
+
+    @media (prefers-reduced-motion: reduce) {
+        .clients-marquee {
+            overflow: visible;
+        }
+
+        .clients-marquee-track {
+            animation: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        /* Hide the duplicate logos set */
+        .clients-logo-list[aria-hidden="true"] {
+            display: none;
+        }
+
+        /* Let the visible list wrap like a static grid */
+        .clients-logo-list {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}

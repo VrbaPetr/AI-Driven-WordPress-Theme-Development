@@ -1,0 +1,297 @@
+@layer components {
+
+	/* ═══════════════════════════════════════════════════════════
+	   Archive
+	═══════════════════════════════════════════════════════════ */
+
+	.blog-archive-inner {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+	}
+
+	/* ── Category filter bar ───────────────────────────────────── */
+
+	.blog-archive-filters {
+		@apply flex flex-wrap gap-3;
+	}
+
+	/* ── Card grid ─────────────────────────────────────────────── */
+
+	.blog-archive-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ── Empty state ───────────────────────────────────────────── */
+
+	.blog-archive-empty {
+		@apply text-base py-12 text-center;
+		color: var(--color-text-muted);
+	}
+
+	/* ═══════════════════════════════════════════════════════════
+	   Single — Article
+	═══════════════════════════════════════════════════════════ */
+
+	/* ── Meta bar (author + date + categories) ─────────────────── */
+
+	.article-meta-bar {
+		@apply border-b;
+		border-color: var(--color-border);
+		background-color: var(--color-neutral-100);
+	}
+
+	.article-meta-bar-inner {
+		@apply max-w-4xl mx-auto px-6 py-4;
+		@apply flex flex-wrap items-center justify-between gap-4;
+	}
+
+	.article-meta-author {
+		@apply flex items-center gap-3;
+	}
+
+	.article-meta-avatar-link img {
+		@apply w-10 h-10 rounded-full object-cover;
+	}
+
+	.article-meta-author-info {
+		@apply flex flex-col gap-0.5;
+	}
+
+	.article-meta-author-name {
+		@apply text-sm font-semibold no-underline;
+		color: var(--color-text);
+		transition: color 150ms ease;
+	}
+
+	.article-meta-author-name:hover {
+		color: var(--color-primary-600);
+	}
+
+	.article-meta-date {
+		@apply text-xs flex items-center gap-1.5;
+		color: var(--color-text-muted);
+	}
+
+	.article-meta-categories {
+		@apply flex flex-wrap gap-2;
+	}
+
+	/* ── Hero image ────────────────────────────────────────────── */
+
+	.article-hero {
+		@apply w-full overflow-hidden;
+		max-height: 520px;
+	}
+
+	.article-hero-img {
+		@apply w-full h-full object-cover block;
+	}
+
+	/* ── Body: content column ──────────────────────────────────── */
+
+	.article-body {
+		@apply max-w-4xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+	}
+
+	.article-content {
+		@apply w-full;
+	}
+
+	/* ── Tags ──────────────────────────────────────────────────── */
+
+	.article-tags {
+		@apply flex flex-wrap items-center gap-3;
+	}
+
+	.article-tags-label {
+		@apply text-sm font-semibold;
+		color: var(--color-text);
+	}
+
+	.article-tags-list {
+		@apply flex flex-wrap gap-2;
+	}
+
+	/* ── Social share ──────────────────────────────────────────── */
+
+	.article-share {
+		@apply flex flex-wrap items-center gap-3 pt-4 border-t;
+		border-color: var(--color-border);
+	}
+
+	.article-share-label {
+		@apply text-sm font-semibold;
+		color: var(--color-text);
+	}
+
+	.article-share-buttons {
+		@apply flex flex-wrap gap-2;
+	}
+
+	.article-share-btn {
+		@apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium border cursor-pointer;
+		background-color: var(--color-neutral-50);
+		border-color: var(--color-border);
+		color: var(--color-text);
+		transition: background-color 150ms ease, border-color 150ms ease;
+	}
+
+	.article-share-btn:hover {
+		background-color: var(--color-neutral-100);
+		border-color: var(--color-neutral-300);
+	}
+
+	.article-share-btn.is-copied {
+		background-color: var(--color-primary-100);
+		border-color: var(--color-primary-300);
+		color: var(--color-primary-700);
+	}
+
+	/* ── Author box ────────────────────────────────────────────── */
+
+	.article-author {
+		@apply border-t border-b py-12;
+		border-color: var(--color-border);
+	}
+
+	.article-author-inner {
+		@apply max-w-4xl mx-auto px-6;
+		@apply flex items-start gap-6;
+	}
+
+	.article-author-avatar img {
+		@apply w-20 h-20 rounded-full object-cover shrink-0;
+	}
+
+	.article-author-details {
+		@apply flex flex-col gap-2;
+	}
+
+	.article-author-name {
+		@apply text-lg font-semibold m-0;
+		color: var(--color-text);
+	}
+
+	.article-author-name a {
+		color: inherit;
+		text-decoration: none;
+		transition: color 150ms ease;
+	}
+
+	.article-author-name a:hover {
+		color: var(--color-primary-600);
+	}
+
+	.article-author-bio {
+		@apply text-sm leading-relaxed m-0;
+		color: var(--color-text-muted);
+	}
+
+	.article-author-link {
+		@apply text-sm font-medium;
+		color: var(--color-primary-600);
+		text-decoration: none;
+		transition: color 150ms ease;
+	}
+
+	.article-author-link:hover {
+		color: var(--color-primary-800);
+	}
+
+	/* ── Prev / Next navigation ────────────────────────────────── */
+
+	.article-nav {
+		@apply border-b;
+		border-color: var(--color-border);
+	}
+
+	.article-nav-inner {
+		@apply max-w-7xl mx-auto px-6 py-8;
+		@apply grid grid-cols-1 gap-6;
+		@apply sm:grid-cols-2;
+	}
+
+	.article-nav-prev,
+	.article-nav-next {
+		@apply flex flex-col gap-1 p-5 rounded-xl border no-underline;
+		border-color: var(--color-border);
+		background-color: var(--color-surface);
+		transition: border-color 150ms ease, background-color 150ms ease;
+	}
+
+	.article-nav-prev:hover,
+	.article-nav-next:hover {
+		border-color: var(--color-primary-300);
+		background-color: var(--color-primary-50);
+	}
+
+	.article-nav-next {
+		@apply sm:text-right sm:ml-auto;
+	}
+
+	.article-nav-dir {
+		@apply text-xs font-semibold uppercase tracking-wide;
+		color: var(--color-text-muted);
+	}
+
+	.article-nav-title {
+		@apply text-base font-semibold leading-snug;
+		color: var(--color-text);
+	}
+
+	/* ── Related articles ──────────────────────────────────────── */
+
+	.article-related {
+		@apply py-16;
+		background-color: var(--color-neutral-100);
+	}
+
+	.article-related-inner {
+		@apply max-w-7xl mx-auto px-6;
+		@apply flex flex-col gap-8;
+	}
+
+	.article-related-heading {
+		@apply text-2xl font-bold;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	.article-related-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ── Inline CTA strip ──────────────────────────────────────── */
+
+	.article-cta {
+		@apply py-20;
+		background-color: var(--color-secondary-500);
+	}
+
+	.article-cta-inner {
+		@apply max-w-3xl mx-auto px-6 text-center;
+		@apply flex flex-col items-center gap-6;
+	}
+
+	.article-cta-heading {
+		@apply text-3xl font-bold leading-tight;
+		@apply md:text-4xl;
+		color: var(--color-neutral-50);
+	}
+
+	.article-cta-subtext {
+		@apply text-lg leading-relaxed m-0;
+		color: var(--color-neutral-300);
+	}
+
+	.article-cta-actions {
+		@apply flex flex-wrap justify-center gap-4;
+	}
+}

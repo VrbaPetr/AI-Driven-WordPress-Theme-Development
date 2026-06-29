@@ -1,0 +1,105 @@
+{
+    "key": "group_testimonial_cpt_fields",
+    "title": "Testimonial Details",
+    "fields": [
+        {
+            "key": "field_testimonial_quote",
+            "label": "Quote",
+            "name": "quote",
+            "type": "textarea",
+            "instructions": "The testimonial body text. Write in first person from the client's perspective.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Working with this team transformed our online presence completely.",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_testimonial_client_name",
+            "label": "Client Name",
+            "name": "client_name",
+            "type": "text",
+            "instructions": "Full name of the person giving the testimonial.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Jane Smith"
+        },
+        {
+            "key": "field_testimonial_client_title",
+            "label": "Client Title / Company",
+            "name": "client_title",
+            "type": "text",
+            "instructions": "Job title and/or company name, e.g. 'CTO, Acme Corp'.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "CTO, Acme Corp"
+        },
+        {
+            "key": "field_testimonial_client_photo",
+            "label": "Client Photo",
+            "name": "client_photo",
+            "type": "image",
+            "instructions": "Optional headshot. Falls back to a generic avatar if omitted.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "max_width": "",
+            "max_height": ""
+        },
+        {
+            "key": "field_testimonial_rating",
+            "label": "Rating",
+            "name": "rating",
+            "type": "select",
+            "instructions": "Optional star rating (1–5). Not rendered in the slider block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "5": "5 stars",
+                "4": "4 stars",
+                "3": "3 stars",
+                "2": "2 stars",
+                "1": "1 star"
+            },
+            "default_value": "5",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "testimonial"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

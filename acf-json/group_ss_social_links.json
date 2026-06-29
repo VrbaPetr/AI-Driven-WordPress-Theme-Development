@@ -1,0 +1,111 @@
+{
+    "key": "group_ss_social_links",
+    "title": "Social Links",
+    "fields": [
+        {
+            "key": "field_ss_social_links",
+            "label": "Social Links",
+            "name": "social_links",
+            "type": "repeater",
+            "instructions": "Add one row per social media profile.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Add Social Link",
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_ss_sl_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "linkedin": "LinkedIn",
+                        "github": "GitHub",
+                        "twitter": "Twitter / X",
+                        "facebook": "Facebook",
+                        "instagram": "Instagram",
+                        "youtube": "YouTube",
+                        "other": "Other"
+                    },
+                    "default_value": [],
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_ss_sl_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://"
+                },
+                {
+                    "key": "field_ss_sl_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Screen-reader accessible label, e.g. “Follow us on LinkedIn”.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 30,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

@@ -1,0 +1,137 @@
+{
+    "key": "group_process_block",
+    "title": "Process Block",
+    "fields": [
+        {
+            "key": "field_proc_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional heading displayed above the steps.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "How We Work",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_proc_section_subheading",
+            "label": "Section Subheading",
+            "name": "section_subheading",
+            "type": "text",
+            "instructions": "Optional supporting sentence displayed below the heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "A simple, transparent process from first call to final delivery.",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_proc_layout",
+            "label": "Layout",
+            "name": "layout",
+            "type": "select",
+            "instructions": "Horizontal: steps in a row with connecting arrows (collapses on mobile). Vertical: steps stacked with a side connector line.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "choices": {
+                "horizontal": "Horizontal",
+                "vertical": "Vertical"
+            },
+            "default_value": "horizontal",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_proc_steps",
+            "label": "Steps",
+            "name": "steps",
+            "type": "repeater",
+            "instructions": "Add up to 8 process steps. Step numbers are assigned automatically.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "min": 1,
+            "max": 8,
+            "collapsed": "",
+            "button_label": "Add Step",
+            "sub_fields": [
+                {
+                    "key": "field_proc_step_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "text",
+                    "instructions": "SVG filename without extension from assets/media/icons/, e.g. circle-check. Leave blank to hide.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "circle-check",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_proc_step_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Step title, e.g. Discovery & Planning.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "75", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Discovery & Planning",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_proc_step_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "1–2 sentences describing this step.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "We start with a deep-dive workshop to align on goals, scope, and success criteria.",
+                    "rows": 3,
+                    "new_lines": "br"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/process"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

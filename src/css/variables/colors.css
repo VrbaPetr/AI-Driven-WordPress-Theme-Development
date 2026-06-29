@@ -1,0 +1,72 @@
+@theme {
+    /* Primary: Mountain Blue — #7AB2E0 anchored at -500 (oklch 76% 0.14 237).
+       To retheme: change the hue value (237) across all steps. */
+    --color-primary-50:  oklch(97% 0.01 237);
+    --color-primary-100: oklch(93% 0.03 237);
+    --color-primary-200: oklch(89% 0.06 237);
+    --color-primary-300: oklch(84% 0.09 237);
+    --color-primary-400: oklch(80% 0.11 237);
+    --color-primary-500: oklch(76% 0.14 237);
+    --color-primary-600: oklch(63% 0.14 237);
+    --color-primary-700: oklch(50% 0.12 237);
+    --color-primary-800: oklch(38% 0.09 237);
+    --color-primary-900: oklch(27% 0.07 237);
+    --color-primary-950: oklch(17% 0.05 237);
+
+    /* Secondary: Rock Black — #010101 anchored at -500.
+       Lighter steps are achromatic grays; 600–950 are near-black micro-steps. */
+    --color-secondary-50:  oklch(96% 0 0);
+    --color-secondary-100: oklch(90% 0 0);
+    --color-secondary-200: oklch(80% 0 0);
+    --color-secondary-300: oklch(65% 0 0);
+    --color-secondary-400: oklch(45% 0 0);
+    --color-secondary-500: oklch(4% 0 0);
+    --color-secondary-600: oklch(3.2% 0 0);
+    --color-secondary-700: oklch(2.5% 0 0);
+    --color-secondary-800: oklch(2% 0 0);
+    --color-secondary-900: oklch(1.5% 0 0);
+    --color-secondary-950: oklch(1% 0 0);
+
+    /* Neutral: Salt White — #FFFFFF anchored at -50, pure gray scale to near-black at -950. */
+    --color-neutral-50:  oklch(100% 0 0);
+    --color-neutral-100: oklch(96% 0 0);
+    --color-neutral-200: oklch(91% 0 0);
+    --color-neutral-300: oklch(84% 0 0);
+    --color-neutral-400: oklch(73% 0 0);
+    --color-neutral-500: oklch(62% 0 0);
+    --color-neutral-600: oklch(51% 0 0);
+    --color-neutral-700: oklch(40% 0 0);
+    --color-neutral-800: oklch(30% 0 0);
+    --color-neutral-900: oklch(20% 0 0);
+    --color-neutral-950: oklch(10% 0 0);
+
+    /* Semantic state colours — base */
+    --color-success: oklch(60% 0.15 145);
+    --color-warning: oklch(75% 0.17 70);
+    --color-error:   oklch(55% 0.20 25);
+    --color-info:    oklch(60% 0.13 240);
+
+    /* Semantic state colours — light tints (for badge/alert backgrounds) */
+    --color-info-bg:         oklch(97% 0.02 240);
+    --color-info-border:     oklch(83% 0.08 240);
+    --color-info-text:       oklch(35% 0.12 240);
+
+    --color-success-bg:      oklch(97% 0.02 145);
+    --color-success-border:  oklch(83% 0.08 145);
+    --color-success-text:    oklch(32% 0.12 145);
+
+    --color-warning-bg:      oklch(97% 0.03 70);
+    --color-warning-border:  oklch(83% 0.10 70);
+    --color-warning-text:    oklch(35% 0.12 70);
+
+    --color-error-bg:        oklch(97% 0.02 25);
+    --color-error-border:    oklch(83% 0.10 25);
+    --color-error-text:      oklch(32% 0.15 25);
+
+    /* Surface aliases */
+    --color-background: var(--color-neutral-50);
+    --color-surface:    var(--color-neutral-50);
+    --color-border:     var(--color-neutral-200);
+    --color-text:       var(--color-neutral-900);
+    --color-text-muted: var(--color-neutral-500);
+}

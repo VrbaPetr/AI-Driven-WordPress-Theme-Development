@@ -1,0 +1,55 @@
+{
+    "key": "group_service_cpt_fields",
+    "title": "Service Details",
+    "fields": [
+        {
+            "key": "field_service_icon",
+            "label": "Service Icon",
+            "name": "service_icon",
+            "type": "text",
+            "instructions": "SVG filename (without extension) from assets/media/icons/, e.g. circle-check. Used in the Services block card grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "circle-check",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_service_short_description",
+            "label": "Short Description",
+            "name": "short_description",
+            "type": "textarea",
+            "instructions": "1–2 sentences shown on service cards in the Services block. Keep it concise.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "We build fast, accessible websites tailored to your business goals.",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

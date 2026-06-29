@@ -1,0 +1,123 @@
+{
+    "key": "group_text_image_block",
+    "title": "Text & Image Block",
+    "fields": [
+        {
+            "key": "field_ti_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Main headline for this section.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Your section headline",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ti_body",
+            "label": "Body",
+            "name": "body",
+            "type": "wysiwyg",
+            "instructions": "Rich text body — supports bold, italic, links, and lists.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_ti_cta_label",
+            "label": "CTA Label",
+            "name": "cta_label",
+            "type": "text",
+            "instructions": "Optional. Leave blank to hide the button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Learn More",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ti_cta_url",
+            "label": "CTA URL",
+            "name": "cta_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_ti_image",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "The image displayed alongside the text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_ti_image_position",
+            "label": "Image Position",
+            "name": "image_position",
+            "type": "select",
+            "instructions": "Which side the image appears on — desktop only. On mobile the image always appears below the text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "right": "Right",
+                "left": "Left"
+            },
+            "default_value": "right",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/text-image"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

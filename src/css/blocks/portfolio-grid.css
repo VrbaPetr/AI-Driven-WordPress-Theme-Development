@@ -1,0 +1,163 @@
+@layer components {
+    .portfolio-grid-block {
+        @apply py-16;
+        @apply lg:py-24;
+    }
+
+    .portfolio-grid-inner {
+        @apply max-w-7xl mx-auto px-4;
+        @apply md:px-6;
+    }
+
+    .portfolio-grid-heading {
+        @apply text-3xl font-bold text-center mb-10;
+        color: var(--color-text);
+    }
+
+    /* Filter buttons */
+    .portfolio-filters {
+        @apply flex flex-wrap justify-center gap-2 mb-10;
+    }
+
+    .portfolio-filter-btn {
+        @apply px-4 py-2 rounded-full text-sm font-medium border;
+        @apply transition-colors duration-150;
+        color: var(--color-text-muted);
+        border-color: var(--color-border);
+        background-color: var(--color-neutral-50);
+        cursor: pointer;
+    }
+
+    .portfolio-filter-btn:hover {
+        color: var(--color-primary-700);
+        border-color: var(--color-primary-300);
+        background-color: var(--color-primary-50);
+    }
+
+    .portfolio-filter-btn.is-active {
+        color: var(--color-neutral-50);
+        border-color: var(--color-primary-600);
+        background-color: var(--color-primary-600);
+    }
+
+    .portfolio-filter-btn:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-full;
+        outline-color: var(--color-primary-500);
+    }
+
+    /* Grid: 1 col → 2 col → 3 col */
+    .portfolio-grid {
+        @apply grid grid-cols-1 gap-6 list-none p-0 m-0;
+        @apply md:grid-cols-2;
+        @apply lg:grid-cols-3;
+    }
+
+    /* Card */
+    .portfolio-card {
+        @apply rounded-xl overflow-hidden border;
+        border-color: var(--color-border);
+        background-color: var(--color-neutral-50);
+        transition: box-shadow 200ms ease, transform 200ms ease;
+    }
+
+    .portfolio-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+    }
+
+    .portfolio-card-link {
+        @apply flex flex-col h-full no-underline;
+        color: inherit;
+    }
+
+    .portfolio-card-link:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-xl;
+        outline-color: var(--color-primary-500);
+    }
+
+    /* Thumbnail with overlay */
+    .portfolio-card-thumb {
+        @apply relative overflow-hidden;
+        aspect-ratio: 4 / 3;
+    }
+
+    .portfolio-card-img {
+        @apply w-full h-full object-cover block;
+        transition: transform 300ms ease;
+    }
+
+    .portfolio-card:hover .portfolio-card-img {
+        transform: scale(1.04);
+    }
+
+    .portfolio-card-img-placeholder {
+        @apply w-full h-full;
+        background-color: var(--color-neutral-200);
+    }
+
+    /* Hover overlay */
+    .portfolio-card-overlay {
+        @apply absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-0;
+        @apply transition-opacity duration-200;
+        background-color: oklch(4% 0 0 / 0.65);
+    }
+
+    .portfolio-card:hover .portfolio-card-overlay {
+        opacity: 1;
+    }
+
+    .portfolio-card-overlay-title {
+        @apply text-sm font-semibold text-center px-4;
+        color: var(--color-neutral-50);
+    }
+
+    .portfolio-card-overlay-icon {
+        @apply w-8 h-8;
+        color: var(--color-neutral-50);
+    }
+
+    /* Body */
+    .portfolio-card-body {
+        @apply flex flex-col gap-2 p-5 flex-1;
+    }
+
+    .portfolio-card-title {
+        @apply text-lg font-semibold m-0;
+        color: var(--color-text);
+    }
+
+    .portfolio-card-desc {
+        @apply text-sm leading-relaxed m-0;
+        color: var(--color-text-muted);
+    }
+
+    /* Load More */
+    .portfolio-load-more {
+        @apply flex justify-center mt-12;
+    }
+
+    .portfolio-load-more-btn {
+        @apply px-8 py-3 rounded-full text-sm font-semibold border-2;
+        @apply transition-colors duration-150;
+        color: var(--color-primary-700);
+        border-color: var(--color-primary-500);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .portfolio-load-more-btn:hover:not(:disabled) {
+        color: var(--color-neutral-50);
+        background-color: var(--color-primary-600);
+        border-color: var(--color-primary-600);
+    }
+
+    .portfolio-load-more-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .portfolio-load-more-btn:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-full;
+        outline-color: var(--color-primary-500);
+    }
+}

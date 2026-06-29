@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Theme Development">
+    <description>Custom coding standards for AI-Driven boilerplate WordPress theme.</description>
+    <arg name="colors"/>
+    <file>./</file>
+
+    <!-- Include the WordPress coding standards -->
+    <rule ref="WordPress"/>
+
+    <!-- Vite-compiled assets use null version: the manifest hashes the filename, so a
+         version query string would double-version and break cache invalidation. -->
+    <rule ref="WordPress.WP.EnqueuedResourceParameters.MissingVersion">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Define the file extensions to check -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Exclude directories that don't contain project PHP -->
+    <exclude-pattern>*/.github/*</exclude-pattern>
+    <exclude-pattern>*/acf-json/*</exclude-pattern>
+    <exclude-pattern>*/assets/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/src/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <!-- Exclude non-PHP file types -->
+    <exclude-pattern>*.css</exclude-pattern>
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.json</exclude-pattern>
+    <exclude-pattern>*.md</exclude-pattern>
+    <exclude-pattern>*.mjs</exclude-pattern>
+    <exclude-pattern>*.yml</exclude-pattern>
+    <exclude-pattern>pnpm-lock.yaml</exclude-pattern>
+</ruleset>

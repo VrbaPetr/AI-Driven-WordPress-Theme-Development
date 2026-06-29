@@ -1,0 +1,87 @@
+{
+    "key": "group_faq_block",
+    "title": "FAQ Block",
+    "fields": [
+        {
+            "key": "field_faq_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional heading displayed above the FAQ list.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Frequently Asked Questions",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_faq_items",
+            "label": "FAQ Items",
+            "name": "faq_items",
+            "type": "repeater",
+            "instructions": "Add questions and answers. Each item renders as an expandable accordion panel.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "min": 1,
+            "max": 0,
+            "collapsed": "field_faq_question",
+            "button_label": "Add FAQ Item",
+            "sub_fields": [
+                {
+                    "key": "field_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text",
+                    "instructions": "The question text. Used as the accordion trigger label and in FAQ structured data.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "How long does a typical project take?",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "wysiwyg",
+                    "instructions": "Answer content — bold, italic, links, and lists are supported.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/faq"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

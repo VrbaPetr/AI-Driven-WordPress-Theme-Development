@@ -1,0 +1,76 @@
+@layer components {
+
+	/* ═══════════════════════════════════════════════════════════
+	   404 — Page Not Found
+	═══════════════════════════════════════════════════════════ */
+
+	.not-found-main {
+		@apply flex items-center justify-center;
+		min-height: 60vh;
+	}
+
+	.not-found-inner {
+		@apply max-w-xl w-full mx-auto px-6 py-20;
+		@apply flex flex-col items-center gap-6 text-center;
+	}
+
+	/* ── Decorative number ──────────────────────────────────── */
+
+	.not-found-number {
+		@apply text-8xl font-black leading-none m-0 select-none;
+		@apply md:text-9xl;
+		color: var(--color-neutral-200);
+	}
+
+	/* ── Heading & message ──────────────────────────────────── */
+
+	.not-found-title {
+		@apply text-3xl font-bold m-0;
+		@apply md:text-4xl;
+		color: var(--color-text);
+	}
+
+	.not-found-message {
+		@apply text-lg leading-relaxed m-0;
+		color: var(--color-text-muted);
+	}
+
+	/* ── Search form ────────────────────────────────────────── */
+
+	.not-found-search {
+		@apply w-full max-w-md;
+	}
+
+	/* ── Actions ────────────────────────────────────────────── */
+
+	.not-found-actions {
+		@apply flex justify-center;
+	}
+
+	/* ── Quick links ────────────────────────────────────────── */
+
+	.not-found-links {
+		@apply flex flex-col items-center gap-3 pt-4 border-t w-full;
+		border-color: var(--color-border);
+	}
+
+	.not-found-links-label {
+		@apply text-sm font-semibold m-0;
+		color: var(--color-text-muted);
+	}
+
+	.not-found-links-list {
+		@apply list-none m-0 p-0;
+		@apply flex flex-wrap justify-center gap-x-5 gap-y-2;
+	}
+
+	.not-found-links-anchor {
+		@apply text-sm font-medium no-underline;
+		color: var(--color-primary-600);
+		transition: color 150ms ease;
+	}
+
+	.not-found-links-anchor:hover {
+		color: var(--color-primary-800);
+	}
+}

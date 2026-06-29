@@ -1,0 +1,39 @@
+@layer components {
+    .breadcrumbs {
+        @apply w-full;
+    }
+
+    .breadcrumbs-list {
+        @apply flex flex-wrap items-center gap-1 list-none m-0 p-0;
+        @apply text-sm;
+        color: var(--color-text-muted);
+    }
+
+    /* Separator injected before every item after the first */
+    .breadcrumbs-item + .breadcrumbs-item::before {
+        content: '/';
+        @apply mx-1;
+        color: var(--color-neutral-300);
+    }
+
+    .breadcrumbs-link {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+
+    .breadcrumbs-link:hover {
+        color: var(--color-primary-600);
+        text-decoration: underline;
+    }
+
+    .breadcrumbs-link:focus-visible {
+        @apply outline-2 outline-offset-1 rounded-sm;
+        outline-color: var(--color-primary-500);
+    }
+
+    .breadcrumbs-current {
+        color: var(--color-text);
+        font-weight: var(--font-weight-medium);
+    }
+}

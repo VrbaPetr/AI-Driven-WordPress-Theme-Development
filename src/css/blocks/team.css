@@ -1,0 +1,114 @@
+@layer components {
+    .team-block {
+        @apply py-16;
+        @apply lg:py-24;
+    }
+
+    .team-inner {
+        @apply max-w-7xl mx-auto px-4;
+        @apply md:px-6;
+    }
+
+    .team-heading {
+        @apply text-3xl font-bold text-center mb-12;
+        color: var(--color-text);
+    }
+
+    /* Grid: 1 col → 2 col → desktop col count */
+    .team-grid {
+        @apply grid grid-cols-1 gap-8 list-none p-0 m-0;
+        @apply md:grid-cols-2;
+    }
+
+    .team-grid--cols-2 {
+        @apply lg:grid-cols-2;
+    }
+
+    .team-grid--cols-3 {
+        @apply lg:grid-cols-3;
+    }
+
+    .team-grid--cols-4 {
+        @apply lg:grid-cols-4;
+    }
+
+    /* Card */
+    .team-card {
+        @apply flex flex-col overflow-hidden rounded-xl border;
+        background-color: var(--color-neutral-50);
+        border-color: var(--color-border);
+        transition: box-shadow 200ms ease, transform 200ms ease;
+    }
+
+    .team-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+    }
+
+    /* Portrait photo */
+    .team-card-photo {
+        @apply overflow-hidden aspect-[4/5];
+    }
+
+    .team-card-img {
+        @apply w-full h-full object-cover object-top;
+        transition: transform 300ms ease;
+    }
+
+    .team-card:hover .team-card-img {
+        transform: scale(1.03);
+    }
+
+    /* Card body */
+    .team-card-body {
+        @apply flex flex-col gap-2 p-6 flex-1;
+    }
+
+    /* Name */
+    .team-card-name {
+        @apply text-xl font-semibold m-0;
+        color: var(--color-text);
+    }
+
+    /* Job title */
+    .team-card-role {
+        @apply text-sm font-medium m-0;
+        color: var(--color-primary-600);
+    }
+
+    /* Bio excerpt */
+    .team-card-bio {
+        @apply text-sm leading-relaxed m-0 flex-1;
+        color: var(--color-text-muted);
+    }
+
+    /* Social links */
+    .team-card-social {
+        @apply flex flex-wrap gap-3 list-none p-0 m-0 mt-2;
+    }
+
+    .team-card-social-item {
+        @apply flex;
+    }
+
+    .team-card-social-link {
+        @apply flex items-center justify-center w-8 h-8 rounded-full;
+        color: var(--color-neutral-500);
+        background-color: var(--color-neutral-100);
+        transition: color 150ms ease, background-color 150ms ease;
+    }
+
+    .team-card-social-link:hover {
+        color: var(--color-primary-600);
+        background-color: var(--color-primary-100);
+    }
+
+    .team-card-social-link:focus-visible {
+        @apply outline-2 outline-offset-2 rounded-full;
+        outline-color: var(--color-primary-500);
+    }
+
+    .team-card-social-link svg {
+        @apply w-4 h-4;
+    }
+}
