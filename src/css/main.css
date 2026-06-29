@@ -34,7 +34,13 @@
     --breakpoint-2xl: 1536px;
 }
 
-/* Blocks — added per block step (Steps 11–22) */
+/* Content Blocks */
+@import "./blocks/cta.css";
+@import "./blocks/faq.css";
+@import "./blocks/hero.css";
+@import "./blocks/process.css";
+@import "./blocks/stats.css";
+@import "./blocks/text-image.css";
 
 /* Pages — added per page step (Steps 23–33) */
 

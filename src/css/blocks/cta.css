@@ -1,0 +1,39 @@
+@layer components {
+
+    /* ── CTA Block ───────────────────────────────────────────────────────── */
+
+    .cta {
+        @apply w-full;
+        background-color: var(--color-primary-500); /* fallback when no colour is picked */
+    }
+
+    .cta-inner {
+        @apply mx-auto w-full max-w-7xl px-6 py-20 text-center;
+        @apply lg:px-8 lg:py-28;
+    }
+
+    .cta-heading {
+        @apply text-3xl font-bold m-0;
+        @apply lg:text-5xl;
+    }
+
+    .cta-subtext {
+        @apply text-lg mt-4 m-0;
+    }
+
+    .cta-buttons {
+        @apply flex flex-wrap justify-center gap-4 mt-8;
+    }
+
+    /* Text colour modifiers */
+
+    .cta--light-text .cta-heading,
+    .cta--light-text .cta-subtext {
+        color: var(--color-neutral-50);
+    }
+
+    .cta--dark-text .cta-heading,
+    .cta--dark-text .cta-subtext {
+        color: var(--color-text);
+    }
+}

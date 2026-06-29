@@ -1,0 +1,218 @@
+{
+    "key": "group_hero_block",
+    "title": "Hero Block",
+    "fields": [
+        {
+            "key": "field_hero_variant",
+            "label": "Variant",
+            "name": "variant",
+            "type": "select",
+            "instructions": "Choose the hero layout: full-width image banner or a side-by-side split.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "choices": {
+                "image-bg": "Image Background",
+                "split": "Split"
+            },
+            "default_value": "image-bg",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_hero_is_page_title",
+            "label": "Is Page Title",
+            "name": "is_page_title",
+            "type": "true_false",
+            "instructions": "Enable to render the heading as <h1>. Use only once per page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_hero_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Main headline displayed in the hero.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Your compelling headline here",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_subheading",
+            "label": "Subheading",
+            "name": "subheading",
+            "type": "textarea",
+            "instructions": "Supporting text, 1–2 sentences.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "A short supporting sentence that clarifies your offer.",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_hero_primary_cta_label",
+            "label": "Primary CTA Label",
+            "name": "primary_cta_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Get Started",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_primary_cta_url",
+            "label": "Primary CTA URL",
+            "name": "primary_cta_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_hero_secondary_cta_label",
+            "label": "Secondary CTA Label",
+            "name": "secondary_cta_label",
+            "type": "text",
+            "instructions": "Optional. Leave blank to hide the secondary button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Learn More",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_hero_secondary_cta_url",
+            "label": "Secondary CTA URL",
+            "name": "secondary_cta_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://"
+        },
+        {
+            "key": "field_hero_background_image",
+            "label": "Background Image",
+            "name": "background_image",
+            "type": "image",
+            "instructions": "Used as the CSS background (Image Background variant) or the right-column image (Split variant).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_hero_overlay_opacity",
+            "label": "Overlay Opacity",
+            "name": "overlay_opacity",
+            "type": "range",
+            "instructions": "Controls how dark the overlay is over the background image. Higher = more opaque.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_variant",
+                        "operator": "==",
+                        "value": "image-bg"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 50,
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_hero_text_alignment",
+            "label": "Text Alignment",
+            "name": "text_alignment",
+            "type": "select",
+            "instructions": "Horizontal alignment of the text content within the hero.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_variant",
+                        "operator": "==",
+                        "value": "image-bg"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "left": "Left",
+                "centre": "Centre"
+            },
+            "default_value": "left",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

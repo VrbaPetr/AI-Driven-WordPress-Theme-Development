@@ -1,0 +1,244 @@
+{
+    "key": "group_cta_block",
+    "title": "CTA Block",
+    "fields": [
+        {
+            "key": "field_cta_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Main headline rendered as an <h2>.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Ready to start your project?",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_cta_subtext",
+            "label": "Subtext",
+            "name": "subtext",
+            "type": "text",
+            "instructions": "Supporting sentence displayed below the heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Get in touch and we'll respond within one business day.",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_cta_primary_label",
+            "label": "Primary Button Label",
+            "name": "primary_label",
+            "type": "text",
+            "instructions": "Required — the block will not render without it.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Get in Touch",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_cta_primary_url",
+            "label": "Primary Button URL",
+            "name": "primary_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://example.com/contact"
+        },
+        {
+            "key": "field_cta_secondary_label",
+            "label": "Secondary Button Label",
+            "name": "secondary_label",
+            "type": "text",
+            "instructions": "Leave blank to hide the secondary button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "View Our Work",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_cta_secondary_url",
+            "label": "Secondary Button URL",
+            "name": "secondary_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://example.com/portfolio"
+        },
+        {
+            "key": "field_cta_bg_style",
+            "label": "Background Style",
+            "name": "background_style",
+            "type": "select",
+            "instructions": "Choose how the block background is filled.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "solid": "Solid Colour",
+                "gradient": "Gradient"
+            },
+            "default_value": "solid",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cta_text_colour",
+            "label": "Text Colour",
+            "name": "text_colour",
+            "type": "select",
+            "instructions": "Choose Light for dark/coloured backgrounds; Dark for light backgrounds. Ensure contrast ratio ≥ 4.5:1.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "light": "Light (white)",
+                "dark": "Dark (near-black)"
+            },
+            "default_value": "light",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cta_bg_colour",
+            "label": "Background Colour",
+            "name": "background_colour",
+            "type": "color_picker",
+            "instructions": "Pick a solid background colour.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_style",
+                        "operator": "==",
+                        "value": "solid"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "#7AB2E0",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_cta_gradient_start",
+            "label": "Gradient Start Colour",
+            "name": "gradient_start",
+            "type": "color_picker",
+            "instructions": "Starting colour for the gradient.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_style",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "#7AB2E0",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_cta_gradient_end",
+            "label": "Gradient End Colour",
+            "name": "gradient_end",
+            "type": "color_picker",
+            "instructions": "Ending colour for the gradient.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_style",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "#010101",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_cta_gradient_direction",
+            "label": "Gradient Direction",
+            "name": "gradient_direction",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_style",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "choices": {
+                "to right": "Left → Right",
+                "to bottom right": "Top-Left → Bottom-Right",
+                "to bottom": "Top → Bottom"
+            },
+            "default_value": "to right",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}
