@@ -62,3 +62,69 @@ function ai_driven_ajax_load_portfolio() {
 }
 add_action( 'wp_ajax_ai_driven_load_portfolio', 'ai_driven_ajax_load_portfolio' );
 add_action( 'wp_ajax_nopriv_ai_driven_load_portfolio', 'ai_driven_ajax_load_portfolio' );
+
+/**
+ * Handle contact form AJAX submission.
+ *
+ * Expected POST params: action, contact_nonce, name, email, subject, message, honeypot.
+ *
+ * @return void Sends JSON response and exits.
+ */
+function ai_driven_ajax_handle_contact_form() {
+	// 1. Nonce verification.
+	if ( ! check_ajax_referer( 'aidriven_contact_form', 'contact_nonce', false ) ) {
+		wp_send_json_error( array( 'message' => __( 'Invalid nonce.', 'ai-driven-boilerplate' ) ), 403 );
+	}
+
+	// 2. Honeypot — silently return success so bots think the submission worked.
+	$honeypot = isset( $_POST['honeypot'] ) ? sanitize_text_field( wp_unslash( $_POST['honeypot'] ) ) : '';
+	if ( ! empty( $honeypot ) ) {
+		wp_send_json_success();
+	}
+
+	// 3. Sanitize.
+	$data = array(
+		'name'    => isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '',
+		'email'   => isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '',
+		'subject' => isset( $_POST['subject'] ) ? sanitize_text_field( wp_unslash( $_POST['subject'] ) ) : '',
+		'message' => isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '',
+	);
+
+	// 4. Validate.
+	$errors = ai_driven_validate_contact_form( $data );
+	if ( ! empty( $errors ) ) {
+		wp_send_json_error( array( 'errors' => $errors ), 422 );
+	}
+
+	// 5. Send admin notification email.
+	$company_name = get_field( 'company_name', 'option' );
+	if ( empty( $company_name ) ) {
+		$company_name = get_bloginfo( 'name' );
+	}
+
+	$host       = wp_parse_url( home_url(), PHP_URL_HOST );
+	$from_email = 'noreply@' . $host;
+	$headers    = array(
+		'Content-Type: text/plain; charset=UTF-8',
+		'From: ' . $company_name . ' <' . $from_email . '>',
+	);
+
+	$to = get_option( 'admin_email' );
+	/* translators: 1: site name, 2: subject submitted by visitor */
+	$subject = sprintf( __( '[%1$s] New Enquiry: %2$s', 'ai-driven-boilerplate' ), get_bloginfo( 'name' ), $data['subject'] );
+	$body    = sprintf(
+		/* translators: contact form email body placeholders */
+		__( "Name: %1\$s\nEmail: %2\$s\nSubject: %3\$s\n\nMessage:\n%4\$s", 'ai-driven-boilerplate' ),
+		$data['name'],
+		$data['email'],
+		$data['subject'],
+		$data['message']
+	);
+
+	wp_mail( $to, $subject, $body, $headers );
+
+	// 6. Respond.
+	wp_send_json_success();
+}
+add_action( 'wp_ajax_aidriven_contact_form', 'ai_driven_ajax_handle_contact_form' );
+add_action( 'wp_ajax_nopriv_aidriven_contact_form', 'ai_driven_ajax_handle_contact_form' );

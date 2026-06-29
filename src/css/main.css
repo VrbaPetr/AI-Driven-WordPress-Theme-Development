@@ -24,7 +24,8 @@
 @import "./components/card.css";
 @import "./components/pagination.css";
 
-/* Forms — added in Step 30 */
+/* Forms */
+@import "./forms/contact.css";
 
 /* Breakpoints */
 @theme {
