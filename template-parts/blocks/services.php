@@ -52,9 +52,9 @@ else :
 			while ( $services_query->have_posts() ) {
 				$services_query->the_post();
 				$cards[] = array(
-					'icon'  => get_field( 'service_icon' ),
+					'icon'  => get_field( 'service_icon', get_the_ID() ),
 					'title' => get_the_title(),
-					'desc'  => get_field( 'short_description' ),
+					'desc'  => get_field( 'short_description', get_the_ID() ),
 					'url'   => get_permalink(),
 				);
 			}
