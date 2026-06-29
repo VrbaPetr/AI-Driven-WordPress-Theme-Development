@@ -71,6 +71,12 @@
         outline-color: var(--color-primary-500);
     }
 
+    /* Meta (date, read time, etc.) */
+    .card-meta {
+        @apply text-xs leading-none;
+        color: var(--color-text-muted);
+    }
+
     /* Excerpt */
     .card-excerpt {
         @apply text-sm leading-relaxed m-0 flex-1;

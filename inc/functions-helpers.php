@@ -67,6 +67,22 @@ function aidriven_truncate_text( $text, $length = 160, $more = '&hellip;' ) {
 }
 
 /**
+ * Estimate reading time for a post in minutes.
+ *
+ * Strips all tags from the content and divides the word count by an average
+ * reading speed of 200 words per minute, rounding to the nearest whole minute
+ * with a floor of 1.
+ *
+ * @param int $post_id WP post ID.
+ * @return int Estimated reading time in minutes.
+ */
+function aidriven_get_read_time( $post_id ) {
+	$content    = get_post_field( 'post_content', $post_id );
+	$word_count = str_word_count( wp_strip_all_tags( $content ) );
+	return max( 1, (int) round( $word_count / 200 ) );
+}
+
+/**
  * Return social links from the ACF global options page.
  *
  * Expects a Repeater field named `social_links` on the options page (defined

@@ -14,6 +14,7 @@
  *     @type string $excerpt      Short description. Optional.
  *     @type string $cta_label    CTA link text. Optional.
  *     @type string $cta_url      CTA link href. Optional.
+ *     @type string $meta         Optional meta line (e.g. "Jan 1, 2025 · 3 min read"). Rendered as small muted text.
  *     @type string $classes      Additional CSS classes on the root element.
  * }
  */
@@ -25,6 +26,7 @@ $category_url   = $args['category_url'] ?? '';
 $card_title     = $args['title'] ?? '';
 $card_title_url = $args['title_url'] ?? '';
 $excerpt        = $args['excerpt'] ?? '';
+$meta           = $args['meta'] ?? '';
 $cta_label      = $args['cta_label'] ?? '';
 $cta_url        = $args['cta_url'] ?? '';
 $classes        = $args['classes'] ?? '';
@@ -69,6 +71,10 @@ if ( $classes ) {
 					<span class="card-badge"><?php echo esc_html( $category ); ?></span>
 				<?php endif; ?>
 			</div>
+		<?php endif; ?>
+
+		<?php if ( $meta ) : ?>
+			<span class="card-meta"><?php echo esc_html( $meta ); ?></span>
 		<?php endif; ?>
 
 		<h3 class="card-title">

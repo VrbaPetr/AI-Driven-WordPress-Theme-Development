@@ -156,6 +156,34 @@ function aidriven_get_related_services( $post_id ) {
 }
 
 /**
+ * Return up to 3 related posts from the same primary category, excluding the current post.
+ *
+ * Falls back to the 3 most-recent posts when no category is assigned.
+ *
+ * @param int $post_id ID of the current post.
+ * @return WP_Query Query object; caller must call wp_reset_postdata() after looping.
+ */
+function aidriven_get_related_posts( $post_id ) {
+	$query_args = array(
+		'post_type'      => 'post',
+		'posts_per_page' => 3,
+		'post_status'    => 'publish',
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'no_found_rows'  => true,
+	);
+
+	$categories = get_the_category( $post_id );
+
+	if ( ! empty( $categories ) ) {
+		$query_args['category__in'] = array( $categories[0]->term_id );
+	}
+
+	return new WP_Query( $query_args );
+}
+
+/**
  * Return up to 3 related projects from the same portfolio-category, excluding the current post.
  *
  * @param int $post_id ID of the current project post.
