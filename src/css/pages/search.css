@@ -1,0 +1,113 @@
+@layer components {
+
+	/* ═══════════════════════════════════════════════════════════
+	   Page header
+	═══════════════════════════════════════════════════════════ */
+
+	.search-header {
+		border-bottom: 1px solid var(--color-border);
+		background-color: var(--color-neutral-100);
+	}
+
+	.search-header-inner {
+		@apply max-w-4xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-6;
+	}
+
+	.search-header-title {
+		@apply text-3xl font-bold leading-tight m-0;
+		@apply md:text-4xl;
+		color: var(--color-text);
+	}
+
+	.search-header-count {
+		@apply text-base m-0;
+		color: var(--color-text-muted);
+	}
+
+	/* ── Search form ────────────────────────────────────────── */
+
+	.search-form {
+		@apply flex gap-3 w-full;
+		@apply max-w-xl;
+	}
+
+	.search-form-input {
+		@apply flex-1 px-4 py-2.5 rounded-lg border text-base;
+		border-color: var(--color-border);
+		background-color: var(--color-surface);
+		color: var(--color-text);
+		outline: none;
+		transition: border-color 150ms ease, box-shadow 150ms ease;
+	}
+
+	.search-form-input:focus {
+		border-color: var(--color-primary-400);
+		box-shadow: 0 0 0 3px var(--color-primary-100);
+	}
+
+	.search-form-btn {
+		@apply px-5 py-2.5 rounded-lg text-base font-semibold cursor-pointer shrink-0;
+		border: none;
+		background-color: var(--color-primary-600);
+		color: var(--color-neutral-50);
+		transition: background-color 150ms ease;
+	}
+
+	.search-form-btn:hover {
+		background-color: var(--color-primary-700);
+	}
+
+	/* ═══════════════════════════════════════════════════════════
+	   Results section
+	═══════════════════════════════════════════════════════════ */
+
+	.search-inner {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+	}
+
+	/* ── Card grid ─────────────────────────────────────────── */
+
+	.search-results-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ═══════════════════════════════════════════════════════════
+	   No-results state
+	═══════════════════════════════════════════════════════════ */
+
+	.search-no-results {
+		@apply max-w-xl flex flex-col gap-6;
+	}
+
+	.search-no-results-title {
+		@apply text-2xl font-bold m-0;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	.search-no-results-intro {
+		@apply text-base font-semibold m-0;
+		color: var(--color-text);
+	}
+
+	.search-no-results-tips {
+		@apply flex flex-col gap-3 m-0 pl-5;
+		@apply list-disc;
+		color: var(--color-text-muted);
+	}
+
+	.search-no-results-link {
+		color: var(--color-primary-600);
+		text-decoration: none;
+		transition: color 150ms ease;
+	}
+
+	.search-no-results-link:hover {
+		color: var(--color-primary-800);
+	}
+}

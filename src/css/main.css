@@ -54,6 +54,7 @@
 @import "./pages/blog.css";
 @import "./pages/contact.css";
 @import "./pages/portfolio.css";
+@import "./pages/search.css";
 @import "./pages/services.css";
 
 @layer base {
