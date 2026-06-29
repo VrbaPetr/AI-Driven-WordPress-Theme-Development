@@ -24,7 +24,8 @@
 @import "./components/card.css";
 @import "./components/pagination.css";
 
-/* Forms — added in Step 30 */
+/* Forms */
+@import "./forms/contact.css";
 
 /* Breakpoints */
 @theme {
@@ -50,9 +51,11 @@
 @import "./blocks/text-image.css";
 
 /* Pages — added per page step (Steps 23–33) */
+@import "./pages/404.css";
 @import "./pages/blog.css";
 @import "./pages/contact.css";
 @import "./pages/portfolio.css";
+@import "./pages/search.css";
 @import "./pages/services.css";
 
 @layer base {

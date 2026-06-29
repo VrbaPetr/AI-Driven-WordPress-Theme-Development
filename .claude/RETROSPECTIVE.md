@@ -226,3 +226,13 @@ The helper function was written in Step 01 as a forward-reference stub. Only the
 **Pattern to remember:** Match the logo variant to the background colour of the section:
 - Dark background (`bg-secondary-500`) → `logo_light`
 - Light background (`bg-neutral-50`) → `logo_dark`
+
+---
+
+## Step 31 — Search Results Page
+
+### Note: Search results page has no entry point
+
+**What happened:** `search.php` was created and styled, but no search form exists anywhere in the theme — not in the header, footer, or any template. A visitor has no way to trigger the search results page.
+
+**Pattern to remember:** Whenever a destination template is built (`search.php`, a CPT single, a custom archive), verify there is at least one visible entry point to it. For the search results page the natural entry point is a search form in the header. This should be added — either as part of Step 31 or as a dedicated follow-up before the theme ships.
