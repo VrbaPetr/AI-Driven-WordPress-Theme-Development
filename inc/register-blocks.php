@@ -274,6 +274,33 @@ add_action(
 			)
 		);
 
+		// Pricing Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'pricing',
+				'title'           => __( 'Pricing', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Side-by-side pricing plan cards with feature lists, CTA buttons, and an optional featured plan highlight.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/pricing.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'tag',
+				'keywords'        => array( __( 'pricing', 'ai-driven-boilerplate' ), __( 'plans', 'ai-driven-boilerplate' ), __( 'packages', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/pricing.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Team Block.
 		acf_register_block_type(
 			array(
