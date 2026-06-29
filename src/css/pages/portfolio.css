@@ -1,0 +1,204 @@
+@layer components {
+
+	/* ═══════════════════════════════════════════════════════════
+	   Archive
+	═══════════════════════════════════════════════════════════ */
+
+	.portfolio-archive-inner {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+	}
+
+	/* ── Category filter bar ───────────────────────────────────── */
+
+	.portfolio-archive-filters {
+		@apply flex flex-wrap gap-3;
+	}
+
+	/* ── Card grid ─────────────────────────────────────────────── */
+
+	.portfolio-archive-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ── Empty state ───────────────────────────────────────────── */
+
+	.portfolio-archive-empty {
+		@apply text-base py-12 text-center;
+		color: var(--color-text-muted);
+	}
+
+	/* ═══════════════════════════════════════════════════════════
+	   Single
+	═══════════════════════════════════════════════════════════ */
+
+	/* ── Hero image ────────────────────────────────────────────── */
+
+	.project-single-hero {
+		@apply w-full overflow-hidden;
+		max-height: 480px;
+	}
+
+	.project-single-hero-img {
+		@apply w-full h-full object-cover block;
+	}
+
+	/* ── Body: content + meta sidebar ──────────────────────────── */
+
+	.project-single-body {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+		@apply lg:flex-row lg:gap-16 lg:items-start;
+	}
+
+	/* ── Content column ────────────────────────────────────────── */
+
+	.project-single-content {
+		@apply flex-1 min-w-0;
+		@apply flex flex-col gap-12;
+	}
+
+	.project-single-section {
+		@apply flex flex-col gap-4;
+	}
+
+	.project-single-section-heading {
+		@apply text-2xl font-bold;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	/* ── Meta sidebar ──────────────────────────────────────────── */
+
+	.project-single-meta {
+		@apply flex flex-col gap-6 p-8 rounded-2xl shrink-0;
+		@apply lg:w-80;
+		background-color: var(--color-primary-50);
+		border: 1px solid var(--color-primary-200);
+	}
+
+	.project-single-meta-heading {
+		@apply text-lg font-bold;
+		color: var(--color-text);
+	}
+
+	.project-single-meta-list {
+		@apply flex flex-col gap-5;
+	}
+
+	.project-single-meta-item {
+		@apply flex flex-col gap-1;
+	}
+
+	.project-single-meta-term {
+		@apply text-xs uppercase tracking-wider font-semibold;
+		color: var(--color-text-muted);
+	}
+
+	.project-single-meta-desc {
+		@apply text-base m-0;
+		color: var(--color-text);
+	}
+
+	.project-single-meta-services {
+		@apply list-none m-0 p-0;
+		@apply flex flex-col gap-1;
+	}
+
+	.project-single-meta-link {
+		@apply underline;
+		color: var(--color-primary-700);
+	}
+
+	.project-single-meta-link:hover {
+		color: var(--color-primary-600);
+	}
+
+	/* ── Gallery ───────────────────────────────────────────────── */
+
+	.project-single-gallery {
+		@apply py-16;
+		background-color: var(--color-neutral-100);
+	}
+
+	.project-single-gallery-inner {
+		@apply max-w-7xl mx-auto px-6;
+		@apply flex flex-col gap-8;
+	}
+
+	.project-single-gallery-heading {
+		@apply text-2xl font-bold;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	.project-single-gallery-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-2 gap-4;
+		@apply md:grid-cols-3;
+		@apply lg:grid-cols-4;
+	}
+
+	.project-single-gallery-item {
+		@apply overflow-hidden rounded-xl;
+	}
+
+	.project-single-gallery-img {
+		@apply w-full h-full object-cover block;
+		aspect-ratio: 4 / 3;
+	}
+
+	/* ── Related projects ──────────────────────────────────────── */
+
+	.project-single-related {
+		@apply py-16;
+	}
+
+	.project-single-related-inner {
+		@apply max-w-7xl mx-auto px-6;
+		@apply flex flex-col gap-8;
+	}
+
+	.project-single-related-heading {
+		@apply text-2xl font-bold;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	.project-single-related-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ── Inline CTA strip ──────────────────────────────────────── */
+
+	.project-single-cta {
+		@apply py-20;
+		background-color: var(--color-secondary-500);
+	}
+
+	.project-single-cta-inner {
+		@apply max-w-3xl mx-auto px-6 text-center;
+		@apply flex flex-col items-center gap-6;
+	}
+
+	.project-single-cta-heading {
+		@apply text-3xl font-bold leading-tight;
+		@apply md:text-4xl;
+		color: var(--color-neutral-50);
+	}
+
+	.project-single-cta-subtext {
+		@apply text-lg leading-relaxed m-0;
+		color: var(--color-neutral-300);
+	}
+
+	.project-single-cta-actions {
+		@apply flex flex-wrap justify-center gap-4;
+	}
+}

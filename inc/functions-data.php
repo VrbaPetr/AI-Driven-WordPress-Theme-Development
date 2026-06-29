@@ -80,3 +80,138 @@ function ai_driven_get_portfolio_posts( $paged, $per_page, $category_slug = '' )
 		'has_more' => $has_more,
 	);
 }
+
+/**
+ * Register service_cat as a recognised query variable.
+ */
+add_filter(
+	'query_vars',
+	function ( $vars ) {
+		$vars[] = 'service_cat';
+		return $vars;
+	}
+);
+
+/**
+ * Filter the service CPT archive by the service_cat query variable on page reload.
+ *
+ * Allows filter links on the archive to append ?service_cat={slug} and have
+ * WordPress restrict the main query to that taxonomy term.
+ *
+ * @param WP_Query $query Current query object passed by reference.
+ * @return void
+ */
+function aidriven_filter_service_archive( WP_Query $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive( 'service' ) ) {
+		return;
+	}
+
+	$cat_slug = get_query_var( 'service_cat' );
+	if ( ! $cat_slug ) {
+		return;
+	}
+
+	$tax_query = array(
+		array(
+			'taxonomy' => 'service-category',
+			'field'    => 'slug',
+			'terms'    => sanitize_key( $cat_slug ),
+		),
+	);
+	$query->set( 'tax_query', $tax_query ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+}
+add_action( 'pre_get_posts', 'aidriven_filter_service_archive' );
+
+/**
+ * Return up to 3 related services from the same service-category, excluding the current post.
+ *
+ * @param int $post_id ID of the current service post.
+ * @return WP_Query Query object; caller must call wp_reset_postdata() after looping.
+ */
+function aidriven_get_related_services( $post_id ) {
+	$query_args = array(
+		'post_type'      => 'service',
+		'posts_per_page' => 3,
+		'post_status'    => 'publish',
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'menu_order',
+		'order'          => 'ASC',
+		'no_found_rows'  => true,
+	);
+
+	$terms = get_the_terms( $post_id, 'service-category' );
+
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		$term_ids                = wp_list_pluck( $terms, 'term_id' );
+		$query_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'service-category',
+				'field'    => 'term_id',
+				'terms'    => $term_ids,
+			),
+		);
+	}
+
+	return new WP_Query( $query_args );
+}
+
+/**
+ * Return up to 3 related posts from the same primary category, excluding the current post.
+ *
+ * Falls back to the 3 most-recent posts when no category is assigned.
+ *
+ * @param int $post_id ID of the current post.
+ * @return WP_Query Query object; caller must call wp_reset_postdata() after looping.
+ */
+function aidriven_get_related_posts( $post_id ) {
+	$query_args = array(
+		'post_type'      => 'post',
+		'posts_per_page' => 3,
+		'post_status'    => 'publish',
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'no_found_rows'  => true,
+	);
+
+	$categories = get_the_category( $post_id );
+
+	if ( ! empty( $categories ) ) {
+		$query_args['category__in'] = array( $categories[0]->term_id );
+	}
+
+	return new WP_Query( $query_args );
+}
+
+/**
+ * Return up to 3 related projects from the same portfolio-category, excluding the current post.
+ *
+ * @param int $post_id ID of the current project post.
+ * @return WP_Query Query object; caller must call wp_reset_postdata() after looping.
+ */
+function aidriven_get_related_projects( $post_id ) {
+	$query_args = array(
+		'post_type'      => 'project',
+		'posts_per_page' => 3,
+		'post_status'    => 'publish',
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'no_found_rows'  => true,
+	);
+
+	$terms = get_the_terms( $post_id, 'portfolio-category' );
+
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		$term_ids                = wp_list_pluck( $terms, 'term_id' );
+		$query_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'portfolio-category',
+				'field'    => 'term_id',
+				'terms'    => $term_ids,
+			),
+		);
+	}
+
+	return new WP_Query( $query_args );
+}

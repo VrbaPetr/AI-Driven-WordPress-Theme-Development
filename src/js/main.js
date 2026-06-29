@@ -16,3 +16,6 @@ import './scripts/handler-portfolio-filter.js';
 
 // Testimonials slider with autoplay and swipe support.
 import './scripts/handler-testimonial-slider.js';
+
+// Social share copy-link button.
+import './scripts/handler-share.js';

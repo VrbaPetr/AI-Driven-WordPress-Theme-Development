@@ -1,0 +1,137 @@
+@layer components {
+
+	/* ═══════════════════════════════════════════════════════════
+	   Archive
+	═══════════════════════════════════════════════════════════ */
+
+	.services-archive-inner {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+	}
+
+	/* ── Category filter bar ───────────────────────────────────── */
+
+	.services-archive-filters {
+		@apply flex flex-wrap gap-3;
+	}
+
+	/* ── Card grid ─────────────────────────────────────────────── */
+
+	.services-archive-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ── Empty state ───────────────────────────────────────────── */
+
+	.services-archive-empty {
+		@apply text-base py-12 text-center;
+		color: var(--color-text-muted);
+	}
+
+	/* ═══════════════════════════════════════════════════════════
+	   Single
+	═══════════════════════════════════════════════════════════ */
+
+	/* ── Hero image ────────────────────────────────────────────── */
+
+	.service-single-hero {
+		@apply w-full overflow-hidden;
+		max-height: 480px;
+	}
+
+	.service-single-hero-img {
+		@apply w-full h-full object-cover block;
+	}
+
+	/* ── Body: content + summary side by side on large screens ── */
+
+	.service-single-body {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply flex flex-col gap-10;
+		@apply lg:flex-row lg:gap-16 lg:items-start;
+	}
+
+	/* ── Editor content ────────────────────────────────────────── */
+
+	.service-single-content {
+		@apply flex-1 min-w-0;
+	}
+
+	/* ── Summary box ───────────────────────────────────────────── */
+
+	.service-single-summary {
+		@apply flex flex-col gap-4 p-8 rounded-2xl shrink-0;
+		@apply lg:w-80;
+		background-color: var(--color-primary-50);
+		border: 1px solid var(--color-primary-200);
+	}
+
+	.service-single-summary-icon {
+		@apply flex items-center justify-center w-12 h-12 rounded-xl;
+		background-color: var(--color-primary-100);
+		color: var(--color-primary-700);
+	}
+
+	.service-single-summary-icon svg {
+		@apply w-6 h-6;
+	}
+
+	.service-single-summary-desc {
+		@apply text-base leading-relaxed m-0;
+		color: var(--color-text);
+	}
+
+	/* ── Related services ──────────────────────────────────────── */
+
+	.service-single-related {
+		@apply py-16;
+		background-color: var(--color-neutral-100);
+	}
+
+	.service-single-related-inner {
+		@apply max-w-7xl mx-auto px-6;
+		@apply flex flex-col gap-8;
+	}
+
+	.service-single-related-heading {
+		@apply text-2xl font-bold;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	.service-single-related-grid {
+		@apply list-none m-0 p-0;
+		@apply grid grid-cols-1 gap-6;
+		@apply md:grid-cols-2;
+		@apply lg:grid-cols-3;
+	}
+
+	/* ── Inline CTA strip ──────────────────────────────────────── */
+
+	.service-single-cta {
+		@apply py-20;
+		background-color: var(--color-secondary-500);
+	}
+
+	.service-single-cta-inner {
+		@apply max-w-3xl mx-auto px-6 text-center;
+		@apply flex flex-col items-center gap-6;
+	}
+
+	.service-single-cta-heading {
+		@apply text-3xl font-bold leading-tight text-neutral-50;
+		@apply md:text-4xl;
+	}
+
+	.service-single-cta-subtext {
+		@apply text-lg leading-relaxed m-0;
+		color: var(--color-neutral-300);
+	}
+
+	.service-single-cta-actions {
+		@apply flex flex-wrap justify-center gap-4;
+	}
+}

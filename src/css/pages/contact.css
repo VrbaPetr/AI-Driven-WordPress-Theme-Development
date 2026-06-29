@@ -1,0 +1,102 @@
+@layer components {
+
+	/* ── Page wrapper ──────────────────────────────────────────── */
+
+	.contact-inner {
+		@apply max-w-7xl mx-auto px-6 py-16;
+		@apply grid grid-cols-1 gap-12;
+		@apply lg:grid-cols-2 lg:gap-16 lg:items-start;
+	}
+
+	/* ── Form column ───────────────────────────────────────────── */
+
+	.contact-form-col {
+		@apply w-full;
+	}
+
+	/* ── Details column ────────────────────────────────────────── */
+
+	.contact-details-col {
+		@apply flex flex-col gap-8;
+	}
+
+	.contact-details-heading {
+		@apply text-2xl font-bold;
+		@apply md:text-3xl;
+		color: var(--color-text);
+	}
+
+	/* ── Definition list ───────────────────────────────────────── */
+
+	.contact-details-list {
+		@apply flex flex-col gap-6;
+	}
+
+	.contact-details-item {
+		@apply flex flex-col gap-1;
+	}
+
+	.contact-details-term {
+		@apply text-xs font-semibold uppercase tracking-wide;
+		color: var(--color-text-muted);
+	}
+
+	.contact-details-desc {
+		@apply text-base leading-relaxed;
+		color: var(--color-text);
+	}
+
+	/* ── Address ───────────────────────────────────────────────── */
+
+	.contact-address {
+		@apply not-italic text-base leading-relaxed;
+		color: var(--color-text);
+	}
+
+	/* ── Links ─────────────────────────────────────────────────── */
+
+	.contact-details-link {
+		@apply text-base font-medium;
+		color: var(--color-primary-600);
+		text-decoration: none;
+		transition: color 150ms ease;
+	}
+
+	.contact-details-link:hover {
+		color: var(--color-primary-800);
+		text-decoration: underline;
+	}
+
+	/* ── Social row ────────────────────────────────────────────── */
+
+	.contact-social {
+		@apply flex flex-col gap-3 pt-6 border-t;
+		border-color: var(--color-border);
+	}
+
+	.contact-social-label {
+		@apply text-xs font-semibold uppercase tracking-wide m-0;
+		color: var(--color-text-muted);
+	}
+
+	.contact-social-list {
+		@apply list-none m-0 p-0 flex flex-wrap gap-3;
+	}
+
+	.contact-social-link {
+		@apply inline-flex items-center justify-center w-10 h-10 rounded-full border;
+		border-color: var(--color-border);
+		color: var(--color-text-muted);
+		transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+	}
+
+	.contact-social-link:hover {
+		border-color: var(--color-primary-400);
+		color: var(--color-primary-600);
+		background-color: var(--color-primary-50);
+	}
+
+	.contact-social-link svg {
+		@apply w-5 h-5;
+	}
+}
