@@ -274,6 +274,33 @@ add_action(
 			)
 		);
 
+		// Team Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'team',
+				'title'           => __( 'Team', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Responsive card grid displaying team members pulled from the Team Members CPT with photos, job titles, bios, and social links.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/team.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'groups',
+				'keywords'        => array( __( 'team', 'ai-driven-boilerplate' ), __( 'people', 'ai-driven-boilerplate' ), __( 'staff', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/team.jpg',
+						),
+					),
+				),
+			)
+		);
+
 		// Services Block.
 		acf_register_block_type(
 			array(
