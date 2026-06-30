@@ -10,13 +10,14 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading = get_field( 'section_heading' );
-	$content_source  = get_field( 'content_source' );
-	$number_of_items = get_field( 'number_of_items' );
-	$filter_category = get_field( 'filter_by_category' );
-	$service_cards   = get_field( 'service_cards' );
-	$show_view_all   = get_field( 'show_view_all' );
-	$view_all_label  = get_field( 'view_all_label' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$content_source     = get_field( 'content_source' );
+	$number_of_items    = get_field( 'number_of_items' );
+	$filter_category    = get_field( 'filter_by_category' );
+	$service_cards      = get_field( 'service_cards' );
+	$show_view_all      = get_field( 'show_view_all' );
+	$view_all_label     = get_field( 'view_all_label' );
 
 	// Defaults.
 	$content_source  = $content_source ? $content_source : 'cpt_query';
@@ -82,6 +83,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 			<h2 class="services-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<ul class="services-grid" role="list">
