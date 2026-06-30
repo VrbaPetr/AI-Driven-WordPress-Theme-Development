@@ -163,6 +163,48 @@ function aidriven_maybe_show_maintenance_page(): void {
 add_action( 'template_redirect', 'aidriven_maybe_show_maintenance_page' );
 
 /**
+ * Inject id attributes into <h2> and <h3> tags in the rendered post content.
+ *
+ * Skips headings that already carry an id attribute. Duplicate slugs are
+ * de-duplicated by appending -2, -3, etc., matching the order produced by
+ * ai_driven_get_toc() so TOC href values align with the injected ids.
+ *
+ * @param string $content Rendered post content.
+ * @return string Content with id attributes added to h2/h3 tags.
+ */
+function aidriven_inject_heading_ids( $content ) {
+	$seen = array();
+
+	return preg_replace_callback(
+		'/<(h[23])([^>]*)>(.*?)<\/\1>/is',
+		function ( $matches ) use ( &$seen ) {
+			$tag        = $matches[1];
+			$attrs      = $matches[2];
+			$inner_html = $matches[3];
+
+			// Leave headings that already carry an id attribute unchanged.
+			if ( preg_match( '/\bid\s*=/i', $attrs ) ) {
+				return $matches[0];
+			}
+
+			$text = wp_strip_all_tags( $inner_html );
+			$slug = sanitize_title( $text );
+
+			if ( isset( $seen[ $slug ] ) ) {
+				++$seen[ $slug ];
+				$slug .= '-' . $seen[ $slug ];
+			} else {
+				$seen[ $slug ] = 1;
+			}
+
+			return '<' . $tag . ' id="' . esc_attr( $slug ) . '"' . $attrs . '>' . $inner_html . '</' . $tag . '>';
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'aidriven_inject_heading_ids', 10, 1 );
+
+/**
  * Return social links from the ACF global options page.
  *
  * Expects a Repeater field named `social_links` on the options page (defined

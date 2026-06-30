@@ -215,3 +215,55 @@ function aidriven_get_related_projects( $post_id ) {
 
 	return new WP_Query( $query_args );
 }
+
+/**
+ * Build a table-of-contents array from a post's h2/h3 headings.
+ *
+ * IDs are generated with the same sanitize_title() + de-duplication logic used
+ * by aidriven_inject_heading_ids() so TOC href values match the id attributes
+ * injected into the rendered content.
+ *
+ * @param int $post_id WP post ID.
+ * @return array<int, array{id: string, level: int, text: string}> Ordered heading entries, or empty array.
+ */
+function ai_driven_get_toc( $post_id ) {
+	if ( ! $post_id ) {
+		return array();
+	}
+
+	$content = get_post_field( 'post_content', $post_id );
+
+	if ( empty( $content ) ) {
+		return array();
+	}
+
+	$content = do_shortcode( $content );
+
+	if ( ! preg_match_all( '/<(h[23])[^>]*>(.*?)<\/\1>/is', $content, $matches, PREG_SET_ORDER ) ) {
+		return array();
+	}
+
+	$toc  = array();
+	$seen = array();
+
+	foreach ( $matches as $match ) {
+		$level = (int) substr( $match[1], 1 );
+		$text  = wp_strip_all_tags( $match[2] );
+		$slug  = sanitize_title( $text );
+
+		if ( isset( $seen[ $slug ] ) ) {
+			++$seen[ $slug ];
+			$slug .= '-' . $seen[ $slug ];
+		} else {
+			$seen[ $slug ] = 1;
+		}
+
+		$toc[] = array(
+			'id'    => $slug,
+			'level' => $level,
+			'text'  => $text,
+		);
+	}
+
+	return $toc;
+}

@@ -37,3 +37,7 @@ import './scripts/handler-testimonial-slider.js';
 
 // Social share copy-link button.
 import './scripts/handler-share.js';
+
+// Reading progress bar on single posts.
+import { initReadingProgress } from './scripts/reading-progress.js';
+document.addEventListener( 'DOMContentLoaded', initReadingProgress );
