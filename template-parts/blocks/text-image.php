@@ -10,13 +10,14 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$heading        = get_field( 'heading' );
-	$body           = get_field( 'body' );
-	$cta_label      = get_field( 'cta_label' );
-	$cta_url        = get_field( 'cta_url' );
-	$image          = get_field( 'image' );
-	$image_position = get_field( 'image_position' );
-	$image_position = $image_position ? $image_position : 'right';
+	$heading            = get_field( 'heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$body               = get_field( 'body' );
+	$cta_label          = get_field( 'cta_label' );
+	$cta_url            = get_field( 'cta_url' );
+	$image              = get_field( 'image' );
+	$image_position     = get_field( 'image_position' );
+	$image_position     = $image_position ? $image_position : 'right';
 
 	if ( empty( $heading ) ) {
 		return;
@@ -33,6 +34,9 @@ else :
 		<div class="text-image-inner">
 			<div class="text-image-content">
 				<h2 class="text-image-heading"><?php echo esc_html( $heading ); ?></h2>
+				<?php if ( $section_subheading ) : ?>
+				<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
+				<?php endif; ?>
 				<?php if ( ! empty( $body ) ) : ?>
 				<div class="text-image-body"><?php echo wp_kses_post( $body ); ?></div>
 				<?php endif; ?>

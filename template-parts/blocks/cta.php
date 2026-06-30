@@ -11,6 +11,7 @@ else :
 
 	// Fields.
 	$cta_heading        = get_field( 'heading' );
+	$section_subheading = get_field( 'section_subheading' );
 	$cta_subtext        = get_field( 'subtext' );
 	$primary_label      = get_field( 'primary_label' );
 	$primary_url        = get_field( 'primary_url' );
@@ -62,6 +63,9 @@ else :
 	<section class="<?php echo esc_attr( $section_classes ); ?>"<?php echo $inline_style ? ' style="' . esc_attr( $inline_style ) . '"' : ''; ?>>
 		<div class="cta-inner">
 			<h2 class="cta-heading"><?php echo esc_html( $cta_heading ); ?></h2>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
+			<?php endif; ?>
 			<?php if ( ! empty( $cta_subtext ) ) : ?>
 			<p class="cta-subtext"><?php echo esc_html( $cta_subtext ); ?></p>
 			<?php endif; ?>

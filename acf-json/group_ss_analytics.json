@@ -1,0 +1,71 @@
+{
+    "key": "group_ss_analytics",
+    "title": "Analytics",
+    "fields": [
+        {
+            "key": "field_ss_analytics_enable_gtm",
+            "label": "Enable GTM",
+            "name": "enable_gtm",
+            "type": "true_false",
+            "instructions": "Enable Google Tag Manager output on all front-end pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled"
+        },
+        {
+            "key": "field_ss_analytics_gtm_container_id",
+            "label": "GTM Container ID",
+            "name": "gtm_container_id",
+            "type": "text",
+            "instructions": "Your Google Tag Manager container ID, e.g. GTM-XXXXXXX.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ss_analytics_enable_gtm",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "GTM-XXXXXXX",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 60,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

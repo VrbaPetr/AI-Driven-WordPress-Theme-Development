@@ -10,9 +10,10 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading   = get_field( 'section_heading' );
-	$number_of_members = get_field( 'number_of_members' );
-	$columns           = get_field( 'columns' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$number_of_members  = get_field( 'number_of_members' );
+	$columns            = get_field( 'columns' );
 
 	// Defaults.
 	$posts_per_page = ( $number_of_members && absint( $number_of_members ) > 0 ) ? absint( $number_of_members ) : -1;
@@ -49,6 +50,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 			<h2 class="team-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<ul class="team-grid team-grid--cols-<?php echo esc_attr( $columns ); ?>" role="list">

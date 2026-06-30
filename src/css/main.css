@@ -37,6 +37,7 @@
 }
 
 /* Content Blocks */
+@import "./blocks/shared.css";
 @import "./blocks/clients.css";
 @import "./blocks/cta.css";
 @import "./blocks/faq.css";

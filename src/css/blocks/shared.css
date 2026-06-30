@@ -1,0 +1,6 @@
+@layer components {
+    .block-subheading {
+        @apply text-lg text-center max-w-2xl mx-auto mt-3 mb-10;
+        color: var(--color-text-muted);
+    }
+}

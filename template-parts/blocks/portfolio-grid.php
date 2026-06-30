@@ -11,6 +11,7 @@ else :
 
 	// Fields.
 	$section_heading     = get_field( 'section_heading' );
+	$section_subheading  = get_field( 'section_subheading' );
 	$initial_items_count = get_field( 'initial_items_count' );
 	$items_per_load      = get_field( 'items_per_load' );
 	$show_filter_buttons = get_field( 'show_filter_buttons' );
@@ -62,6 +63,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 				<h2 class="portfolio-grid-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+				<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $filter_terms ) ) : ?>

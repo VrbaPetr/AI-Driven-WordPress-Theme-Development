@@ -17,6 +17,8 @@ $logo = get_field( 'logo_light', 'option' );
 
 <header id="site-header" class="site-header" x-data="{ mobileOpen: false }">
 
+	<a class="skip-link" href="#main-content"><?php esc_html_e( 'Skip to main content', 'ai-driven-boilerplate' ); ?></a>
+
 	<div class="header-inner">
 
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo" rel="home">

@@ -10,10 +10,11 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading   = get_field( 'section_heading' );
-	$num_testimonials  = get_field( 'number_of_testimonials' );
-	$autoplay          = get_field( 'autoplay' );
-	$autoplay_interval = get_field( 'autoplay_interval' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$num_testimonials   = get_field( 'number_of_testimonials' );
+	$autoplay           = get_field( 'autoplay' );
+	$autoplay_interval  = get_field( 'autoplay_interval' );
 
 	// Defaults.
 	$num_testimonials  = $num_testimonials ? absint( $num_testimonials ) : 5;
@@ -71,6 +72,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 				<h2 class="testimonials-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+				<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<div class="testimonials-slider">

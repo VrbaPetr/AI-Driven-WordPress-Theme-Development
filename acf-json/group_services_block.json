@@ -18,6 +18,21 @@
             "maxlength": ""
         },
         {
+            "key": "field_services_section_subheading",
+            "label": "Section Subheading",
+            "name": "section_subheading",
+            "type": "text",
+            "instructions": "Optional supporting sentence displayed below the section heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_services_content_source",
             "label": "Content Source",
             "name": "content_source",
@@ -220,5 +235,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1782818181
 }

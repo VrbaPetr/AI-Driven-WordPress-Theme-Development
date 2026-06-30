@@ -10,8 +10,9 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading = get_field( 'section_heading' );
-	$stats           = get_field( 'stats' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$stats              = get_field( 'stats' );
 
 	if ( empty( $stats ) ) {
 		return;
@@ -21,6 +22,9 @@ else :
 		<div class="stats-inner">
 			<?php if ( ! empty( $section_heading ) ) : ?>
 			<h2 class="stats-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 			<div class="stats-grid">
 				<?php
