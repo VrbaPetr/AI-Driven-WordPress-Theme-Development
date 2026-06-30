@@ -88,16 +88,16 @@ else :
 								}
 
 								$icon_name  = $feature_included ? 'circle-check' : 'circle-x';
-								$icon_path  = get_template_directory() . '/assets/media/icons/' . $icon_name . '.svg';
+								$icon_path  = aidriven_get_icon_path( $icon_name );
 								$item_class = 'pricing-feature' . ( $feature_included ? '' : ' pricing-feature--excluded' );
 								$sr_prefix  = $feature_included
 									? __( 'Included:', 'ai-driven-boilerplate' )
 									: __( 'Not included:', 'ai-driven-boilerplate' );
 								?>
 								<li class="<?php echo esc_attr( $item_class ); ?>">
-									<?php if ( file_exists( $icon_path ) ) : ?>
+									<?php if ( $icon_path ) : ?>
 									<span class="pricing-feature-icon" aria-hidden="true">
-										<?php include $icon_path; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										<?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?>
 									</span>
 									<?php endif; ?>
 									<span class="pricing-feature-text">

@@ -21,8 +21,30 @@ function aidriven_get_icon_path( $value, $absolute = true ) {
 		return '';
 	}
 
-	$rel_path = 'assets/media/icons/' . $value . '.svg';
-	$abs_path = get_template_directory() . '/' . $rel_path;
+	$base_dir = get_template_directory() . '/assets/media/icons/';
+
+	if ( str_contains( $value, '/' ) ) {
+		// category/filename format — resolve directly.
+		$abs_path = $base_dir . $value . '.svg';
+		$rel_path = 'assets/media/icons/' . $value . '.svg';
+	} else {
+		// Bare filename: scan known subdirectories in order, then fall back to root.
+		$categories = array( 'social', 'tech', 'ui' );
+		$abs_path   = null;
+		$rel_path   = null;
+		foreach ( $categories as $cat ) {
+			$candidate = $base_dir . $cat . '/' . $value . '.svg';
+			if ( file_exists( $candidate ) ) {
+				$abs_path = $candidate;
+				$rel_path = 'assets/media/icons/' . $cat . '/' . $value . '.svg';
+				break;
+			}
+		}
+		if ( null === $abs_path ) {
+			$abs_path = $base_dir . $value . '.svg';
+			$rel_path = 'assets/media/icons/' . $value . '.svg';
+		}
+	}
 
 	if ( ! file_exists( $abs_path ) ) {
 		return '';

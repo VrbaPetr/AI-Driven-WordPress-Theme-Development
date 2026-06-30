@@ -112,7 +112,7 @@ else :
 										continue;
 									}
 
-									$icon_path      = get_template_directory() . '/assets/media/icons/' . sanitize_file_name( $platform ) . '.svg';
+									$icon_path      = aidriven_get_icon_path( $platform );
 									$platform_label = isset( $platform_labels[ $platform ] ) ? $platform_labels[ $platform ] : ucfirst( $platform );
 									/* translators: 1: person name, 2: social platform name */
 									$aria_label = sprintf( __( '%1$s on %2$s', 'ai-driven-boilerplate' ), $member_name, $platform_label );
@@ -127,8 +127,8 @@ else :
 											rel="noopener noreferrer"
 											<?php endif; ?>
 										>
-											<?php if ( file_exists( $icon_path ) ) : ?>
-												<?php include $icon_path; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+											<?php if ( $icon_path ) : ?>
+												<?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?>
 											<?php endif; ?>
 										</a>
 									</li>
