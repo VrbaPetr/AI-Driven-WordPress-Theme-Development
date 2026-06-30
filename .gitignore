@@ -5,6 +5,7 @@ node_modules/
 # Build output
 dist/
 assets/css/
+!assets/css/coming-soon.css
 assets/js/
 assets/.vite/
 

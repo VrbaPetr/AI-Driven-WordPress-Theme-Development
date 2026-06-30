@@ -132,6 +132,37 @@ function aidriven_get_read_time( $post_id ) {
 }
 
 /**
+ * Intercept front-end requests and serve the coming-soon page when maintenance mode is active.
+ *
+ * Administrators (users with manage_options capability) always bypass the redirect
+ * so they can review the live site while maintenance mode is on.
+ */
+function aidriven_maybe_show_maintenance_page(): void {
+	if ( is_admin() ) {
+		return;
+	}
+
+	if ( ! function_exists( 'get_field' ) || ! get_field( 'maintenance_mode', 'option' ) ) {
+		return;
+	}
+
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	header( 'HTTP/1.1 503 Service Unavailable' );
+	header( 'Retry-After: 3600' );
+
+	$template = get_template_directory() . '/coming-soon.php';
+	if ( file_exists( $template ) ) {
+		include $template; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
+	}
+
+	exit;
+}
+add_action( 'template_redirect', 'aidriven_maybe_show_maintenance_page' );
+
+/**
  * Return social links from the ACF global options page.
  *
  * Expects a Repeater field named `social_links` on the options page (defined
