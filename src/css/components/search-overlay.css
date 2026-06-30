@@ -1,0 +1,88 @@
+@layer components {
+	/* ── Overlay backdrop ───────────────────────────────────────── */
+
+	.search-overlay {
+		@apply fixed inset-0 flex items-start justify-center pt-24 px-6;
+		@apply bg-secondary-500/85;
+		z-index: var(--z-modal);
+	}
+
+	/* ── Content panel ─────────────────────────────────────────── */
+
+	.search-overlay-panel {
+		@apply relative w-full max-w-2xl;
+		@apply bg-neutral-50 rounded-2xl shadow-2xl p-8;
+	}
+
+	/* ── Close button ──────────────────────────────────────────── */
+
+	.search-overlay-close {
+		@apply absolute top-4 right-4;
+		@apply flex items-center justify-center w-10 h-10 rounded-full;
+		@apply text-neutral-500 transition-colors duration-150;
+	}
+
+	.search-overlay-close:hover,
+	.search-overlay-close:focus-visible {
+		@apply bg-neutral-200 text-neutral-900 outline-none;
+		@apply ring-2 ring-primary-500 ring-offset-2;
+	}
+
+	.search-overlay-close svg {
+		@apply w-5 h-5;
+	}
+
+	/* ── Optional heading ──────────────────────────────────────── */
+
+	.search-overlay-heading {
+		@apply text-2xl font-semibold leading-snug text-neutral-900 mb-6 pr-12;
+	}
+
+	/* ── Search form ───────────────────────────────────────────── */
+
+	.search-overlay-form {
+		@apply flex gap-3;
+	}
+
+	.search-overlay-input {
+		@apply flex-1 px-4 py-3 rounded-xl text-base;
+		@apply bg-neutral-100 border border-neutral-200 text-neutral-900;
+		@apply placeholder:text-neutral-500;
+		@apply transition-colors duration-150;
+	}
+
+	.search-overlay-input:focus {
+		@apply outline-none ring-2 ring-primary-500 border-transparent;
+	}
+
+	.search-overlay-submit {
+		@apply flex items-center justify-center w-12 h-12 shrink-0 rounded-xl;
+		@apply bg-primary-500 text-secondary-500 transition-colors duration-150;
+	}
+
+	.search-overlay-submit:hover,
+	.search-overlay-submit:focus-visible {
+		@apply bg-primary-400 outline-none;
+		@apply ring-2 ring-primary-500 ring-offset-2;
+	}
+
+	.search-overlay-submit svg {
+		@apply w-5 h-5;
+	}
+
+	/* ── Header trigger button ─────────────────────────────────── */
+
+	.header-search-btn {
+		@apply flex items-center justify-center w-10 h-10 rounded-md;
+		@apply text-neutral-300 transition-colors duration-150;
+	}
+
+	.header-search-btn:hover,
+	.header-search-btn:focus-visible {
+		@apply bg-primary-800 text-neutral-50 outline-none;
+	}
+
+	.header-search-btn svg {
+		@apply w-5 h-5;
+	}
+}

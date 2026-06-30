@@ -18,6 +18,7 @@
 @import "./navigation/back-to-top.css";
 
 /* Components */
+@import "./components/search-overlay.css";
 @import "./components/alert.css";
 @import "./components/badge.css";
 @import "./components/breadcrumbs.css";
