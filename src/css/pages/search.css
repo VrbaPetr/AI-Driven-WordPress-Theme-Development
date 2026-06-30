@@ -80,34 +80,34 @@
 	   No-results state
 	═══════════════════════════════════════════════════════════ */
 
-	.search-no-results {
+	.search-empty {
 		@apply max-w-xl flex flex-col gap-6;
 	}
 
-	.search-no-results-title {
+	.search-empty-title {
 		@apply text-2xl font-bold m-0;
 		@apply md:text-3xl;
 		color: var(--color-text);
 	}
 
-	.search-no-results-intro {
+	.search-empty-intro {
 		@apply text-base font-semibold m-0;
 		color: var(--color-text);
 	}
 
-	.search-no-results-tips {
+	.search-empty-tips {
 		@apply flex flex-col gap-3 m-0 pl-5;
 		@apply list-disc;
 		color: var(--color-text-muted);
 	}
 
-	.search-no-results-link {
+	.search-empty-link {
 		color: var(--color-primary-600);
 		text-decoration: none;
 		transition: color 150ms ease;
 	}
 
-	.search-no-results-link:hover {
+	.search-empty-link:hover {
 		color: var(--color-primary-800);
 	}
 }
