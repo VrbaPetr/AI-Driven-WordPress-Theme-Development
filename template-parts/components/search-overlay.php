@@ -25,7 +25,7 @@ if ( ! $input_placeholder ) {
 	x-cloak
 	x-data="{
 		trapFocus( e ) {
-			const focusable = [ $refs.searchInput, $refs.closeBtn ];
+			const focusable = Array.from( $el.querySelectorAll( 'input, button' ) );
 			const first     = focusable[0];
 			const last      = focusable[ focusable.length - 1 ];
 			if ( e.shiftKey ) {
@@ -47,16 +47,6 @@ if ( ! $input_placeholder ) {
 	@click.self="$store.search.close()"
 >
 	<div class="search-overlay-panel">
-
-		<button
-			class="search-overlay-close"
-			type="button"
-			x-ref="closeBtn"
-			@click="$store.search.close()"
-			aria-label="<?php esc_attr_e( 'Close search', 'ai-driven-boilerplate' ); ?>"
-		>
-			<?php echo aidriven_get_svg_icon( 'ui/x-close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG from theme's own files. ?>
-		</button>
 
 		<?php if ( $overlay_heading ) : ?>
 			<h2 class="search-overlay-heading"><?php echo esc_html( $overlay_heading ); ?></h2>
@@ -86,4 +76,15 @@ if ( ! $input_placeholder ) {
 		</form>
 
 	</div><!-- .search-overlay-panel -->
+
+	<button
+		class="search-overlay-close"
+		type="button"
+		x-ref="closeBtn"
+		@click="$store.search.close()"
+		aria-label="<?php esc_attr_e( 'Close search', 'ai-driven-boilerplate' ); ?>"
+	>
+		<?php echo aidriven_get_svg_icon( 'ui/x-close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG from theme's own files. ?>
+	</button>
+
 </div><!-- .search-overlay -->
