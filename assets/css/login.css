@@ -1,0 +1,153 @@
+/* =============================================================
+   Branded WordPress login page
+   Standalone vanilla CSS — not compiled by Vite.
+   ============================================================= */
+
+body.login {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-neutral-100, #f5f5f5);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ── Logo ─────────────────────────────────────────────────── */
+
+body.login #login h1 a {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    background-image: var(--login-logo-url, none);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+/* Collapse logo area gracefully when no logo is set */
+body.login #login h1 a:not([style*="--login-logo-url"]) {
+    height: 0;
+    margin-bottom: 0;
+}
+
+/* ── Login card ───────────────────────────────────────────── */
+
+body.login #login {
+    width: 100%;
+    max-width: 360px;
+    padding: 0 1rem;
+}
+
+body.login #loginform,
+body.login #lostpasswordform {
+    background: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 2rem 2rem 1.75rem;
+    margin-top: 0;
+}
+
+/* ── Form fields ──────────────────────────────────────────── */
+
+body.login .input,
+body.login input[type="text"],
+body.login input[type="password"] {
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border, #d1d5db);
+    background-color: var(--color-surface, #ffffff);
+    color: var(--color-text, #111111);
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9375rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+body.login .input:focus,
+body.login input[type="text"]:focus,
+body.login input[type="password"]:focus {
+    border-color: var(--color-primary-400, #60a5fa);
+    box-shadow: 0 0 0 3px var(--color-primary-100, #dbeafe);
+    outline: none;
+}
+
+body.login label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #111111);
+}
+
+/* ── Submit button ────────────────────────────────────────── */
+
+body.login .button-primary,
+body.login input[type="submit"].button-primary {
+    background: var(--color-primary-600, #2563eb);
+    border: none;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+body.login .button-primary:hover,
+body.login input[type="submit"].button-primary:hover {
+    background: var(--color-primary-700, #1d4ed8);
+}
+
+body.login .button-primary:focus-visible,
+body.login input[type="submit"].button-primary:focus-visible {
+    outline: 2px solid var(--color-primary-600, #2563eb);
+    outline-offset: 2px;
+}
+
+/* ── Links ────────────────────────────────────────────────── */
+
+body.login #nav,
+body.login #backtoblog {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+body.login #nav a,
+body.login #backtoblog a {
+    color: var(--color-text-muted, #6b7280);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+body.login #nav a:hover,
+body.login #backtoblog a:hover {
+    color: var(--color-primary-600, #2563eb);
+}
+
+/* ── Error / message notices ─────────────────────────────── */
+
+body.login #login_error,
+body.login .message,
+body.login .success {
+    border-radius: 0.5rem;
+    border-left-width: 3px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* ── "Remember me" checkbox alignment ────────────────────── */
+
+body.login .forgetmenot {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}

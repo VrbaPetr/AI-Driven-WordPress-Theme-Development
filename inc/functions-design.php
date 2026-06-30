@@ -384,3 +384,38 @@ function aidriven_load_icon_field_choices( $field ) {
 	return $field;
 }
 add_filter( 'acf/load_field', 'aidriven_load_icon_field_choices' );
+
+/**
+ * Enqueue the branded login stylesheet and inject the logo as a CSS custom property.
+ */
+function aidriven_login_styles(): void {
+	wp_enqueue_style(
+		'aidriven-login',
+		get_template_directory_uri() . '/assets/css/login.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+
+	if ( ! function_exists( 'get_field' ) ) {
+		return;
+	}
+
+	$logo_field = get_field( 'logo_light', 'option' );
+	$logo_url   = ! empty( $logo_field['url'] ) ? esc_url( $logo_field['url'] ) : '';
+
+	if ( $logo_url ) {
+		wp_add_inline_style( 'aidriven-login', ':root { --login-logo-url: url("' . $logo_url . '"); }' );
+	}
+}
+add_action( 'login_enqueue_scripts', 'aidriven_login_styles' );
+
+add_filter( 'login_headerurl', fn() => home_url() );
+add_filter( 'login_headertext', fn() => get_bloginfo( 'name' ) );
+
+add_filter(
+	'login_body_class',
+	function ( array $classes ): array {
+		$classes[] = 'aidriven-login';
+		return $classes;
+	}
+);

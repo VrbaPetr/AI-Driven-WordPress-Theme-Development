@@ -6,6 +6,7 @@ node_modules/
 dist/
 assets/css/
 !assets/css/coming-soon.css
+!assets/css/login.css
 assets/js/
 assets/.vite/
 
