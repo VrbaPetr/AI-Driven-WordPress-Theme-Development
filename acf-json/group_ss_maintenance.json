@@ -15,6 +15,23 @@
             "ui_off_text": "Off"
         },
         {
+            "key": "field_ss_maintenance_logo_variant",
+            "label": "Logo Variant",
+            "name": "maintenance_logo_variant",
+            "type": "select",
+            "instructions": "Choose which logo variant to display on the coming-soon page.",
+            "required": 0,
+            "choices": {
+                "light": "Light logo",
+                "dark": "Dark logo"
+            },
+            "default_value": "light",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value"
+        },
+        {
             "key": "field_ss_maintenance_heading",
             "label": "Heading",
             "name": "maintenance_heading",

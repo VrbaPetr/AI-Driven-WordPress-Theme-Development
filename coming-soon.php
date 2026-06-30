@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$logo          = get_field( 'logo_light', 'option' );
+$logo_variant  = get_field( 'maintenance_logo_variant', 'option' );
+$logo_field    = ( 'dark' === $logo_variant ) ? 'logo_dark' : 'logo_light';
+$logo          = get_field( $logo_field, 'option' );
 $heading       = get_field( 'maintenance_heading', 'option' );
 $message       = get_field( 'maintenance_message', 'option' );
 $contact_email = get_field( 'email_address', 'option' );
