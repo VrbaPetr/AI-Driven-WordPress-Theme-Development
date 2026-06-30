@@ -53,7 +53,7 @@ else :
 			while ( $services_query->have_posts() ) {
 				$services_query->the_post();
 				$cards[] = array(
-					'icon'  => get_field( 'service_icon', get_the_ID() ),
+					'icon'  => get_field( 'ui_icon', get_the_ID() ),
 					'title' => get_the_title(),
 					'desc'  => get_field( 'short_description', get_the_ID() ),
 					'url'   => get_permalink(),
@@ -64,7 +64,7 @@ else :
 	} elseif ( ! empty( $service_cards ) ) {
 		foreach ( $service_cards as $card ) {
 			$cards[] = array(
-				'icon'  => isset( $card['icon'] ) ? $card['icon'] : '',
+				'icon'  => isset( $card['ui_icon'] ) ? $card['ui_icon'] : '',
 				'title' => isset( $card['title'] ) ? $card['title'] : '',
 				'desc'  => isset( $card['description'] ) ? $card['description'] : '',
 				'url'   => isset( $card['link_url'] ) ? $card['link_url'] : '',
@@ -104,13 +104,12 @@ else :
 
 						<?php
 						if ( ! empty( $card_icon ) ) :
-							$icon_name = sanitize_file_name( basename( $card_icon ) );
-							$icon_path = get_template_directory() . '/assets/media/icons/' . $icon_name . '.svg';
-							if ( file_exists( $icon_path ) ) :
+							$icon_path = aidriven_get_icon_path( $card_icon );
+							if ( $icon_path ) :
 								?>
-						<span class="services-card-icon" aria-hidden="true"><?php include $icon_path; ?></span>
+						<span class="services-card-icon" aria-hidden="true"><?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?></span>
 								<?php
-						endif;
+							endif;
 						endif;
 						?>
 

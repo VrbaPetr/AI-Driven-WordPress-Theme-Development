@@ -32,7 +32,7 @@ else :
 					$number = isset( $stat['number'] ) ? $stat['number'] : '';
 					$suffix = isset( $stat['suffix'] ) ? $stat['suffix'] : '';
 					$label  = isset( $stat['label'] ) ? $stat['label'] : '';
-					$icon   = isset( $stat['icon'] ) ? $stat['icon'] : '';
+					$icon   = isset( $stat['ui_icon'] ) ? $stat['ui_icon'] : '';
 
 					if ( empty( $number ) || empty( $label ) ) {
 						continue;
@@ -42,11 +42,10 @@ else :
 				<div class="stat-item" aria-label="<?php echo esc_attr( $number . ( $suffix ? ' ' . $suffix : '' ) . ' ' . $label ); ?>">
 					<?php
 					if ( ! empty( $icon ) ) :
-						$icon_name = sanitize_file_name( basename( $icon ) );
-						$icon_path = get_template_directory() . '/assets/media/icons/' . $icon_name . '.svg';
-						if ( file_exists( $icon_path ) ) :
+						$icon_path = aidriven_get_icon_path( $icon );
+						if ( $icon_path ) :
 							?>
-					<span class="stat-icon" aria-hidden="true"><?php include $icon_path; ?></span>
+					<span class="stat-icon" aria-hidden="true"><?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?></span>
 						<?php endif; ?>
 					<?php endif; ?>
 					<div class="stat-number-wrap" aria-hidden="true">
