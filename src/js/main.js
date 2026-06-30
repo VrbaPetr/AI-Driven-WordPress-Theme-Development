@@ -3,10 +3,28 @@ import Collapse from '@alpinejs/collapse';
 
 window.Alpine = Alpine;
 Alpine.plugin( Collapse );
+
+document.addEventListener( 'alpine:init', () => {
+	Alpine.store( 'search', {
+		open: false,
+		close() {
+			this.open = false;
+			document.querySelector( '.header-search-btn' )?.focus();
+		},
+	} );
+
+	Alpine.effect( () => {
+		document.body.classList.toggle( 'overflow-hidden', Alpine.store( 'search' ).open );
+	} );
+} );
+
 Alpine.start();
 
-// Sticky header scroll behaviour.
+// Sticky header scroll behaviour and back-to-top button.
 import './scripts/navigation.js';
+
+// Smooth scroll with sticky-header offset correction.
+import './scripts/smooth-scroll.js';
 
 // Stats count-up animation on scroll.
 import './scripts/stats-counter.js';

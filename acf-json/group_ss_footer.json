@@ -39,6 +39,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_ss_show_back_to_top",
+            "label": "Show Back to Top Button",
+            "name": "show_back_to_top",
+            "type": "true_false",
+            "instructions": "Show a floating button that scrolls the visitor back to the top of the page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [

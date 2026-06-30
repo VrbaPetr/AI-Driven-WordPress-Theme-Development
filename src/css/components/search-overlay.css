@@ -1,0 +1,84 @@
+@layer components {
+	/* ── Overlay backdrop ───────────────────────────────────────── */
+
+	.search-overlay {
+		@apply fixed inset-0 flex items-center justify-center px-6;
+		@apply bg-secondary-950;
+		z-index: var(--z-modal);
+	}
+
+	/* ── Content panel ─────────────────────────────────────────── */
+
+	.search-overlay-panel {
+		@apply w-full max-w-xl text-center;
+	}
+
+	/* ── Optional heading ──────────────────────────────────────── */
+
+	.search-overlay-heading {
+		@apply text-2xl font-semibold text-neutral-50 mb-8;
+	}
+
+	/* ── Search form (underline only) ──────────────────────────── */
+
+	.search-overlay-form {
+		@apply flex items-center border-b border-neutral-600;
+	}
+
+	.search-overlay-input {
+		@apply flex-1 py-3 bg-transparent text-neutral-50 text-lg border-0;
+		@apply placeholder:text-neutral-500;
+	}
+
+	.search-overlay-input:focus {
+		@apply outline-none;
+	}
+
+	.search-overlay-submit {
+		@apply flex items-center justify-center w-10 h-10 shrink-0;
+		@apply bg-transparent text-neutral-400 transition-colors duration-150;
+	}
+
+	.search-overlay-submit:hover,
+	.search-overlay-submit:focus-visible {
+		@apply text-neutral-50 outline-none;
+	}
+
+	.search-overlay-submit svg {
+		@apply w-5 h-5;
+	}
+
+	/* ── Close button (absolute top-right of overlay) ──────────── */
+
+	.search-overlay-close {
+		@apply absolute top-6 right-6;
+		@apply flex items-center justify-center w-10 h-10;
+		@apply text-neutral-500 transition-colors duration-150;
+	}
+
+	.search-overlay-close:hover,
+	.search-overlay-close:focus-visible {
+		@apply text-neutral-50 outline-none;
+		@apply ring-2 ring-neutral-50 ring-offset-2 ring-offset-secondary-950;
+	}
+
+	.search-overlay-close svg {
+		@apply w-5 h-5;
+	}
+
+	/* ── Header trigger button ─────────────────────────────────── */
+
+	.header-search-btn {
+		@apply flex items-center justify-center w-10 h-10 rounded-md;
+		@apply text-neutral-300 transition-colors duration-150;
+	}
+
+	.header-search-btn:hover,
+	.header-search-btn:focus-visible {
+		@apply bg-primary-800 text-neutral-50 outline-none;
+	}
+
+	.header-search-btn svg {
+		@apply w-5 h-5;
+	}
+}

@@ -104,29 +104,29 @@ if ( $has_results ) {
 
 		<?php else : ?>
 
-			<div class="search-no-results">
+			<div class="search-empty">
 
-				<h2 class="search-no-results-title">
+				<h2 class="search-empty-title">
 					<?php
 					/* translators: %s: search query entered by the user */
 					printf( esc_html__( 'No results for &#8220;%s&#8221;', 'ai-driven-boilerplate' ), esc_html( $search_query ) );
 					?>
 				</h2>
 
-				<p class="search-no-results-intro">
+				<p class="search-empty-intro">
 					<?php esc_html_e( 'Try the following:', 'ai-driven-boilerplate' ); ?>
 				</p>
 
-				<ul class="search-no-results-tips">
+				<ul class="search-empty-tips">
 					<li><?php esc_html_e( 'Check your spelling', 'ai-driven-boilerplate' ); ?></li>
 					<li><?php esc_html_e( 'Use fewer or broader keywords', 'ai-driven-boilerplate' ); ?></li>
 					<li>
-						<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="search-no-results-link">
+						<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="search-empty-link">
 							<?php esc_html_e( 'Browse all services', 'ai-driven-boilerplate' ); ?> &rarr;
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="search-no-results-link">
+						<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="search-empty-link">
 							<?php esc_html_e( 'View all projects', 'ai-driven-boilerplate' ); ?> &rarr;
 						</a>
 					</li>
@@ -149,7 +149,7 @@ if ( $has_results ) {
 					</button>
 				</form>
 
-			</div><!-- .search-no-results -->
+			</div><!-- .search-empty -->
 
 		<?php endif; ?>
 

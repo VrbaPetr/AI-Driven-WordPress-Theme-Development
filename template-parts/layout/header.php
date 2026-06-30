@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$logo = get_field( 'logo_light', 'option' );
+$logo                 = get_field( 'logo_light', 'option' );
+$enable_header_search = get_field( 'enable_header_search', 'option' );
 ?>
 
 <header id="site-header" class="site-header" x-data="{ mobileOpen: false }">
@@ -48,6 +49,18 @@ $logo = get_field( 'logo_light', 'option' );
 			);
 			?>
 		</nav>
+
+		<?php if ( false !== $enable_header_search && $enable_header_search ) : ?>
+			<button
+				class="header-search-btn"
+				type="button"
+				@click="$store.search.open = true"
+				:aria-expanded="$store.search.open.toString()"
+				aria-label="<?php esc_attr_e( 'Open search', 'ai-driven-boilerplate' ); ?>"
+			>
+				<?php echo aidriven_get_svg_icon( 'ui/search' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG from theme's own files. ?>
+			</button>
+		<?php endif; ?>
 
 		<button
 			class="header-hamburger"
@@ -93,5 +106,9 @@ $logo = get_field( 'logo_light', 'option' );
 		);
 		?>
 	</div><!-- #mobile-menu -->
+
+	<?php if ( false !== $enable_header_search && $enable_header_search ) : ?>
+		<?php get_template_part( 'template-parts/components/search-overlay' ); ?>
+	<?php endif; ?>
 
 </header><!-- #site-header -->

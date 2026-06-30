@@ -15,8 +15,10 @@
 @import "./layout/page-header.css";
 
 /* Navigation */
+@import "./navigation/back-to-top.css";
 
 /* Components */
+@import "./components/search-overlay.css";
 @import "./components/alert.css";
 @import "./components/badge.css";
 @import "./components/breadcrumbs.css";
@@ -58,6 +60,7 @@
 @import "./pages/portfolio.css";
 @import "./pages/search.css";
 @import "./pages/services.css";
+@import "./pages/print.css";
 
 @layer base {
     *,
@@ -69,6 +72,12 @@
     html {
         -webkit-text-size-adjust: 100%;
         scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
     }
 
     body {

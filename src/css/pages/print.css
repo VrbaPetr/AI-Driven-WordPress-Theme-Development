@@ -1,0 +1,65 @@
+@media print {
+	/* ── Hide chrome ────────────────────────────────────────────────────── */
+
+	.site-header,
+	.site-footer,
+	.back-to-top,
+	[role="navigation"],
+	.wp-block-button,
+	.wp-block-buttons,
+	.breadcrumbs,
+	.pagination,
+	.cookie-notice,
+	.cookie-banner,
+	#cookie-law-info-bar,
+	#cky-consent {
+		display: none !important;
+	}
+
+	/* ── Body typography ────────────────────────────────────────────────── */
+
+	body {
+		color: #000;
+		background: #fff;
+		font-size: 12pt;
+		line-height: 1.5;
+	}
+
+	/* ── Expose link URLs ───────────────────────────────────────────────── */
+
+	a[href]::after {
+		content: " (" attr(href) ")";
+	}
+
+	a[href^="#"]::after,
+	a[href^="javascript:"]::after {
+		content: none;
+	}
+
+	/* ── Images ─────────────────────────────────────────────────────────── */
+
+	img {
+		max-width: 100%;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+
+	/* ── Page break rules ───────────────────────────────────────────────── */
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		page-break-after: avoid;
+		break-after: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+
+	figure {
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+}
