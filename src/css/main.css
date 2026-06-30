@@ -59,6 +59,7 @@
 @import "./pages/portfolio.css";
 @import "./pages/search.css";
 @import "./pages/services.css";
+@import "./pages/print.css";
 
 @layer base {
     *,
