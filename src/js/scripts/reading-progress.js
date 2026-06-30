@@ -3,17 +3,20 @@ export function initReadingProgress() {
 		return;
 	}
 
-	const bar = document.querySelector( '.reading-progress-bar' );
-	if ( ! bar ) {
+	const bar     = document.querySelector( '.reading-progress-bar' );
+	const article = document.querySelector( '.article-body' );
+	if ( ! bar || ! article ) {
 		return;
 	}
 
 	window.addEventListener(
 		'scroll',
 		() => {
-			const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-			const pct        = scrollable > 0 ? ( window.scrollY / scrollable ) * 100 : 0;
-			bar.style.width  = Math.min( 100, Math.max( 0, pct ) ) + '%';
+			const rect  = article.getBoundingClientRect();
+			const start = rect.top + window.scrollY;
+			const end   = start + article.offsetHeight - window.innerHeight;
+			const pct   = end > start ? ( ( window.scrollY - start ) / ( end - start ) ) * 100 : 0;
+			bar.style.width = Math.min( 100, Math.max( 0, pct ) ) + '%';
 		},
 		{ passive: true }
 	);
