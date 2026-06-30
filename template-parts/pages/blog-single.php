@@ -41,6 +41,8 @@ $cta_btn_url   = get_field( 'primary_button_url', 'option' );
 $share_twitter  = 'https://twitter.com/intent/tweet?url=' . rawurlencode( $post_url ) . '&text=' . rawurlencode( get_the_title() );
 $share_linkedin = 'https://www.linkedin.com/sharing/share-offsite/?url=' . rawurlencode( $post_url );
 ?>
+<div class="reading-progress-bar" role="progressbar" aria-hidden="true"></div>
+
 <main id="main-content" class="article-main">
 
 	<?php
