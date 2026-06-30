@@ -300,3 +300,87 @@ function aidriven_output_gtm_body() {
 	<?php
 }
 add_action( 'wp_body_open', 'aidriven_output_gtm_body' );
+
+/**
+ * Return ACF select choices for icon fields.
+ *
+ * Scans the assets/media/icons/ subdirectories and builds an array of choices.
+ * When $category is null all three subdirectories are merged and keys use the
+ * 'category/filename' format ('ui/circle-check'). When a valid category slug
+ * is given only that subdirectory is scanned and keys are bare filenames.
+ *
+ * @param string|null $category Subdirectory name: 'social', 'tech', or 'ui'. Null returns all.
+ * @return array<string, string> Choices array suitable for an ACF select field.
+ */
+function aidriven_get_icon_choices( $category = null ) {
+	$base_dir   = get_template_directory() . '/assets/media/icons/';
+	$categories = array( 'social', 'tech', 'ui' );
+	$choices    = array();
+
+	if ( null !== $category ) {
+		if ( ! in_array( $category, $categories, true ) ) {
+			return array();
+		}
+		$dir   = $base_dir . $category . '/';
+		$files = is_dir( $dir ) ? glob( $dir . '*.svg' ) : false;
+		if ( ! $files ) {
+			return array();
+		}
+		foreach ( $files as $file ) {
+			$filename             = pathinfo( $file, PATHINFO_FILENAME );
+			$choices[ $filename ] = ucwords( str_replace( '-', ' ', $filename ) );
+		}
+		asort( $choices );
+		return $choices;
+	}
+
+	foreach ( $categories as $cat ) {
+		$dir   = $base_dir . $cat . '/';
+		$files = is_dir( $dir ) ? glob( $dir . '*.svg' ) : false;
+		if ( ! $files ) {
+			continue;
+		}
+		$cat_label = ucfirst( $cat );
+		foreach ( $files as $file ) {
+			$filename                          = pathinfo( $file, PATHINFO_FILENAME );
+			$choices[ $cat . '/' . $filename ] = $cat_label . ': ' . ucwords( str_replace( '-', ' ', $filename ) );
+		}
+	}
+
+	asort( $choices );
+	return $choices;
+}
+
+/**
+ * Populate choices for any ACF select field named 'icon' or ending in '_icon'.
+ *
+ * Fields named exactly 'icon' receive choices from all categories. Fields whose
+ * name ends in '_icon' (e.g. 'ui_icon') have the suffix stripped to derive a
+ * category slug; unknown slugs fall back to the full merged list.
+ *
+ * @param array $field ACF field definition array.
+ * @return array Modified field definition.
+ */
+function aidriven_load_icon_field_choices( $field ) {
+	if ( 'select' !== $field['type'] ) {
+		return $field;
+	}
+
+	if ( 'icon' === $field['name'] ) {
+		$field['choices'] = aidriven_get_icon_choices();
+		return $field;
+	}
+
+	if ( str_ends_with( $field['name'], '_icon' ) ) {
+		$category = substr( $field['name'], 0, -5 );
+		$known    = array( 'social', 'tech', 'ui' );
+		if ( in_array( $category, $known, true ) ) {
+			$field['choices'] = aidriven_get_icon_choices( $category );
+		} else {
+			$field['choices'] = aidriven_get_icon_choices();
+		}
+	}
+
+	return $field;
+}
+add_filter( 'acf/load_field', 'aidriven_load_icon_field_choices' );

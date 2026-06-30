@@ -6,20 +6,69 @@
  */
 
 /**
+ * Resolve the filesystem path to an icon SVG.
+ *
+ * Accepts both the new 'category/filename' format (e.g. 'ui/circle-check')
+ * and legacy bare filenames (e.g. 'circle-check') for backwards compatibility.
+ * Returns an empty string when the resolved file does not exist.
+ *
+ * @param string $value    ACF stored value: 'category/filename' or bare 'filename' (no extension).
+ * @param bool   $absolute True returns the absolute filesystem path; false returns the path relative to the theme root.
+ * @return string Resolved path or empty string when the file is not found.
+ */
+function aidriven_get_icon_path( $value, $absolute = true ) {
+	if ( empty( $value ) ) {
+		return '';
+	}
+
+	$base_dir = get_template_directory() . '/assets/media/icons/';
+
+	if ( str_contains( $value, '/' ) ) {
+		// category/filename format — resolve directly.
+		$abs_path = $base_dir . $value . '.svg';
+		$rel_path = 'assets/media/icons/' . $value . '.svg';
+	} else {
+		// Bare filename: scan known subdirectories in order, then fall back to root.
+		$categories = array( 'social', 'tech', 'ui' );
+		$abs_path   = null;
+		$rel_path   = null;
+		foreach ( $categories as $cat ) {
+			$candidate = $base_dir . $cat . '/' . $value . '.svg';
+			if ( file_exists( $candidate ) ) {
+				$abs_path = $candidate;
+				$rel_path = 'assets/media/icons/' . $cat . '/' . $value . '.svg';
+				break;
+			}
+		}
+		if ( null === $abs_path ) {
+			$abs_path = $base_dir . $value . '.svg';
+			$rel_path = 'assets/media/icons/' . $value . '.svg';
+		}
+	}
+
+	if ( ! file_exists( $abs_path ) ) {
+		return '';
+	}
+
+	return $absolute ? $abs_path : $rel_path;
+}
+
+/**
  * Return inline SVG markup for an icon from assets/media/icons/.
  *
- * Reads the SVG file at assets/media/icons/{$icon_name}.svg and returns its
- * raw contents so it can be embedded inline (enabling CSS colour control via
- * currentColor). Returns an empty string when the file does not exist.
+ * Accepts both the new 'category/filename' format (e.g. 'ui/circle-check')
+ * and legacy bare filenames. Reads the SVG file and returns its raw contents
+ * so it can be embedded inline (enabling CSS colour control via currentColor).
+ * Returns an empty string when the file does not exist.
  *
- * @param string $icon_name  Filename without extension, e.g. 'arrow-right'.
+ * @param string $icon_name  ACF stored value or bare filename without extension.
  * @param string $css_class  Optional CSS classes to add to the wrapping span.
  * @return string SVG markup or empty string.
  */
 function aidriven_get_svg_icon( $icon_name, $css_class = '' ) {
-	$path = get_template_directory() . '/assets/media/icons/' . sanitize_file_name( $icon_name ) . '.svg';
+	$path = aidriven_get_icon_path( $icon_name );
 
-	if ( ! file_exists( $path ) ) {
+	if ( empty( $path ) ) {
 		return '';
 	}
 

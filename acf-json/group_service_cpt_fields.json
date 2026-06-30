@@ -3,19 +3,22 @@
     "title": "Service Details",
     "fields": [
         {
-            "key": "field_service_icon",
+            "key": "field_service_ui_icon",
             "label": "Service Icon",
-            "name": "service_icon",
-            "type": "text",
-            "instructions": "SVG filename (without extension) from assets/media/icons/, e.g. circle-check. Used in the Services block card grid.",
+            "name": "ui_icon",
+            "type": "select",
+            "instructions": "Icon displayed on service cards and the single service summary. Choices are populated automatically from the theme icon library.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": { "width": "", "class": "", "id": "" },
+            "choices": {},
             "default_value": "",
-            "placeholder": "circle-check",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_service_short_description",
@@ -51,5 +54,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1782900000
 }

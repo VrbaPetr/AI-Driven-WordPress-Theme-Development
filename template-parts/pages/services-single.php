@@ -17,7 +17,7 @@ the_post();
 
 $service_id = get_the_ID();
 $short_desc = get_field( 'short_description', $service_id );
-$icon_name  = get_field( 'service_icon', $service_id );
+$icon_name  = get_field( 'ui_icon', $service_id );
 $thumb_id   = get_post_thumbnail_id( $service_id );
 
 $cta_heading   = get_field( 'cta_heading', 'option' );
