@@ -516,5 +516,32 @@ add_action(
 				),
 			)
 		);
+
+		// Gallery / Image Grid Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'gallery-image-grid',
+				'title'           => __( 'Gallery / Image Grid', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Uniform image grid with 2, 3, or 4 columns and an optional Alpine.js lightbox.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/gallery-image-grid.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'format-gallery',
+				'keywords'        => array( __( 'gallery', 'ai-driven-boilerplate' ), __( 'images', 'ai-driven-boilerplate' ), __( 'grid', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/gallery-image-grid.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );

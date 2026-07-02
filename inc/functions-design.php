@@ -223,6 +223,7 @@ function aidriven_setup_theme() {
 	add_image_size( 'slide-full', 1920, 1080, true );
 	add_image_size( 'video-thumbnail', 1280, 720, true );
 	add_image_size( 'timeline-logo', 300, 200, false );
+	add_image_size( 'gallery-grid', 800, 600, true );
 }
 add_action( 'after_setup_theme', 'aidriven_setup_theme' );
 
