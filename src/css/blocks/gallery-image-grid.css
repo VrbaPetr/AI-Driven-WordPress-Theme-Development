@@ -47,7 +47,7 @@
     }
 
     .gallery-image-grid-trigger {
-        @apply block w-full h-full;
+        @apply block w-full h-full cursor-pointer;
     }
 
     /* Hover affordance — only meaningful when the lightbox is enabled. */
