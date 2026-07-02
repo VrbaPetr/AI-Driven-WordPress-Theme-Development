@@ -30,11 +30,13 @@ else :
 	$width_class = isset( $width_map[ $width ] ) ? $width_map[ $width ] : $width_map['default'];
 	$align_class = 'center' === $text_align ? 'text-center' : 'text-left';
 
-	$wrapper_classes = 'text-content-wrapper mx-auto ' . $width_class . ' ' . $align_class;
+	$wrapper_classes = 'mx-auto ' . $width_class . ' ' . $align_class;
 	?>
-	<div class="<?php echo esc_attr( $wrapper_classes ); ?>">
-		<div class="prose">
-			<?php echo wp_kses_post( $content ); ?>
+	<section class="text-content">
+		<div class="<?php echo esc_attr( $wrapper_classes ); ?>">
+			<div class="prose">
+				<?php echo wp_kses_post( $content ); ?>
+			</div>
 		</div>
-	</div>
+	</section>
 <?php endif; ?>
