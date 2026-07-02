@@ -564,5 +564,32 @@ add_action(
 				},
 			)
 		);
+
+		// Awards & Certifications Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'awards-certifications',
+				'title'           => __( 'Awards & Certifications', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Centred row of award, certification, and partner badges with name, issuer, and year.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/awards-certifications.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'star-filled',
+				'keywords'        => array( __( 'awards', 'ai-driven-boilerplate' ), __( 'certifications', 'ai-driven-boilerplate' ), __( 'badges', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/awards-certifications.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );
