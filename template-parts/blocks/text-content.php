@@ -24,7 +24,7 @@ else :
 
 	$width_map   = array(
 		'narrow'  => 'max-w-prose',
-		'default' => 'max-w-3xl',
+		'default' => 'max-w-none',
 		'wide'    => 'max-w-none',
 	);
 	$width_class = isset( $width_map[ $width ] ) ? $width_map[ $width ] : $width_map['default'];

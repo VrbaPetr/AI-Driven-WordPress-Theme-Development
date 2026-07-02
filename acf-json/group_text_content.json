@@ -22,7 +22,7 @@
             "label": "Width",
             "name": "width",
             "type": "select",
-            "instructions": "Controls the maximum reading width of the text column.",
+            "instructions": "Narrow constrains the text to a comfortable reading width; Default and Wide fill the block's full 1280px section width.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": { "width": "50", "class": "", "id": "" },
