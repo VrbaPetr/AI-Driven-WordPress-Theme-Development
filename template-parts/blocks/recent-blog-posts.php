@@ -36,12 +36,12 @@ else :
 			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
-			<?php if ( empty( $posts ) ) : ?>
+			<?php if ( empty( $post_cards ) ) : ?>
 			<p><?php esc_html_e( 'No posts found.', 'ai-driven-boilerplate' ); ?></p>
 			<?php else : ?>
 			<div class="recent-blog-posts-grid">
 				<?php
-				foreach ( $posts as $card_args ) :
+				foreach ( $post_cards as $card_args ) :
 					get_template_part( 'template-parts/components/card', null, $card_args );
 				endforeach;
 				?>
