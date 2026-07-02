@@ -25,6 +25,7 @@
 @import "./components/button.css";
 @import "./components/card.css";
 @import "./components/pagination.css";
+@import "./components/prose.css";
 
 /* Forms */
 @import "./forms/contact.css";

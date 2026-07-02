@@ -381,5 +381,32 @@ add_action(
 				),
 			)
 		);
+
+		// Text Content Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'text-content',
+				'title'           => __( 'Text Content', 'ai-driven-boilerplate' ),
+				'description'     => __( 'WYSIWYG rich text block with consistent typography, configurable reading width and text alignment.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/text-content.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'editor-alignleft',
+				'keywords'        => array( __( 'text', 'ai-driven-boilerplate' ), __( 'content', 'ai-driven-boilerplate' ), __( 'wysiwyg', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/text-content.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );
