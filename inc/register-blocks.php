@@ -591,5 +591,32 @@ add_action(
 				),
 			)
 		);
+
+		// Newsletter Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'newsletter',
+				'title'           => __( 'Newsletter / Email Capture', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Inline email opt-in strip with honeypot + nonce security and an optional provider webhook.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/newsletter.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'email-alt',
+				'keywords'        => array( __( 'newsletter', 'ai-driven-boilerplate' ), __( 'email', 'ai-driven-boilerplate' ), __( 'subscribe', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/newsletter.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );

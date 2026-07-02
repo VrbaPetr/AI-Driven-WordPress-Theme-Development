@@ -128,3 +128,39 @@ function ai_driven_ajax_handle_contact_form() {
 }
 add_action( 'wp_ajax_aidriven_contact_form', 'ai_driven_ajax_handle_contact_form' );
 add_action( 'wp_ajax_nopriv_aidriven_contact_form', 'ai_driven_ajax_handle_contact_form' );
+
+/**
+ * Handle newsletter opt-in AJAX submission (WP fallback path).
+ *
+ * Expected POST params: action, _wpnonce, email, website (honeypot).
+ *
+ * @return void Sends JSON response and exits.
+ */
+function ai_driven_ajax_handle_newsletter_subscribe() {
+	// 1. Nonce verification.
+	if ( ! check_ajax_referer( 'aidriven_newsletter_subscribe', '_wpnonce', false ) ) {
+		wp_send_json_error( array( 'message' => __( 'Invalid nonce.', 'ai-driven-boilerplate' ) ), 403 );
+	}
+
+	// 2. Honeypot — silently return success so bots think the submission worked.
+	$honeypot = isset( $_POST['website'] ) ? sanitize_text_field( wp_unslash( $_POST['website'] ) ) : '';
+	if ( ! empty( $honeypot ) ) {
+		wp_send_json_success();
+	}
+
+	// 3. Sanitize.
+	$email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+
+	// 4. Validate.
+	if ( ! is_email( $email ) ) {
+		wp_send_json_error( array( 'message' => __( 'Please enter a valid email address.', 'ai-driven-boilerplate' ) ), 422 );
+	}
+
+	// 5. Let developers hook in provider integrations.
+	do_action( 'aidriven_newsletter_subscribe', $email );
+
+	// 6. Respond.
+	wp_send_json_success();
+}
+add_action( 'wp_ajax_aidriven_newsletter_subscribe', 'ai_driven_ajax_handle_newsletter_subscribe' );
+add_action( 'wp_ajax_nopriv_aidriven_newsletter_subscribe', 'ai_driven_ajax_handle_newsletter_subscribe' );

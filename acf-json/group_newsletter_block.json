@@ -1,0 +1,112 @@
+{
+    "key": "group_newsletter_block",
+    "title": "Newsletter Block",
+    "fields": [
+        {
+            "key": "field_newsletter_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Heading displayed above the form.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Subscribe to our newsletter",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_newsletter_subtext",
+            "label": "Subtext",
+            "name": "subtext",
+            "type": "text",
+            "instructions": "Optional supporting sentence displayed below the heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_newsletter_input_placeholder",
+            "label": "Input Placeholder",
+            "name": "input_placeholder",
+            "type": "text",
+            "instructions": "Placeholder text shown inside the empty email field.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Your email address",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_newsletter_button_label",
+            "label": "Button Label",
+            "name": "button_label",
+            "type": "text",
+            "instructions": "Text displayed on the submit button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Subscribe",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_newsletter_privacy_note",
+            "label": "Privacy Note",
+            "name": "privacy_note",
+            "type": "text",
+            "instructions": "Optional. Small print displayed below the form, e.g. a link to your privacy policy.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "We respect your privacy. Unsubscribe at any time.",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_newsletter_provider_webhook_url",
+            "label": "Provider Webhook URL",
+            "name": "provider_webhook_url",
+            "type": "url",
+            "instructions": "Optional. When set, the form posts directly to this URL (e.g. Mailchimp or Brevo) instead of the built-in WordPress handler.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/newsletter"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}
