@@ -46,88 +46,21 @@
         @apply w-full h-full object-cover block;
     }
 
-    .gallery-image-grid-trigger {
-        @apply block w-full h-full cursor-pointer;
-    }
-
-    /* Hover affordance — only meaningful when the lightbox is enabled. */
+    /* Hover affordance — only meaningful when the lightbox is enabled. Lightbox */
+    /* overlay markup/behavior itself is provided by the LiteLight library.     */
 
     .gallery-image-grid-trigger {
-        @apply relative;
-        transition: transform var(--transition-base);
-    }
-
-    .gallery-image-grid-trigger::after {
-        content: '';
-        @apply absolute inset-0 opacity-0;
-        background-color: var(--color-secondary-950);
+        cursor: pointer;
         transition: opacity var(--transition-fast);
     }
 
-    .gallery-image-grid-trigger:hover::after,
-    .gallery-image-grid-trigger:focus-visible::after {
-        @apply opacity-20;
-    }
-
-    .gallery-image-grid-trigger:focus-visible {
-        @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    .gallery-image-grid-trigger:hover {
+        opacity: 0.85;
     }
 
     @media (prefers-reduced-motion: reduce) {
         .gallery-image-grid-trigger {
             transition: none;
         }
-
-        .gallery-image-grid-trigger::after {
-            transition: none;
-        }
-    }
-
-    /* ── Lightbox ─────────────────────────────────────────────────────────── */
-
-    .gallery-image-grid-lightbox {
-        @apply fixed inset-0 flex items-center justify-center px-6;
-        background-color: var(--color-secondary-950);
-        z-index: var(--z-modal);
-    }
-
-    .gallery-image-grid-lightbox-image {
-        @apply block object-contain;
-        max-width: 90vw;
-        max-height: 85vh;
-    }
-
-    .gallery-image-grid-lightbox-close,
-    .gallery-image-grid-lightbox-prev,
-    .gallery-image-grid-lightbox-next {
-        @apply absolute flex items-center justify-center w-10 h-10 rounded-full;
-        @apply text-neutral-50 transition-colors duration-150;
-    }
-
-    .gallery-image-grid-lightbox-close:hover,
-    .gallery-image-grid-lightbox-close:focus-visible,
-    .gallery-image-grid-lightbox-prev:hover,
-    .gallery-image-grid-lightbox-prev:focus-visible,
-    .gallery-image-grid-lightbox-next:hover,
-    .gallery-image-grid-lightbox-next:focus-visible {
-        @apply bg-neutral-50/10 outline-none;
-    }
-
-    .gallery-image-grid-lightbox-close {
-        @apply top-6 right-6;
-    }
-
-    .gallery-image-grid-lightbox-prev {
-        @apply left-6 top-1/2 -translate-y-1/2;
-    }
-
-    .gallery-image-grid-lightbox-next {
-        @apply right-6 top-1/2 -translate-y-1/2;
-    }
-
-    .gallery-image-grid-lightbox-close svg,
-    .gallery-image-grid-lightbox-prev svg,
-    .gallery-image-grid-lightbox-next svg {
-        @apply w-5 h-5;
     }
 }

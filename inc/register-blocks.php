@@ -522,7 +522,7 @@ add_action(
 			array(
 				'name'            => 'gallery-image-grid',
 				'title'           => __( 'Gallery / Image Grid', 'ai-driven-boilerplate' ),
-				'description'     => __( 'Uniform image grid with 2, 3, or 4 columns and an optional Alpine.js lightbox.', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Uniform image grid with 2, 3, or 4 columns and an optional LiteLight lightbox.', 'ai-driven-boilerplate' ),
 				'render_template' => 'template-parts/blocks/gallery-image-grid.php',
 				'category'        => 'ai-driven-boilerplate-blocks',
 				'icon'            => 'format-gallery',
@@ -541,6 +541,27 @@ add_action(
 						),
 					),
 				),
+				'enqueue_assets'  => function () {
+					wp_enqueue_script(
+						'lite-light',
+						get_template_directory_uri() . '/assets/js/lite-light.min.js',
+						array(),
+						wp_get_theme()->get( 'Version' ),
+						true
+					);
+					wp_add_inline_script( 'lite-light', 'document.addEventListener( "DOMContentLoaded", function () { LiteLight.init(); } );' );
+
+					wp_enqueue_style(
+						'lite-light',
+						get_template_directory_uri() . '/assets/css/lite-light.min.css',
+						array(),
+						wp_get_theme()->get( 'Version' )
+					);
+					wp_add_inline_style(
+						'lite-light',
+						'.lite-light{--ll-overlay:var(--color-secondary-950);--ll-radius:var(--radius-md);--ll-image-bg:var(--color-neutral-50);--ll-control:var(--color-neutral-50);z-index:var(--z-modal);}'
+					);
+				},
 			)
 		);
 	}
