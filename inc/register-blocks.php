@@ -435,5 +435,86 @@ add_action(
 				),
 			)
 		);
+
+		// Icon Grid Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'icon-grid',
+				'title'           => __( 'Icon Grid', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Manually authored grid of icon, title, and description items for communicating key benefits or differentiators.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/icon-grid.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'screenoptions',
+				'keywords'        => array( __( 'icon', 'ai-driven-boilerplate' ), __( 'grid', 'ai-driven-boilerplate' ), __( 'benefits', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/icon-grid.jpg',
+						),
+					),
+				),
+			)
+		);
+
+		// Video Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'video',
+				'title'           => __( 'Video', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Lightweight YouTube or Vimeo facade embed — loads a thumbnail and play button, deferring the iframe until clicked.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/video.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'video-alt3',
+				'keywords'        => array( __( 'video', 'ai-driven-boilerplate' ), __( 'youtube', 'ai-driven-boilerplate' ), __( 'vimeo', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/video.jpg',
+						),
+					),
+				),
+			)
+		);
+
+		// Timeline Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'timeline',
+				'title'           => __( 'Timeline', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Vertical chronological timeline of dated milestones with alternating desktop layout.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/timeline.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'clock',
+				'keywords'        => array( __( 'timeline', 'ai-driven-boilerplate' ), __( 'history', 'ai-driven-boilerplate' ), __( 'milestones', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/timeline.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );

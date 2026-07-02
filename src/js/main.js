@@ -29,6 +29,9 @@ import './scripts/smooth-scroll.js';
 // Stats count-up animation on scroll.
 import './scripts/stats-counter.js';
 
+// Timeline scroll fade-in.
+import './scripts/timeline-fade.js';
+
 // Portfolio Grid filter and load-more.
 import './scripts/handler-portfolio-filter.js';
 

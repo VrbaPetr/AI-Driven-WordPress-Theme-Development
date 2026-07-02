@@ -45,6 +45,7 @@
 @import "./blocks/cta.css";
 @import "./blocks/faq.css";
 @import "./blocks/hero.css";
+@import "./blocks/icon-grid.css";
 @import "./blocks/portfolio-grid.css";
 @import "./blocks/pricing.css";
 @import "./blocks/process.css";
@@ -55,6 +56,8 @@
 @import "./blocks/testimonials.css";
 @import "./blocks/text-content.css";
 @import "./blocks/text-image.css";
+@import "./blocks/timeline.css";
+@import "./blocks/video.css";
 @import "./blocks/welcome-slider.css";
 
 /* Pages — added per page step (Steps 23–33) */
