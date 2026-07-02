@@ -1,0 +1,306 @@
+{
+    "key": "group_welcome_slider_block",
+    "title": "Welcome Slider Block",
+    "fields": [
+        {
+            "key": "field_ws_autoplay",
+            "label": "Autoplay",
+            "name": "autoplay",
+            "type": "true_false",
+            "instructions": "Automatically advance through slides.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_ws_autoplay_interval",
+            "label": "Autoplay Interval (seconds)",
+            "name": "autoplay_interval",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ws_autoplay",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "default_value": 5,
+            "min": 1,
+            "max": 30,
+            "step": 1,
+            "prepend": "",
+            "append": "s"
+        },
+        {
+            "key": "field_ws_show_arrows",
+            "label": "Show Arrows",
+            "name": "show_arrows",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_ws_show_dots",
+            "label": "Show Dots",
+            "name": "show_dots",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_ws_slides",
+            "label": "Slides",
+            "name": "slides",
+            "type": "repeater",
+            "instructions": "Each slide is a full-viewport section with a background image, optional overlay, heading, subheading, and up to two buttons.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "min": 1,
+            "max": 0,
+            "collapsed": "field_ws_slide_heading",
+            "button_label": "Add Slide",
+            "sub_fields": [
+                {
+                    "key": "field_ws_slide_background_image",
+                    "label": "Background Image",
+                    "name": "background_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_ws_slide_enable_overlay",
+                    "label": "Enable Overlay",
+                    "name": "enable_overlay",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "33", "class": "", "id": "" },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_ws_slide_overlay_style",
+                    "label": "Overlay Style",
+                    "name": "overlay_style",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_ws_slide_enable_overlay",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": { "width": "33", "class": "", "id": "" },
+                    "choices": {
+                        "solid": "Solid",
+                        "gradient-bottom": "Gradient — Bottom",
+                        "gradient-center": "Gradient — Centre"
+                    },
+                    "default_value": "solid",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_ws_slide_overlay_opacity",
+                    "label": "Overlay Opacity",
+                    "name": "overlay_opacity",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_ws_slide_enable_overlay",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": { "width": "34", "class": "", "id": "" },
+                    "default_value": 50,
+                    "min": 0,
+                    "max": 100,
+                    "step": 5,
+                    "prepend": "",
+                    "append": "%"
+                },
+                {
+                    "key": "field_ws_slide_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Your compelling headline here",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_ws_slide_subheading",
+                    "label": "Subheading",
+                    "name": "subheading",
+                    "type": "textarea",
+                    "instructions": "Supporting text, 1–2 sentences.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "A short supporting sentence that clarifies your offer.",
+                    "maxlength": "",
+                    "rows": 3,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_ws_slide_text_alignment",
+                    "label": "Text Alignment",
+                    "name": "text_alignment",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "choices": {
+                        "left": "Left",
+                        "center": "Centre",
+                        "right": "Right"
+                    },
+                    "default_value": "center",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_ws_slide_primary_button_label",
+                    "label": "Primary Button Label",
+                    "name": "primary_button_label",
+                    "type": "text",
+                    "instructions": "Optional. Leave blank to hide.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Get Started",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_ws_slide_primary_button_url",
+                    "label": "Primary Button URL",
+                    "name": "primary_button_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "https://"
+                },
+                {
+                    "key": "field_ws_slide_secondary_button_label",
+                    "label": "Secondary Button Label",
+                    "name": "secondary_button_label",
+                    "type": "text",
+                    "instructions": "Optional. Leave blank to hide.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Learn More",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_ws_slide_secondary_button_url",
+                    "label": "Secondary Button URL",
+                    "name": "secondary_button_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "https://"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/welcome-slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

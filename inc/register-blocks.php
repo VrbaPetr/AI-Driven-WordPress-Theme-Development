@@ -354,5 +354,32 @@ add_action(
 				),
 			)
 		);
+
+		// Welcome Slider Block.
+		acf_register_block_type(
+			array(
+				'name'            => 'welcome-slider',
+				'title'           => __( 'Welcome Slider', 'ai-driven-boilerplate' ),
+				'description'     => __( 'Full-viewport homepage slider with background images, overlays, headings, and up to two CTAs per slide.', 'ai-driven-boilerplate' ),
+				'render_template' => 'template-parts/blocks/welcome-slider.php',
+				'category'        => 'ai-driven-boilerplate-blocks',
+				'icon'            => 'images-alt2',
+				'keywords'        => array( __( 'slider', 'ai-driven-boilerplate' ), __( 'carousel', 'ai-driven-boilerplate' ), __( 'welcome', 'ai-driven-boilerplate' ) ),
+				'mode'            => 'preview',
+				'supports'        => array(
+					'mode'  => true,
+					'align' => false,
+					'jsx'   => true,
+				),
+				'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_screenshot' => get_template_directory_uri() . '/assets/media/block-preview/welcome-slider.jpg',
+						),
+					),
+				),
+			)
+		);
 	}
 );
