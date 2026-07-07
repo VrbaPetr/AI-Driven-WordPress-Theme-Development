@@ -100,6 +100,28 @@ function aidriven_seo_get_page_data() {
 }
 
 /**
+ * Output the plain meta description tag in <head>.
+ *
+ * Distinct from og:description and twitter:description — this is the tag
+ * search engines use for SERP snippets.
+ *
+ * @return void
+ */
+function aidriven_meta_description() {
+	if ( defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) ) {
+		return;
+	}
+
+	$data = aidriven_seo_get_page_data();
+	?>
+	<?php if ( $data['description'] ) : ?>
+	<meta name="description" content="<?php echo esc_attr( $data['description'] ); ?>">
+	<?php endif; ?>
+	<?php
+}
+add_action( 'wp_head', 'aidriven_meta_description', 1 );
+
+/**
  * Output Open Graph meta tags in <head>.
  *
  * Covers og:type, og:title, og:description, og:url, og:site_name, og:image,
