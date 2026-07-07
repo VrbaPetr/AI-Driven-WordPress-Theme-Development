@@ -1,13 +1,14 @@
 @theme {
-    /* Primary: Mountain Blue — #7AB2E0 anchored at -500 (oklch 76% 0.14 237).
+    /* Primary: Mountain Blue — #007BB8 anchored at -500 (oklch 55% 0.14 237).
+       -500/-600 darkened from their original 76%/63% lightness for WCAG AA contrast (4.5:1) against white.
        To retheme: change the hue value (237) across all steps. */
     --color-primary-50:  oklch(97% 0.01 237);
     --color-primary-100: oklch(93% 0.03 237);
     --color-primary-200: oklch(89% 0.06 237);
     --color-primary-300: oklch(84% 0.09 237);
     --color-primary-400: oklch(80% 0.11 237);
-    --color-primary-500: oklch(76% 0.14 237);
-    --color-primary-600: oklch(63% 0.14 237);
+    --color-primary-500: oklch(55% 0.14 237);
+    --color-primary-600: oklch(53% 0.14 237);
     --color-primary-700: oklch(50% 0.12 237);
     --color-primary-800: oklch(38% 0.09 237);
     --color-primary-900: oklch(27% 0.07 237);
@@ -33,7 +34,7 @@
     --color-neutral-200: oklch(91% 0 0);
     --color-neutral-300: oklch(84% 0 0);
     --color-neutral-400: oklch(73% 0 0);
-    --color-neutral-500: oklch(62% 0 0);
+    --color-neutral-500: oklch(55% 0 0);
     --color-neutral-600: oklch(51% 0 0);
     --color-neutral-700: oklch(40% 0 0);
     --color-neutral-800: oklch(30% 0 0);
