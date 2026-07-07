@@ -68,14 +68,16 @@ else :
 						</button>
 					</div>
 
-					<div class="video-iframe-wrap" x-show="playing">
-						<iframe
-							src="<?php echo esc_url( $embed_url ); ?>"
-							title="<?php echo esc_attr( $iframe_title ); ?>"
-							allow="autoplay; fullscreen; picture-in-picture"
-							allowfullscreen
-						></iframe>
-					</div>
+					<template x-if="playing">
+						<div class="video-iframe-wrap">
+							<iframe
+								src="<?php echo esc_url( $embed_url ); ?>"
+								title="<?php echo esc_attr( $iframe_title ); ?>"
+								allow="autoplay; fullscreen; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
+					</template>
 
 				</div>
 
