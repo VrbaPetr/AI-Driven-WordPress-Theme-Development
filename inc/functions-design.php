@@ -11,11 +11,12 @@
  * Hooked to after_setup_theme with priority 10.
  *
  * Image sizes registered:
- *   card-thumbnail  — 800 × 533 px  (3:2, cropped) — blog/portfolio/services cards
- *   hero-full       — 1920 × 900 px (cropped)       — full-width hero background
- *   hero-split      — 960 × 900 px  (cropped)       — split hero, image side
- *   team-portrait   — 600 × 750 px  (4:5, cropped)  — team member photos
- *   portfolio-thumb — 800 × 600 px  (4:3, cropped)  — portfolio grid tiles
+ *   card-thumbnail      — 800 × 533 px  (3:2, cropped) — blog/portfolio/services cards
+ *   card-thumbnail-grid — 400 × 267 px  (3:2, cropped) — recent-blog-posts grid cards (~380px display)
+ *   hero-full           — 1920 × 900 px (cropped)       — full-width hero background
+ *   hero-split          — 960 × 900 px  (cropped)       — split hero, image side
+ *   team-portrait       — 600 × 750 px  (4:5, cropped)  — team member photos
+ *   portfolio-thumb     — 800 × 600 px  (4:3, cropped)  — portfolio grid tiles
  *
  * @return void
  */
@@ -216,6 +217,7 @@ function aidriven_setup_theme() {
 	);
 
 	add_image_size( 'card-thumbnail', 800, 533, true );
+	add_image_size( 'card-thumbnail-grid', 400, 267, true );
 	add_image_size( 'hero-full', 1920, 900, true );
 	add_image_size( 'hero-split', 960, 900, true );
 	add_image_size( 'team-portrait', 600, 750, true );

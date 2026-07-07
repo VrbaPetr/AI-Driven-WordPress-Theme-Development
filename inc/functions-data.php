@@ -252,7 +252,7 @@ function ai_driven_get_recent_posts( int $count, int $category_id = 0 ): array {
 
 			$posts[] = array(
 				'image_id'   => get_post_thumbnail_id( $current_id ),
-				'image_size' => 'card-thumbnail',
+				'image_size' => 'card-thumbnail-grid',
 				'category'   => ! empty( $categories ) ? $categories[0]->name : '',
 				'title'      => get_the_title( $current_id ),
 				'title_url'  => get_permalink( $current_id ),
