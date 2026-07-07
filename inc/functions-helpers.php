@@ -222,3 +222,27 @@ function aidriven_get_social_links() {
 
 	return is_array( $links ) ? $links : array();
 }
+
+/**
+ * Derive an embed URL with autoplay from a YouTube or Vimeo watch URL.
+ *
+ * @param string $url Raw video URL from the editor.
+ * @return string     Embed URL with autoplay=1, or empty string on no match.
+ */
+function aidriven_get_video_embed_url( string $url ): string {
+	if ( empty( $url ) ) {
+		return '';
+	}
+
+	// YouTube: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/shorts/ID.
+	if ( preg_match( '/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $url, $matches ) ) {
+		return 'https://www.youtube.com/embed/' . $matches[1] . '?autoplay=1';
+	}
+
+	// Vimeo: vimeo.com/ID.
+	if ( preg_match( '/vimeo\.com\/(\d+)/', $url, $matches ) ) {
+		return 'https://player.vimeo.com/video/' . $matches[1] . '?autoplay=1';
+	}
+
+	return '';
+}

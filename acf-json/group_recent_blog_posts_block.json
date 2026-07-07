@@ -1,0 +1,128 @@
+{
+    "key": "group_recent_blog_posts_block",
+    "title": "Recent Blog Posts Block",
+    "fields": [
+        {
+            "key": "field_recent_blog_posts_section_heading",
+            "label": "Section Heading",
+            "name": "section_heading",
+            "type": "text",
+            "instructions": "Optional heading displayed above the post grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "From Our Blog",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_recent_blog_posts_section_subheading",
+            "label": "Section Subheading",
+            "name": "section_subheading",
+            "type": "text",
+            "instructions": "Optional supporting sentence displayed below the section heading.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_recent_blog_posts_number_of_posts",
+            "label": "Number of Posts",
+            "name": "number_of_posts",
+            "type": "number",
+            "instructions": "How many recent posts to display.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 3,
+            "placeholder": "3",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 12,
+            "step": 1
+        },
+        {
+            "key": "field_recent_blog_posts_filter_by_category",
+            "label": "Filter by Category",
+            "name": "filter_by_category",
+            "type": "taxonomy",
+            "instructions": "Optional. Restrict results to a single blog Category.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "taxonomy": "category",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_recent_blog_posts_show_view_all",
+            "label": "Show \"View All\" Link",
+            "name": "show_view_all",
+            "type": "true_false",
+            "instructions": "Display a link to the blog archive below the grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_recent_blog_posts_view_all_label",
+            "label": "\"View All\" Link Label",
+            "name": "view_all_label",
+            "type": "text",
+            "instructions": "Link label for the blog archive link.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_recent_blog_posts_show_view_all",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "View all posts",
+            "placeholder": "View all posts",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/recent-blog-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

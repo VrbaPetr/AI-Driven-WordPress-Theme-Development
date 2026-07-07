@@ -1,0 +1,72 @@
+@layer components {
+
+    /* ── Awards & Certifications Block ───────────────────────────────────── */
+
+    .awards-cert-block {
+        @apply w-full;
+        background-color: var(--color-surface);
+    }
+
+    .awards-cert-inner {
+        @apply mx-auto w-full max-w-7xl px-6 py-16;
+        @apply lg:px-8 lg:py-24;
+    }
+
+    .awards-cert-heading {
+        @apply text-3xl font-bold text-center m-0;
+        @apply lg:text-4xl;
+        color: var(--color-text);
+    }
+
+    .awards-cert-list {
+        @apply flex flex-wrap justify-center items-start gap-x-10 gap-y-10 list-none p-0 m-0 mt-10;
+        @apply md:gap-x-14;
+    }
+
+    .awards-cert-item {
+        @apply flex flex-col items-center text-center gap-2;
+        max-width: 160px;
+        transition: transform var(--transition-base);
+    }
+
+    .awards-cert-item:hover,
+    .awards-cert-item:focus-within {
+        transform: scale(1.05);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .awards-cert-item {
+            transition: none;
+        }
+
+        .awards-cert-item:hover,
+        .awards-cert-item:focus-within {
+            transform: none;
+        }
+    }
+
+    .awards-cert-badge {
+        @apply flex items-center justify-center;
+        height: 80px;
+    }
+
+    .awards-cert-badge img {
+        @apply w-auto;
+        height: 80px;
+    }
+
+    .awards-cert-name {
+        @apply text-base m-0;
+        color: var(--color-text);
+    }
+
+    .awards-cert-issuer {
+        @apply text-sm m-0;
+        color: var(--color-text-muted);
+    }
+
+    .awards-cert-year {
+        @apply text-sm m-0;
+        color: var(--color-text-muted);
+    }
+}

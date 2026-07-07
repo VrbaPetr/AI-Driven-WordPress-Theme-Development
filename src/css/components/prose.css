@@ -1,0 +1,123 @@
+@layer components {
+    .prose {
+        @apply text-base leading-relaxed;
+        color: var(--color-text);
+
+        > * + * {
+            @apply mt-6;
+        }
+
+        h2 {
+            @apply text-3xl font-bold leading-tight mt-12 mb-4;
+            color: var(--color-text);
+
+            &:first-child {
+                @apply mt-0;
+            }
+        }
+
+        h3 {
+            @apply text-2xl font-semibold leading-snug mt-10 mb-3;
+            color: var(--color-text);
+        }
+
+        h4 {
+            @apply text-xl font-semibold leading-snug mt-8 mb-2;
+            color: var(--color-text);
+        }
+
+        p {
+            @apply m-0;
+        }
+
+        ul,
+        ol {
+            @apply pl-6 flex flex-col gap-2 m-0;
+        }
+
+        ul {
+            @apply list-disc;
+        }
+
+        ol {
+            @apply list-decimal;
+        }
+
+        li {
+            @apply leading-relaxed;
+
+            > ul,
+            > ol {
+                @apply mt-2;
+            }
+        }
+
+        blockquote {
+            @apply border-l-4 pl-6 py-1 m-0 italic;
+            border-color: var(--color-primary-400);
+            color: var(--color-text-muted);
+        }
+
+        a {
+            @apply underline underline-offset-2 font-medium;
+            color: var(--color-primary-600);
+            transition: color 150ms ease;
+        }
+
+        a:hover {
+            color: var(--color-primary-800);
+        }
+
+        strong {
+            @apply font-semibold;
+            color: var(--color-text);
+        }
+
+        em {
+            @apply italic;
+        }
+
+        code {
+            @apply font-mono text-sm rounded px-1.5 py-0.5;
+            background-color: var(--color-neutral-100);
+            color: var(--color-text);
+        }
+
+        pre {
+            @apply font-mono text-sm rounded-lg p-4 m-0 overflow-x-auto;
+            background-color: var(--color-neutral-100);
+            color: var(--color-text);
+
+            code {
+                @apply p-0 rounded-none;
+                background-color: transparent;
+            }
+        }
+
+        table {
+            @apply w-full border-collapse text-sm;
+        }
+
+        thead {
+            th {
+                @apply font-semibold;
+                background-color: var(--color-neutral-100);
+                color: var(--color-text);
+                border-bottom-width: 2px;
+                border-color: var(--color-border);
+            }
+        }
+
+        tbody {
+            tr:nth-child(even) {
+                background-color: var(--color-neutral-50);
+            }
+        }
+
+        th,
+        td {
+            @apply border px-4 py-2 text-left;
+            border-color: var(--color-border);
+        }
+    }
+}

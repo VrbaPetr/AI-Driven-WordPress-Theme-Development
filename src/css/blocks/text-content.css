@@ -1,0 +1,8 @@
+@layer components {
+
+    /* ── Text Content Block ──────────────────────────────────────────────── */
+
+    .text-content {
+        @apply mx-auto w-full max-w-7xl px-6 py-16;
+    }
+}
