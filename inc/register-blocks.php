@@ -541,27 +541,6 @@ add_action(
 						),
 					),
 				),
-				'enqueue_assets'  => function () {
-					wp_enqueue_script(
-						'lite-light',
-						get_template_directory_uri() . '/assets/js/lite-light.min.js',
-						array(),
-						wp_get_theme()->get( 'Version' ),
-						true
-					);
-					wp_add_inline_script( 'lite-light', 'document.addEventListener( "DOMContentLoaded", function () { LiteLight.init(); } );' );
-
-					wp_enqueue_style(
-						'lite-light',
-						get_template_directory_uri() . '/assets/css/lite-light.min.css',
-						array(),
-						wp_get_theme()->get( 'Version' )
-					);
-					wp_add_inline_style(
-						'lite-light',
-						'.lite-light{--ll-overlay:var(--color-secondary-950);--ll-radius:var(--radius-md);--ll-image-bg:var(--color-neutral-50);--ll-control:var(--color-neutral-50);z-index:var(--z-modal);}'
-					);
-				},
 			)
 		);
 
@@ -620,3 +599,48 @@ add_action(
 		);
 	}
 );
+
+/**
+ * Enqueue the LiteLight lightbox assets, but only on pages that actually
+ * contain the Gallery / Image Grid block.
+ *
+ * The Gallery / Image Grid block previously loaded LiteLight via ACF's
+ * per-block 'enqueue_assets' callback, which is invoked as a side effect of
+ * WordPress rendering that block's render_callback. Because get_the_excerpt()
+ * runs the full 'the_content' filter pipeline (including block rendering)
+ * whenever a post has no manual excerpt, that callback could fire during
+ * wp_head (via the theme's meta description output) before the page's real
+ * content is rendered — causing LiteLight's CSS/JS to print in <head> and
+ * block first paint even though the gallery is typically below the fold.
+ * Hooking a plain has_block() check to wp_enqueue_scripts keeps the assets
+ * off every page that doesn't use the block and enqueues them at the normal,
+ * predictable point in the page lifecycle.
+ *
+ * @return void
+ */
+function aidriven_enqueue_gallery_lightbox_assets() {
+	if ( ! has_block( 'acf/gallery-image-grid' ) ) {
+		return;
+	}
+
+	wp_enqueue_script(
+		'lite-light',
+		get_template_directory_uri() . '/assets/js/lite-light.min.js',
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
+	wp_add_inline_script( 'lite-light', 'document.addEventListener( "DOMContentLoaded", function () { LiteLight.init(); } );' );
+
+	wp_enqueue_style(
+		'lite-light',
+		get_template_directory_uri() . '/assets/css/lite-light.min.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+	wp_add_inline_style(
+		'lite-light',
+		'.lite-light{--ll-overlay:var(--color-secondary-950);--ll-radius:var(--radius-md);--ll-image-bg:var(--color-neutral-50);--ll-control:var(--color-neutral-50);z-index:var(--z-modal);}'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'aidriven_enqueue_gallery_lightbox_assets' );
