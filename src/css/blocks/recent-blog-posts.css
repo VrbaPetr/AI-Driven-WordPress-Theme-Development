@@ -1,0 +1,27 @@
+@layer components {
+    .recent-blog-posts-block {
+        @apply py-16;
+        @apply lg:py-24;
+    }
+
+    .recent-blog-posts-inner {
+        @apply max-w-7xl mx-auto px-4;
+        @apply md:px-6;
+    }
+
+    .recent-blog-posts-heading {
+        @apply text-3xl font-bold text-center mb-12;
+        color: var(--color-text);
+    }
+
+    /* Grid: 1 col → 2 col → 3 col */
+    .recent-blog-posts-grid {
+        @apply grid grid-cols-1 gap-6;
+        @apply md:grid-cols-2;
+        @apply lg:grid-cols-3;
+    }
+
+    .recent-blog-posts-footer {
+        @apply flex justify-center mt-12;
+    }
+}

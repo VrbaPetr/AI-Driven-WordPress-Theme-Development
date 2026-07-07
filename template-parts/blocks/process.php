@@ -47,7 +47,7 @@ else :
 				$step_index = 0;
 				foreach ( $steps as $step ) :
 					++$step_index;
-					$icon        = isset( $step['icon'] ) ? $step['icon'] : '';
+					$icon        = isset( $step['ui_icon'] ) ? $step['ui_icon'] : '';
 					$step_title  = isset( $step['title'] ) ? $step['title'] : '';
 					$description = isset( $step['description'] ) ? $step['description'] : '';
 
@@ -64,11 +64,10 @@ else :
 					<div class="process-step-body">
 						<?php
 						if ( ! empty( $icon ) ) :
-							$icon_name = sanitize_file_name( basename( $icon ) );
-							$icon_path = get_template_directory() . '/assets/media/icons/' . $icon_name . '.svg';
-							if ( file_exists( $icon_path ) ) :
+							$icon_path = aidriven_get_icon_path( $icon );
+							if ( $icon_path ) :
 								?>
-						<span class="process-step-icon" aria-hidden="true"><?php include $icon_path; ?></span>
+						<span class="process-step-icon" aria-hidden="true"><?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?></span>
 							<?php endif; ?>
 						<?php endif; ?>
 						<h3 class="process-step-title"><?php echo esc_html( $step_title ); ?></h3>

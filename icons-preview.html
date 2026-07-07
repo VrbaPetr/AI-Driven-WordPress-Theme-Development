@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon Library — AI-Driven Boilerplate</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #1a202c;
+    --text-muted: #64748b;
+    --accent: #6366f1;
+    --accent-light: #eef2ff;
+    --social-color: #ec4899;
+    --tech-color: #0ea5e9;
+    --ui-color: #10b981;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 2rem 1rem 4rem;
+    line-height: 1.5;
+  }
+
+  .page-header {
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    margin-bottom: .5rem;
+  }
+
+  .page-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--text-muted);
+  }
+
+  .section {
+    max-width: 960px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: .75rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem .75rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .badge--social { background: #fce7f3; color: var(--social-color); }
+  .badge--tech   { background: #e0f2fe; color: var(--tech-color); }
+  .badge--ui     { background: #d1fae5; color: var(--ui-color); }
+
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .section-count {
+    margin-left: auto;
+    font-size: .875rem;
+    color: var(--text-muted);
+  }
+
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: .75rem;
+  }
+
+  .icon-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem .5rem .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .625rem;
+    box-shadow: var(--shadow);
+    transition: border-color .15s, box-shadow .15s;
+    cursor: default;
+  }
+
+  .icon-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(99,102,241,.12);
+  }
+
+  .icon-card img {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  .icon-name {
+    font-size: .65rem;
+    color: var(--text-muted);
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.3;
+  }
+
+  .size-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: .5rem;
+  }
+
+  .size-row img {
+    display: block;
+  }
+
+  .callout {
+    max-width: 960px;
+    margin: 0 auto 2.5rem;
+    background: var(--accent-light);
+    border: 1px solid #c7d2fe;
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    font-size: .875rem;
+    color: #3730a3;
+  }
+
+  .callout code {
+    background: #c7d2fe;
+    padding: .1em .4em;
+    border-radius: 4px;
+    font-size: .8rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  @media (min-width: 600px) {
+    .icon-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <h1>Icon Library</h1>
+  <p>AI-Driven Boilerplate — Step 38 &mdash; all icons use <code style="background:#e2e8f0;padding:.1em .4em;border-radius:4px;font-size:.85em;font-family:monospace">currentColor</code></p>
+  <div class="stats">
+    <div class="stat"><span class="stat-number">17</span><span class="stat-label">Social</span></div>
+    <div class="stat"><span class="stat-number">44</span><span class="stat-label">Tech</span></div>
+    <div class="stat"><span class="stat-number">31</span><span class="stat-label">UI</span></div>
+    <div class="stat"><span class="stat-number">92</span><span class="stat-label">Total</span></div>
+  </div>
+</header>
+
+<div class="callout">
+  <strong>Usage:</strong> <code>echo aidriven_get_svg_icon( 'social/facebook' );</code> &nbsp;or&nbsp; <code>aidriven_get_icon_path( 'ui/search' )</code> for a raw path.
+  Brand icons use <code>fill="currentColor"</code>; UI icons use <code>stroke="currentColor"</code>.
+</div>
+
+<!-- SOCIAL -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-badge badge--social">Social</span>
+    <h2 class="section-title">Social &amp; Community</h2>
+    <span class="section-count">17 icons</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card"><img src="assets/media/icons/social/behance.svg" alt="behance"><span class="icon-name">behance</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/discord.svg" alt="discord"><span class="icon-name">discord</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/dribbble.svg" alt="dribbble"><span class="icon-name">dribbble</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/email.svg" alt="email"><span class="icon-name">email</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/facebook.svg" alt="facebook"><span class="icon-name">facebook</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/github.svg" alt="github"><span class="icon-name">github</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/instagram.svg" alt="instagram"><span class="icon-name">instagram</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/linkedin.svg" alt="linkedin"><span class="icon-name">linkedin</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/pinterest.svg" alt="pinterest"><span class="icon-name">pinterest</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/slack.svg" alt="slack"><span class="icon-name">slack</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/telegram.svg" alt="telegram"><span class="icon-name">telegram</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/tiktok.svg" alt="tiktok"><span class="icon-name">tiktok</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/twitter.svg" alt="twitter"><span class="icon-name">twitter</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/vimeo.svg" alt="vimeo"><span class="icon-name">vimeo</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/whatsapp.svg" alt="whatsapp"><span class="icon-name">whatsapp</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/x.svg" alt="x"><span class="icon-name">x</span></div>
+    <div class="icon-card"><img src="assets/media/icons/social/youtube.svg" alt="youtube"><span class="icon-name">youtube</span></div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-badge badge--tech">Tech</span>
+    <h2 class="section-title">Technology &amp; Tools</h2>
+    <span class="section-count">44 icons</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card"><img src="assets/media/icons/tech/adobexd.svg" alt="adobexd"><span class="icon-name">adobexd</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/angular.svg" alt="angular"><span class="icon-name">angular</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/aws.svg" alt="aws"><span class="icon-name">aws</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/azure.svg" alt="azure"><span class="icon-name">azure</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/css3.svg" alt="css3"><span class="icon-name">css3</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/digitalocean.svg" alt="digitalocean"><span class="icon-name">digitalocean</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/docker.svg" alt="docker"><span class="icon-name">docker</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/dotnet.svg" alt="dotnet"><span class="icon-name">dotnet</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/figma.svg" alt="figma"><span class="icon-name">figma</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/git.svg" alt="git"><span class="icon-name">git</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/go.svg" alt="go"><span class="icon-name">go</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/googlecloud.svg" alt="googlecloud"><span class="icon-name">googlecloud</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/html5.svg" alt="html5"><span class="icon-name">html5</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/java.svg" alt="java"><span class="icon-name">java</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/javascript.svg" alt="javascript"><span class="icon-name">javascript</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/jira.svg" alt="jira"><span class="icon-name">jira</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/kubernetes.svg" alt="kubernetes"><span class="icon-name">kubernetes</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/laravel.svg" alt="laravel"><span class="icon-name">laravel</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/linux.svg" alt="linux"><span class="icon-name">linux</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/mongodb.svg" alt="mongodb"><span class="icon-name">mongodb</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/mysql.svg" alt="mysql"><span class="icon-name">mysql</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/netlify.svg" alt="netlify"><span class="icon-name">netlify</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/nextjs.svg" alt="nextjs"><span class="icon-name">nextjs</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/nodejs.svg" alt="nodejs"><span class="icon-name">nodejs</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/notion.svg" alt="notion"><span class="icon-name">notion</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/nuxtjs.svg" alt="nuxtjs"><span class="icon-name">nuxtjs</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/php.svg" alt="php"><span class="icon-name">php</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/postgresql.svg" alt="postgresql"><span class="icon-name">postgresql</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/python.svg" alt="python"><span class="icon-name">python</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/react.svg" alt="react"><span class="icon-name">react</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/redis.svg" alt="redis"><span class="icon-name">redis</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/ruby.svg" alt="ruby"><span class="icon-name">ruby</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/rust.svg" alt="rust"><span class="icon-name">rust</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/sass.svg" alt="sass"><span class="icon-name">sass</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/sketch.svg" alt="sketch"><span class="icon-name">sketch</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/sqlite.svg" alt="sqlite"><span class="icon-name">sqlite</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/supabase.svg" alt="supabase"><span class="icon-name">supabase</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/svelte.svg" alt="svelte"><span class="icon-name">svelte</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/symfony.svg" alt="symfony"><span class="icon-name">symfony</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/tailwindcss.svg" alt="tailwindcss"><span class="icon-name">tailwindcss</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/typescript.svg" alt="typescript"><span class="icon-name">typescript</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/vercel.svg" alt="vercel"><span class="icon-name">vercel</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/vue.svg" alt="vue"><span class="icon-name">vue</span></div>
+    <div class="icon-card"><img src="assets/media/icons/tech/wordpress-logo.svg" alt="wordpress-logo"><span class="icon-name">wordpress&#8209;logo</span></div>
+  </div>
+</section>
+
+<!-- UI -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-badge badge--ui">UI</span>
+    <h2 class="section-title">UI &amp; Interface</h2>
+    <span class="section-count">31 icons</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card"><img src="assets/media/icons/ui/arrow-right.svg" alt="arrow-right"><span class="icon-name">arrow-right</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/bell.svg" alt="bell"><span class="icon-name">bell</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/calendar.svg" alt="calendar"><span class="icon-name">calendar</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/check.svg" alt="check"><span class="icon-name">check</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/chevron-down.svg" alt="chevron-down"><span class="icon-name">chevron-down</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/chevron-right.svg" alt="chevron-right"><span class="icon-name">chevron-right</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/circle-check.svg" alt="circle-check"><span class="icon-name">circle-check</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/circle-info.svg" alt="circle-info"><span class="icon-name">circle-info</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/circle-x.svg" alt="circle-x"><span class="icon-name">circle-x</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/clock.svg" alt="clock"><span class="icon-name">clock</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/copy.svg" alt="copy"><span class="icon-name">copy</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/download.svg" alt="download"><span class="icon-name">download</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/external-link.svg" alt="external-link"><span class="icon-name">external-link</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/globe.svg" alt="globe"><span class="icon-name">globe</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/heart.svg" alt="heart"><span class="icon-name">heart</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/lock.svg" alt="lock"><span class="icon-name">lock</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/map-pin.svg" alt="map-pin"><span class="icon-name">map-pin</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/menu.svg" alt="menu"><span class="icon-name">menu</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/minus.svg" alt="minus"><span class="icon-name">minus</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/phone.svg" alt="phone"><span class="icon-name">phone</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/plus.svg" alt="plus"><span class="icon-name">plus</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/quote.svg" alt="quote"><span class="icon-name">quote</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/search.svg" alt="search"><span class="icon-name">search</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/settings.svg" alt="settings"><span class="icon-name">settings</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/share.svg" alt="share"><span class="icon-name">share</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/star.svg" alt="star"><span class="icon-name">star</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/triangle-alert.svg" alt="triangle-alert"><span class="icon-name">triangle-alert</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/upload.svg" alt="upload"><span class="icon-name">upload</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/user.svg" alt="user"><span class="icon-name">user</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/users.svg" alt="users"><span class="icon-name">users</span></div>
+    <div class="icon-card"><img src="assets/media/icons/ui/x-close.svg" alt="x-close"><span class="icon-name">x-close</span></div>
+  </div>
+</section>
+
+</body>
+</html>

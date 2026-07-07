@@ -40,7 +40,14 @@ $cta_btn_url   = get_field( 'primary_button_url', 'option' );
 // Social share URLs.
 $share_twitter  = 'https://twitter.com/intent/tweet?url=' . rawurlencode( $post_url ) . '&text=' . rawurlencode( get_the_title() );
 $share_linkedin = 'https://www.linkedin.com/sharing/share-offsite/?url=' . rawurlencode( $post_url );
+
+// Table of contents.
+$toc_items  = ai_driven_get_toc( $article_id );
+$show_toc   = get_field( 'show_toc' );
+$render_toc = false !== $show_toc && ( count( $toc_items ) >= 3 || true === $show_toc );
 ?>
+<div class="reading-progress-bar" role="progressbar" aria-hidden="true"></div>
+
 <main id="main-content" class="article-main">
 
 	<?php
@@ -115,6 +122,57 @@ $share_linkedin = 'https://www.linkedin.com/sharing/share-offsite/?url=' . rawur
 	<?php endif; ?>
 
 	<div class="article-body">
+
+		<?php if ( $render_toc ) : ?>
+		<nav class="toc" aria-label="<?php esc_attr_e( 'Table of contents', 'ai-driven-boilerplate' ); ?>">
+			<p class="toc__title"><?php esc_html_e( 'Contents', 'ai-driven-boilerplate' ); ?></p>
+			<ol class="toc__list">
+				<?php
+				$in_sublist  = false;
+				$has_open_h2 = false;
+				foreach ( $toc_items as $item ) :
+					if ( 2 === $item['level'] ) :
+						if ( $in_sublist ) :
+							$in_sublist = false;
+							?>
+							</ol>
+							<?php
+						endif;
+						if ( $has_open_h2 ) :
+							?>
+							</li>
+							<?php
+						endif;
+						$has_open_h2 = true;
+						?>
+						<li class="toc__item toc__item--h2"><a href="#<?php echo esc_attr( $item['id'] ); ?>"><?php echo esc_html( $item['text'] ); ?></a>
+						<?php
+					elseif ( 3 === $item['level'] ) :
+						if ( $has_open_h2 && ! $in_sublist ) :
+							$in_sublist = true;
+							?>
+							<ol class="toc__sublist">
+							<?php
+						endif;
+						?>
+						<li class="toc__item toc__item--h3"><a href="#<?php echo esc_attr( $item['id'] ); ?>"><?php echo esc_html( $item['text'] ); ?></a></li>
+						<?php
+					endif;
+				endforeach;
+				if ( $in_sublist ) :
+					?>
+					</ol>
+					<?php
+				endif;
+				if ( $has_open_h2 ) :
+					?>
+					</li>
+					<?php
+				endif;
+				?>
+			</ol>
+		</nav>
+		<?php endif; ?>
 
 		<div class="article-content entry-content">
 			<?php the_content(); ?>

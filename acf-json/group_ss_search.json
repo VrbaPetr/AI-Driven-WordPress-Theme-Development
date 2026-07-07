@@ -1,0 +1,82 @@
+{
+    "key": "group_ss_search",
+    "title": "Search",
+    "fields": [
+        {
+            "key": "field_ss_enable_header_search",
+            "label": "Enable Header Search",
+            "name": "enable_header_search",
+            "type": "true_false",
+            "instructions": "Show a search icon in the header that opens a full-screen search overlay.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_ss_search_overlay_heading",
+            "label": "Search Overlay Heading",
+            "name": "search_overlay_heading",
+            "type": "text",
+            "instructions": "Optional heading shown above the search input in the overlay. Leave blank to hide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "What are you looking for?",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ss_search_input_placeholder",
+            "label": "Search Input Placeholder",
+            "name": "search_input_placeholder",
+            "type": "text",
+            "instructions": "Placeholder text for the search input field.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Search…",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 50,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 0
+}

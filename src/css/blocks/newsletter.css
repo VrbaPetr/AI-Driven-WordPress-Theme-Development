@@ -1,0 +1,108 @@
+@layer components {
+
+    /* ── Newsletter Block ─────────────────────────────────────────────────── */
+
+    .newsletter-block {
+        @apply w-full;
+        background-color: var(--color-surface);
+    }
+
+    .newsletter-inner {
+        @apply mx-auto w-full max-w-3xl px-6 py-16 text-center;
+        @apply lg:px-8 lg:py-24;
+    }
+
+    .newsletter-heading {
+        @apply text-3xl font-bold m-0;
+        @apply lg:text-4xl;
+        color: var(--color-text);
+    }
+
+    .newsletter-form-wrapper {
+        @apply mt-10;
+    }
+
+    .newsletter-form {
+        @apply w-full;
+    }
+
+    .newsletter-fields {
+        @apply flex flex-col gap-3 w-full;
+        @apply sm:flex-row sm:items-stretch;
+    }
+
+    .newsletter-input {
+        @apply flex-1 rounded-full border px-5 py-3.5 text-base leading-none outline-none;
+        background-color: var(--color-surface);
+        border-color: var(--color-border);
+        color: var(--color-text);
+        transition: border-color var(--transition-base);
+    }
+
+    .newsletter-input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    .newsletter-input:focus-visible {
+        @apply outline-2 outline-offset-2;
+        outline-color: var(--color-primary-500);
+    }
+
+    .newsletter-input:disabled {
+        opacity: 0.6;
+    }
+
+    .newsletter-submit {
+        @apply flex-shrink-0;
+    }
+
+    .newsletter-privacy {
+        @apply text-sm mt-4 mb-0;
+        color: var(--color-text-muted);
+    }
+
+    .newsletter-success {
+        @apply w-full;
+    }
+
+    .newsletter-error {
+        @apply mt-3;
+    }
+
+    .newsletter-error-text {
+        @apply text-sm font-medium m-0;
+        color: var(--color-error-text);
+    }
+
+    /* ── Honeypot ───────────────────────────────────────────────────────── */
+
+    .newsletter-honeypot {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        left: -9999px;
+    }
+
+    /* ── Spinner ────────────────────────────────────────────────────────── */
+
+    .newsletter-spinner {
+        @apply inline-block w-5 h-5 rounded-full border-2 border-t-transparent;
+        border-color: currentColor;
+        border-top-color: transparent;
+        animation: newsletter-spin 0.7s linear infinite;
+    }
+
+    @keyframes newsletter-spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .newsletter-spinner {
+            animation: none;
+        }
+    }
+}

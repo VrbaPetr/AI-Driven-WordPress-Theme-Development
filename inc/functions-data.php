@@ -215,3 +215,104 @@ function aidriven_get_related_projects( $post_id ) {
 
 	return new WP_Query( $query_args );
 }
+
+/**
+ * Query and normalise recent posts into Card component args.
+ *
+ * @param int $count       Number of posts to retrieve.
+ * @param int $category_id Optional category term ID; 0 means no filter.
+ * @return array[] Array of Card component args arrays.
+ */
+function ai_driven_get_recent_posts( int $count, int $category_id = 0 ): array {
+	$query_args = array(
+		'post_type'      => 'post',
+		'post_status'    => 'publish',
+		'posts_per_page' => $count,
+		'no_found_rows'  => true,
+	);
+
+	if ( $category_id > 0 ) {
+		$query_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'term_id',
+				'terms'    => $category_id,
+			),
+		);
+	}
+
+	$query = new WP_Query( $query_args );
+	$posts = array();
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			$current_id = get_the_ID();
+			$categories = get_the_category( $current_id );
+
+			$posts[] = array(
+				'image_id'   => get_post_thumbnail_id( $current_id ),
+				'image_size' => 'card-thumbnail',
+				'category'   => ! empty( $categories ) ? $categories[0]->name : '',
+				'title'      => get_the_title( $current_id ),
+				'title_url'  => get_permalink( $current_id ),
+				'excerpt'    => get_the_excerpt( $current_id ),
+			);
+		}
+		wp_reset_postdata();
+	}
+
+	return $posts;
+}
+
+/**
+ * Build a table-of-contents array from a post's h2/h3 headings.
+ *
+ * IDs are generated with the same sanitize_title() + de-duplication logic used
+ * by aidriven_inject_heading_ids() so TOC href values match the id attributes
+ * injected into the rendered content.
+ *
+ * @param int $post_id WP post ID.
+ * @return array<int, array{id: string, level: int, text: string}> Ordered heading entries, or empty array.
+ */
+function ai_driven_get_toc( $post_id ) {
+	if ( ! $post_id ) {
+		return array();
+	}
+
+	$content = get_post_field( 'post_content', $post_id );
+
+	if ( empty( $content ) ) {
+		return array();
+	}
+
+	$content = do_shortcode( $content );
+
+	if ( ! preg_match_all( '/<(h[23])[^>]*>(.*?)<\/\1>/is', $content, $matches, PREG_SET_ORDER ) ) {
+		return array();
+	}
+
+	$toc  = array();
+	$seen = array();
+
+	foreach ( $matches as $match ) {
+		$level = (int) substr( $match[1], 1 );
+		$text  = wp_strip_all_tags( $match[2] );
+		$slug  = sanitize_title( $text );
+
+		if ( isset( $seen[ $slug ] ) ) {
+			++$seen[ $slug ];
+			$slug .= '-' . $seen[ $slug ];
+		} else {
+			$seen[ $slug ] = 1;
+		}
+
+		$toc[] = array(
+			'id'    => $slug,
+			'level' => $level,
+			'text'  => $text,
+		);
+	}
+
+	return $toc;
+}

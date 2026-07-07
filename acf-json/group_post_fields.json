@@ -1,0 +1,41 @@
+{
+    "key": "group_post_fields",
+    "title": "Post Fields",
+    "fields": [
+        {
+            "key": "field_post_show_toc",
+            "label": "Show Table of Contents",
+            "name": "show_toc",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Leave blank to show the TOC automatically when the post has 3 or more headings. Enable to force it on; disable to hide it.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "message": "",
+            "default_value": "",
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1782900000
+}

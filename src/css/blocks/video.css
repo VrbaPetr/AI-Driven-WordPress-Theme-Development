@@ -1,0 +1,93 @@
+@layer components {
+
+    /* ── Video Block ─────────────────────────────────────────────────────── */
+
+    .video-block {
+        @apply w-full;
+        background-color: var(--color-surface);
+    }
+
+    .video-inner {
+        @apply mx-auto w-full max-w-5xl px-6 py-16;
+        @apply lg:px-8 lg:py-24;
+    }
+
+    .video-heading {
+        @apply text-3xl font-bold text-center mb-4 m-0;
+        @apply lg:text-4xl;
+        color: var(--color-text);
+    }
+
+    .video-figure {
+        @apply m-0 mt-8;
+    }
+
+    /* Facade */
+    .video-facade {
+        @apply relative w-full overflow-hidden rounded-2xl;
+        background-color: var(--color-neutral-900);
+    }
+
+    .video-ratio-16-9 {
+        aspect-ratio: 16 / 9;
+    }
+
+    .video-ratio-4-3 {
+        aspect-ratio: 4 / 3;
+    }
+
+    .video-thumbnail-wrap {
+        @apply absolute inset-0 flex items-center justify-center;
+    }
+
+    .video-thumbnail {
+        @apply absolute inset-0 w-full h-full;
+        object-fit: cover;
+    }
+
+    .video-play-button {
+        @apply relative flex items-center justify-center w-16 h-16 rounded-full border-0 cursor-pointer;
+        @apply lg:w-20 lg:h-20;
+        background-color: var(--color-surface);
+        color: var(--color-primary-600);
+        transition: transform 200ms ease;
+    }
+
+    .video-play-button:hover {
+        transform: scale( 1.08 );
+    }
+
+    .video-play-button:focus-visible {
+        @apply outline-2 outline-offset-4;
+        outline-color: var(--color-primary-500);
+    }
+
+    .video-play-button svg {
+        @apply w-6 h-6;
+        @apply lg:w-8 lg:h-8;
+        margin-left: 2px;
+    }
+
+    @media ( prefers-reduced-motion: reduce ) {
+        .video-play-button {
+            transition: none;
+        }
+
+        .video-play-button:hover {
+            transform: none;
+        }
+    }
+
+    .video-iframe-wrap {
+        @apply absolute inset-0 w-full h-full;
+    }
+
+    .video-iframe-wrap iframe {
+        @apply w-full h-full border-0;
+    }
+
+    .video-caption {
+        @apply text-sm text-center mt-4;
+        color: var(--color-text-muted);
+    }
+}

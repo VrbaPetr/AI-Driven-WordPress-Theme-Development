@@ -1,0 +1,66 @@
+@layer components {
+
+    /* ── Gallery / Image Grid Block ──────────────────────────────────────── */
+
+    .gallery-image-grid-block {
+        @apply w-full;
+        background-color: var(--color-surface);
+    }
+
+    .gallery-image-grid-inner {
+        @apply mx-auto w-full max-w-7xl px-6 py-16;
+        @apply lg:px-8 lg:py-24;
+    }
+
+    .gallery-image-grid-heading {
+        @apply text-3xl font-bold text-center mb-12 m-0;
+        @apply lg:text-4xl lg:mb-16;
+        color: var(--color-text);
+    }
+
+    /* ── Grid ─────────────────────────────────────────────────────────────── */
+
+    .gallery-image-grid {
+        @apply grid grid-cols-1 gap-4;
+    }
+
+    .gallery-image-grid[data-columns="2"] {
+        @apply md:grid-cols-2;
+    }
+
+    .gallery-image-grid[data-columns="3"] {
+        @apply md:grid-cols-2 lg:grid-cols-3;
+    }
+
+    .gallery-image-grid[data-columns="4"] {
+        @apply md:grid-cols-2 lg:grid-cols-4;
+    }
+
+    .gallery-image-grid-item {
+        @apply relative overflow-hidden m-0;
+        aspect-ratio: 4 / 3;
+        border-radius: var(--radius-md);
+    }
+
+    .gallery-image-grid-item img {
+        @apply w-full h-full object-cover block;
+    }
+
+    /* Hover affordance — only meaningful when the lightbox is enabled. Lightbox */
+    /* overlay markup/behavior itself is provided by the LiteLight library.     */
+
+    .gallery-image-grid-trigger {
+        cursor: pointer;
+        transition: opacity var(--transition-fast);
+    }
+
+    .gallery-image-grid-trigger:hover {
+        opacity: 0.85;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .gallery-image-grid-trigger {
+            transition: none;
+        }
+    }
+}

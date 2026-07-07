@@ -9,12 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$logo_light     = get_field( 'logo_light', 'option' );
-$company_name   = get_field( 'company_name', 'option' );
-$tagline        = get_field( 'tagline', 'option' );
-$footer_desc    = get_field( 'footer_description', 'option' );
-$copyright_text = get_field( 'copyright_text', 'option' );
-$social_links   = aidriven_get_social_links();
+$logo_light       = get_field( 'logo_light', 'option' );
+$company_name     = get_field( 'company_name', 'option' );
+$tagline          = get_field( 'tagline', 'option' );
+$footer_desc      = get_field( 'footer_description', 'option' );
+$copyright_text   = get_field( 'copyright_text', 'option' );
+$show_back_to_top = get_field( 'show_back_to_top', 'option' );
+$social_links     = aidriven_get_social_links();
 
 $display_name = $company_name ? $company_name : get_bloginfo( 'name' );
 ?>
@@ -119,5 +120,12 @@ $display_name = $company_name ? $company_name : get_bloginfo( 'name' );
 			</p>
 		</div>
 	</div>
+
+
+	<?php if ( false !== $show_back_to_top && $show_back_to_top ) : ?>
+		<button class="back-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'ai-driven-boilerplate' ); ?>" hidden>
+			<?php echo aidriven_get_svg_icon( 'ui/arrow-right' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG from theme's own files. ?>
+		</button>
+	<?php endif; ?>
 
 </footer>

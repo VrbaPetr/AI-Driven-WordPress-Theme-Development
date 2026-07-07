@@ -9,8 +9,9 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 	echo '<img src="' . esc_url( $block['data']['preview_screenshot'] ) . '" style="width:100%; height:auto;">';
 else :
 
-	$section_heading = get_field( 'section_heading' );
-	$faq_items       = get_field( 'faq_items' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$faq_items          = get_field( 'faq_items' );
 
 	if ( empty( $faq_items ) ) {
 		return;
@@ -39,6 +40,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 				<h2 class="faq-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+				<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<div class="faq-list">

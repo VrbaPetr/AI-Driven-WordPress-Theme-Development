@@ -10,11 +10,12 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading = get_field( 'section_heading' );
-	$subtext         = get_field( 'subtext' );
-	$display_style   = get_field( 'display_style' );
-	$colour_mode     = get_field( 'colour_mode' );
-	$logos           = get_field( 'logos' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$subtext            = get_field( 'subtext' );
+	$display_style      = get_field( 'display_style' );
+	$colour_mode        = get_field( 'colour_mode' );
+	$logos              = get_field( 'logos' );
 
 	// Defaults.
 	$display_style = $display_style ? $display_style : 'static_grid';
@@ -32,6 +33,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 			<h2 class="clients-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $subtext ) ) : ?>

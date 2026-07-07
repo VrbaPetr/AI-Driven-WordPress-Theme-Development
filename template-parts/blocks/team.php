@@ -10,9 +10,10 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading   = get_field( 'section_heading' );
-	$number_of_members = get_field( 'number_of_members' );
-	$columns           = get_field( 'columns' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$number_of_members  = get_field( 'number_of_members' );
+	$columns            = get_field( 'columns' );
 
 	// Defaults.
 	$posts_per_page = ( $number_of_members && absint( $number_of_members ) > 0 ) ? absint( $number_of_members ) : -1;
@@ -49,6 +50,9 @@ else :
 
 			<?php if ( ! empty( $section_heading ) ) : ?>
 			<h2 class="team-heading"><?php echo esc_html( $section_heading ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
 			<?php endif; ?>
 
 			<ul class="team-grid team-grid--cols-<?php echo esc_attr( $columns ); ?>" role="list">
@@ -108,7 +112,7 @@ else :
 										continue;
 									}
 
-									$icon_path      = get_template_directory() . '/assets/media/icons/' . sanitize_file_name( $platform ) . '.svg';
+									$icon_path      = aidriven_get_icon_path( $platform );
 									$platform_label = isset( $platform_labels[ $platform ] ) ? $platform_labels[ $platform ] : ucfirst( $platform );
 									/* translators: 1: person name, 2: social platform name */
 									$aria_label = sprintf( __( '%1$s on %2$s', 'ai-driven-boilerplate' ), $member_name, $platform_label );
@@ -123,8 +127,8 @@ else :
 											rel="noopener noreferrer"
 											<?php endif; ?>
 										>
-											<?php if ( file_exists( $icon_path ) ) : ?>
-												<?php include $icon_path; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+											<?php if ( $icon_path ) : ?>
+												<?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?>
 											<?php endif; ?>
 										</a>
 									</li>

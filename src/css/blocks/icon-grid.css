@@ -1,0 +1,60 @@
+@layer components {
+
+    /* ── Icon Grid Block ─────────────────────────────────────────────────── */
+
+    .icon-grid-block {
+        @apply w-full;
+        background-color: var(--color-surface);
+    }
+
+    .icon-grid-inner {
+        @apply mx-auto w-full max-w-7xl px-6 py-16;
+        @apply lg:px-8 lg:py-24;
+    }
+
+    .icon-grid-heading {
+        @apply text-3xl font-bold text-center mb-12 m-0;
+        @apply lg:text-4xl lg:mb-16;
+        color: var(--color-text);
+    }
+
+    .icon-grid-items {
+        @apply grid grid-cols-1 gap-8;
+    }
+
+    .icon-grid-items[data-columns="2"] {
+        @apply md:grid-cols-2;
+    }
+
+    .icon-grid-items[data-columns="3"] {
+        @apply md:grid-cols-2 lg:grid-cols-3;
+    }
+
+    .icon-grid-items[data-columns="4"] {
+        @apply md:grid-cols-2 lg:grid-cols-4;
+    }
+
+    /* Item */
+    .icon-grid-item {
+        @apply flex flex-col items-center text-center gap-3;
+    }
+
+    .icon-grid-item-icon {
+        @apply w-12 h-12;
+        color: var(--color-primary-500);
+    }
+
+    .icon-grid-item-icon svg {
+        @apply w-full h-full;
+    }
+
+    .icon-grid-item-title {
+        @apply text-xl font-semibold m-0;
+        color: var(--color-text);
+    }
+
+    .icon-grid-item-desc {
+        @apply text-sm leading-relaxed m-0;
+        color: var(--color-text-muted);
+    }
+}

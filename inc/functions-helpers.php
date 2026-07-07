@@ -6,20 +6,69 @@
  */
 
 /**
+ * Resolve the filesystem path to an icon SVG.
+ *
+ * Accepts both the new 'category/filename' format (e.g. 'ui/circle-check')
+ * and legacy bare filenames (e.g. 'circle-check') for backwards compatibility.
+ * Returns an empty string when the resolved file does not exist.
+ *
+ * @param string $value    ACF stored value: 'category/filename' or bare 'filename' (no extension).
+ * @param bool   $absolute True returns the absolute filesystem path; false returns the path relative to the theme root.
+ * @return string Resolved path or empty string when the file is not found.
+ */
+function aidriven_get_icon_path( $value, $absolute = true ) {
+	if ( empty( $value ) ) {
+		return '';
+	}
+
+	$base_dir = get_template_directory() . '/assets/media/icons/';
+
+	if ( str_contains( $value, '/' ) ) {
+		// category/filename format — resolve directly.
+		$abs_path = $base_dir . $value . '.svg';
+		$rel_path = 'assets/media/icons/' . $value . '.svg';
+	} else {
+		// Bare filename: scan known subdirectories in order, then fall back to root.
+		$categories = array( 'social', 'tech', 'ui' );
+		$abs_path   = null;
+		$rel_path   = null;
+		foreach ( $categories as $cat ) {
+			$candidate = $base_dir . $cat . '/' . $value . '.svg';
+			if ( file_exists( $candidate ) ) {
+				$abs_path = $candidate;
+				$rel_path = 'assets/media/icons/' . $cat . '/' . $value . '.svg';
+				break;
+			}
+		}
+		if ( null === $abs_path ) {
+			$abs_path = $base_dir . $value . '.svg';
+			$rel_path = 'assets/media/icons/' . $value . '.svg';
+		}
+	}
+
+	if ( ! file_exists( $abs_path ) ) {
+		return '';
+	}
+
+	return $absolute ? $abs_path : $rel_path;
+}
+
+/**
  * Return inline SVG markup for an icon from assets/media/icons/.
  *
- * Reads the SVG file at assets/media/icons/{$icon_name}.svg and returns its
- * raw contents so it can be embedded inline (enabling CSS colour control via
- * currentColor). Returns an empty string when the file does not exist.
+ * Accepts both the new 'category/filename' format (e.g. 'ui/circle-check')
+ * and legacy bare filenames. Reads the SVG file and returns its raw contents
+ * so it can be embedded inline (enabling CSS colour control via currentColor).
+ * Returns an empty string when the file does not exist.
  *
- * @param string $icon_name  Filename without extension, e.g. 'arrow-right'.
+ * @param string $icon_name  ACF stored value or bare filename without extension.
  * @param string $css_class  Optional CSS classes to add to the wrapping span.
  * @return string SVG markup or empty string.
  */
 function aidriven_get_svg_icon( $icon_name, $css_class = '' ) {
-	$path = get_template_directory() . '/assets/media/icons/' . sanitize_file_name( $icon_name ) . '.svg';
+	$path = aidriven_get_icon_path( $icon_name );
 
-	if ( ! file_exists( $path ) ) {
+	if ( empty( $path ) ) {
 		return '';
 	}
 
@@ -83,6 +132,79 @@ function aidriven_get_read_time( $post_id ) {
 }
 
 /**
+ * Intercept front-end requests and serve the coming-soon page when maintenance mode is active.
+ *
+ * Administrators (users with manage_options capability) always bypass the redirect
+ * so they can review the live site while maintenance mode is on.
+ */
+function aidriven_maybe_show_maintenance_page(): void {
+	if ( is_admin() ) {
+		return;
+	}
+
+	if ( ! function_exists( 'get_field' ) || ! get_field( 'maintenance_mode', 'option' ) ) {
+		return;
+	}
+
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	header( 'HTTP/1.1 503 Service Unavailable' );
+	header( 'Retry-After: 3600' );
+
+	$template = get_template_directory() . '/coming-soon.php';
+	if ( file_exists( $template ) ) {
+		include $template; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
+	}
+
+	exit;
+}
+add_action( 'template_redirect', 'aidriven_maybe_show_maintenance_page' );
+
+/**
+ * Inject id attributes into <h2> and <h3> tags in the rendered post content.
+ *
+ * Skips headings that already carry an id attribute. Duplicate slugs are
+ * de-duplicated by appending -2, -3, etc., matching the order produced by
+ * ai_driven_get_toc() so TOC href values align with the injected ids.
+ *
+ * @param string $content Rendered post content.
+ * @return string Content with id attributes added to h2/h3 tags.
+ */
+function aidriven_inject_heading_ids( $content ) {
+	$seen = array();
+
+	return preg_replace_callback(
+		'/<(h[23])([^>]*)>(.*?)<\/\1>/is',
+		function ( $matches ) use ( &$seen ) {
+			$tag        = $matches[1];
+			$attrs      = $matches[2];
+			$inner_html = $matches[3];
+
+			// Leave headings that already carry an id attribute unchanged.
+			if ( preg_match( '/\bid\s*=/i', $attrs ) ) {
+				return $matches[0];
+			}
+
+			$text = wp_strip_all_tags( $inner_html );
+			$slug = sanitize_title( $text );
+
+			if ( isset( $seen[ $slug ] ) ) {
+				++$seen[ $slug ];
+				$slug .= '-' . $seen[ $slug ];
+			} else {
+				$seen[ $slug ] = 1;
+			}
+
+			return '<' . $tag . ' id="' . esc_attr( $slug ) . '"' . $attrs . '>' . $inner_html . '</' . $tag . '>';
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'aidriven_inject_heading_ids', 10, 1 );
+
+/**
  * Return social links from the ACF global options page.
  *
  * Expects a Repeater field named `social_links` on the options page (defined
@@ -99,4 +221,28 @@ function aidriven_get_social_links() {
 	$links = get_field( 'social_links', 'option' );
 
 	return is_array( $links ) ? $links : array();
+}
+
+/**
+ * Derive an embed URL with autoplay from a YouTube or Vimeo watch URL.
+ *
+ * @param string $url Raw video URL from the editor.
+ * @return string     Embed URL with autoplay=1, or empty string on no match.
+ */
+function aidriven_get_video_embed_url( string $url ): string {
+	if ( empty( $url ) ) {
+		return '';
+	}
+
+	// YouTube: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/shorts/ID.
+	if ( preg_match( '/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $url, $matches ) ) {
+		return 'https://www.youtube.com/embed/' . $matches[1] . '?autoplay=1';
+	}
+
+	// Vimeo: vimeo.com/ID.
+	if ( preg_match( '/vimeo\.com\/(\d+)/', $url, $matches ) ) {
+		return 'https://player.vimeo.com/video/' . $matches[1] . '?autoplay=1';
+	}
+
+	return '';
 }

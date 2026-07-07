@@ -10,13 +10,14 @@ if ( isset( $block['data']['preview_screenshot'] ) ) :
 else :
 
 	// Fields.
-	$section_heading = get_field( 'section_heading' );
-	$content_source  = get_field( 'content_source' );
-	$number_of_items = get_field( 'number_of_items' );
-	$filter_category = get_field( 'filter_by_category' );
-	$service_cards   = get_field( 'service_cards' );
-	$show_view_all   = get_field( 'show_view_all' );
-	$view_all_label  = get_field( 'view_all_label' );
+	$section_heading    = get_field( 'section_heading' );
+	$section_subheading = get_field( 'section_subheading' );
+	$content_source     = get_field( 'content_source' );
+	$number_of_items    = get_field( 'number_of_items' );
+	$filter_category    = get_field( 'filter_by_category' );
+	$service_cards      = get_field( 'service_cards' );
+	$show_view_all      = get_field( 'show_view_all' );
+	$view_all_label     = get_field( 'view_all_label' );
 
 	// Defaults.
 	$content_source  = $content_source ? $content_source : 'cpt_query';
@@ -52,7 +53,7 @@ else :
 			while ( $services_query->have_posts() ) {
 				$services_query->the_post();
 				$cards[] = array(
-					'icon'  => get_field( 'service_icon', get_the_ID() ),
+					'icon'  => get_field( 'ui_icon', get_the_ID() ),
 					'title' => get_the_title(),
 					'desc'  => get_field( 'short_description', get_the_ID() ),
 					'url'   => get_permalink(),
@@ -63,7 +64,7 @@ else :
 	} elseif ( ! empty( $service_cards ) ) {
 		foreach ( $service_cards as $card ) {
 			$cards[] = array(
-				'icon'  => isset( $card['icon'] ) ? $card['icon'] : '',
+				'icon'  => isset( $card['ui_icon'] ) ? $card['ui_icon'] : '',
 				'title' => isset( $card['title'] ) ? $card['title'] : '',
 				'desc'  => isset( $card['description'] ) ? $card['description'] : '',
 				'url'   => isset( $card['link_url'] ) ? $card['link_url'] : '',
@@ -83,6 +84,9 @@ else :
 			<?php if ( ! empty( $section_heading ) ) : ?>
 			<h2 class="services-heading"><?php echo esc_html( $section_heading ); ?></h2>
 			<?php endif; ?>
+			<?php if ( $section_subheading ) : ?>
+			<p class="block-subheading"><?php echo esc_html( $section_subheading ); ?></p>
+			<?php endif; ?>
 
 			<ul class="services-grid" role="list">
 				<?php foreach ( $cards as $card ) : ?>
@@ -100,13 +104,12 @@ else :
 
 						<?php
 						if ( ! empty( $card_icon ) ) :
-							$icon_name = sanitize_file_name( basename( $card_icon ) );
-							$icon_path = get_template_directory() . '/assets/media/icons/' . $icon_name . '.svg';
-							if ( file_exists( $icon_path ) ) :
+							$icon_path = aidriven_get_icon_path( $card_icon );
+							if ( $icon_path ) :
 								?>
-						<span class="services-card-icon" aria-hidden="true"><?php include $icon_path; ?></span>
+						<span class="services-card-icon" aria-hidden="true"><?php include $icon_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable ?></span>
 								<?php
-						endif;
+							endif;
 						endif;
 						?>
 

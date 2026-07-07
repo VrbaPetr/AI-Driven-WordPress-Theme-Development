@@ -4,8 +4,12 @@ node_modules/
 
 # Build output
 dist/
-assets/css/
-assets/js/
+assets/css/*
+!assets/css/coming-soon.css
+!assets/css/login.css
+!assets/css/lite-light.min.css
+assets/js/*
+!assets/js/lite-light.min.js
 assets/.vite/
 
 # OS / editor
